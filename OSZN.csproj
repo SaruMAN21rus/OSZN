@@ -62,6 +62,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DbFacadeSQLite.cs" />
+    <Compile Include="ViewKladrForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewKladrForm.Designer.cs">
+      <DependentUpon>ViewKladrForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="KladrForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +82,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ViewKladrForm.resx">
+      <DependentUpon>ViewKladrForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="KladrForm.resx">
       <DependentUpon>KladrForm.cs</DependentUpon>
     </EmbeddedResource>
