@@ -170,6 +170,11 @@ namespace OSZN
             da.Fill(ds);
             dataGridView1.DataSource = ds.Tables[0].DefaultView;
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            UpdateAddressObject.update(this.dbConnection);
+        }
     }
 
     public class TreeNodeData
