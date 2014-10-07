@@ -42,12 +42,12 @@ namespace OSZN
 
         private void CloseButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void ApplyButton_Click(object sender, EventArgs e)
         {
-            if (!validateAllControls(this))
+            if (!ValidateChildren(ValidationConstraints.None))
             {
                 DialogResult = DialogResult.None;
                 return;
@@ -61,12 +61,12 @@ namespace OSZN
                 parameters.Add("formalname", NameTextBox.Text, System.Data.DbType.String);
                 parameters.Add("regioncode", "21", System.Data.DbType.String);
                 parameters.Add("autocode","" , System.Data.DbType.String);
-                parameters.Add("areacode", CodeTextBox.Text.Substring(codeLength + 2, codeLength + 5), System.Data.DbType.String);
-                parameters.Add("citycode", CodeTextBox.Text.Substring(codeLength + 5, codeLength + 8), System.Data.DbType.String);
+                parameters.Add("areacode", CodeTextBox.Text.Substring(2, 3), System.Data.DbType.String);
+                parameters.Add("citycode", CodeTextBox.Text.Substring(5, 3), System.Data.DbType.String);
                 parameters.Add("ctarcode", "000", System.Data.DbType.String);
-                parameters.Add("placecode", CodeTextBox.Text.Substring(codeLength + 8, codeLength + 11), System.Data.DbType.String);
+                parameters.Add("placecode", CodeTextBox.Text.Substring(8, 3), System.Data.DbType.String);
                 if (codeLength == 17) {
-                    parameters.Add("streetcode", CodeTextBox.Text.Substring(codeLength + 11, codeLength + 15), System.Data.DbType.String);
+                    parameters.Add("streetcode", CodeTextBox.Text.Substring(11, 4), System.Data.DbType.String);
                 } else {
                     parameters.Add("streetcode", "0000", System.Data.DbType.String);
                 }
@@ -83,31 +83,13 @@ namespace OSZN
                 parameters.Add("actstatus", 1, System.Data.DbType.Int32);
                 parameters.Add("centstatus", 0, System.Data.DbType.Int32);
                 parameters.Add("operstatus", 10, System.Data.DbType.Int32);
-                parameters.Add("currstatus", CodeTextBox.Text.Substring(codeLength - 2, codeLength), System.Data.DbType.Int32);
+                parameters.Add("currstatus", CodeTextBox.Text.Substring(codeLength - 2, 2), System.Data.DbType.Int32);
                 parameters.Add("startdate", DateTime.Now, System.Data.DbType.Date);
                 parameters.Add("enddate", DateTime.Parse("2079-06-06"), System.Data.DbType.Date);
                 parameters.Add("livestatus", 1, System.Data.DbType.Int32);
                 db.Insert("VOC_ADDRESS_OBJECT", parameters);
+                Close();
             }
-        }
-
-        private bool validateAllControls(Control control)
-        {
-            bool validate = true;
-            foreach (Control c in control.Controls)
-            {
-                c.Focus();
-                if (!Validate())
-                {
-                    validate = false;
-                }
-                bool val = validateAllControls(c);
-                if (validate)
-                {
-                    validate = val;
-                }
-            }
-            return validate;
         }
 
         private void NameTextBox_Validating(object sender, CancelEventArgs e)
@@ -115,10 +97,12 @@ namespace OSZN
             if (string.IsNullOrEmpty((sender as TextBox).Text))
             {
                 NameErrorProvider.SetError(NameTextBox, "Заполените поле!");
+                e.Cancel = true;
             }
             else
             {
                 NameErrorProvider.SetError(NameTextBox, null);
+                e.Cancel = false;
             }
         }
 
@@ -127,10 +111,12 @@ namespace OSZN
             if ((sender as ComboBox).SelectedIndex == -1)
             {
                 TypeErrorProvider.SetError(TypeComboBox, "Выберите значение из списка!");
+                e.Cancel = true;
             }
             else
             {
                 TypeErrorProvider.SetError(TypeComboBox, null);
+                e.Cancel = false;
             }
         }
 
@@ -139,10 +125,12 @@ namespace OSZN
             if ((sender as ComboBox).SelectedIndex == -1)
             {
                 TypeBriefErrorProvider.SetError(TypeBriefComboBox, "Выберите значение из списка!");
+                e.Cancel = true;
             }
             else
             {
                 TypeBriefErrorProvider.SetError(TypeBriefComboBox, null);
+                e.Cancel = false;
             }
         }
 
@@ -151,10 +139,12 @@ namespace OSZN
             if (string.IsNullOrEmpty((sender as TextBox).Text))
             {
                 CodeErrorProvider.SetError(CodeTextBox, "Заполените поле!");
+                e.Cancel = true;
             }
             else
             {
                 CodeErrorProvider.SetError(CodeTextBox, null);
+                e.Cancel = false;
             }
         }
 

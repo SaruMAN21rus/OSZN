@@ -35,6 +35,10 @@
             this.TypeLabel = new System.Windows.Forms.Label();
             this.TypeBriefLabel = new System.Windows.Forms.Label();
             this.CodeLabel = new System.Windows.Forms.Label();
+            this.NameTextBox = new System.Windows.Forms.TextBox();
+            this.TypeComboBox = new System.Windows.Forms.ComboBox();
+            this.TypeBriefComboBox = new System.Windows.Forms.ComboBox();
+            this.CodeTextBox = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.CloseButton = new System.Windows.Forms.Button();
             this.ApplyButton = new System.Windows.Forms.Button();
@@ -42,10 +46,6 @@
             this.TypeErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.TypeBriefErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.CodeErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.NameTextBox = new System.Windows.Forms.TextBox();
-            this.TypeComboBox = new System.Windows.Forms.ComboBox();
-            this.TypeBriefComboBox = new System.Windows.Forms.ComboBox();
-            this.CodeTextBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -143,6 +143,50 @@
             this.CodeLabel.Text = "Код:";
             this.CodeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // NameTextBox
+            // 
+            this.NameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.NameTextBox.Location = new System.Drawing.Point(153, 18);
+            this.NameTextBox.Name = "NameTextBox";
+            this.NameTextBox.Size = new System.Drawing.Size(205, 20);
+            this.NameTextBox.TabIndex = 7;
+            this.NameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.NameTextBox_Validating);
+            // 
+            // TypeComboBox
+            // 
+            this.TypeComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.TypeComboBox.DisplayMember = "name";
+            this.TypeComboBox.FormattingEnabled = true;
+            this.TypeComboBox.Location = new System.Drawing.Point(153, 73);
+            this.TypeComboBox.Name = "TypeComboBox";
+            this.TypeComboBox.Size = new System.Drawing.Size(205, 21);
+            this.TypeComboBox.TabIndex = 8;
+            this.TypeComboBox.ValueMember = "id";
+            this.TypeComboBox.SelectedIndexChanged += new System.EventHandler(this.TypeComboBox_SelectedIndexChanged);
+            this.TypeComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.TypeComboBox_Validating);
+            // 
+            // TypeBriefComboBox
+            // 
+            this.TypeBriefComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.TypeBriefComboBox.DisplayMember = "SOCRNAME";
+            this.TypeBriefComboBox.FormattingEnabled = true;
+            this.TypeBriefComboBox.Location = new System.Drawing.Point(153, 129);
+            this.TypeBriefComboBox.Name = "TypeBriefComboBox";
+            this.TypeBriefComboBox.Size = new System.Drawing.Size(205, 21);
+            this.TypeBriefComboBox.TabIndex = 9;
+            this.TypeBriefComboBox.ValueMember = "SOCRNAME";
+            this.TypeBriefComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.TypeBriefComboBox_Validating);
+            // 
+            // CodeTextBox
+            // 
+            this.CodeTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.CodeTextBox.Location = new System.Drawing.Point(153, 187);
+            this.CodeTextBox.MaxLength = 17;
+            this.CodeTextBox.Name = "CodeTextBox";
+            this.CodeTextBox.Size = new System.Drawing.Size(205, 20);
+            this.CodeTextBox.TabIndex = 10;
+            this.CodeTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.CodeTextBox_Validating);
+            // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoSize = true;
@@ -194,49 +238,6 @@
             // 
             this.CodeErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.CodeErrorProvider.ContainerControl = this;
-            // 
-            // NameTextBox
-            // 
-            this.NameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.NameTextBox.Location = new System.Drawing.Point(153, 18);
-            this.NameTextBox.Name = "NameTextBox";
-            this.NameTextBox.Size = new System.Drawing.Size(205, 20);
-            this.NameTextBox.TabIndex = 7;
-            this.NameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.NameTextBox_Validating);
-            // 
-            // TypeComboBox
-            // 
-            this.TypeComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.TypeComboBox.DisplayMember = "name";
-            this.TypeComboBox.FormattingEnabled = true;
-            this.TypeComboBox.Location = new System.Drawing.Point(153, 73);
-            this.TypeComboBox.Name = "TypeComboBox";
-            this.TypeComboBox.Size = new System.Drawing.Size(205, 21);
-            this.TypeComboBox.TabIndex = 8;
-            this.TypeComboBox.ValueMember = "id";
-            this.TypeComboBox.SelectedIndexChanged += new System.EventHandler(this.TypeComboBox_SelectedIndexChanged);
-            this.TypeComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.TypeComboBox_Validating);
-            // 
-            // TypeBriefComboBox
-            // 
-            this.TypeBriefComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.TypeBriefComboBox.DisplayMember = "SOCRNAME";
-            this.TypeBriefComboBox.FormattingEnabled = true;
-            this.TypeBriefComboBox.Location = new System.Drawing.Point(153, 129);
-            this.TypeBriefComboBox.Name = "TypeBriefComboBox";
-            this.TypeBriefComboBox.Size = new System.Drawing.Size(205, 21);
-            this.TypeBriefComboBox.TabIndex = 9;
-            this.TypeBriefComboBox.ValueMember = "SOCRNAME";
-            this.TypeBriefComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.TypeBriefComboBox_Validating);
-            // 
-            // CodeTextBox
-            // 
-            this.CodeTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.CodeTextBox.Location = new System.Drawing.Point(153, 187);
-            this.CodeTextBox.Name = "CodeTextBox";
-            this.CodeTextBox.Size = new System.Drawing.Size(205, 20);
-            this.CodeTextBox.TabIndex = 10;
-            this.CodeTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.CodeTextBox_Validating);
             // 
             // AddEditKladrForm
             // 
