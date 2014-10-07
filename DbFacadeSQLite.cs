@@ -169,6 +169,15 @@ namespace DatabaseLib
             connect = new SQLiteConnection(this.csb.ConnectionString);
         }
 
+        /// <summary>
+        /// Инициализация подключения.
+        /// </summary>
+        /// <param name="connect">Строка соединения</param>
+        public DbFacadeSQLite(SQLiteConnection connect)
+        {
+            this.connect = connect;
+        }
+
         ~DbFacadeSQLite()
         {
             Close();

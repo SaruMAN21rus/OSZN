@@ -149,9 +149,11 @@ namespace OSZN
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            AddEditKladrForm addKladr = new AddEditKladrForm(this.dbConnection, SelectedAddressGuid);
+            addKladr.Show();
+            
             //Оптимизировать
-            string sql = "WITH RECURSIVE "
+           /* string sql = "WITH RECURSIVE "
                     + "under_alice(guid, name, type, code, level) AS ( "
                     + "select ao.AOGUID, ao.FORMALNAME, CASE WHEN at.SCNAME is null THEN ao.SHORTNAME ELSE at.SCNAME END as TYPE, ao.CODE, 0 "
                     + "from VOC_ADDRESS_OBJECT ao "
@@ -168,12 +170,33 @@ namespace OSZN
             SQLiteDataAdapter da = new SQLiteDataAdapter(sql, dbConnection);
             DataSet ds = new DataSet();
             da.Fill(ds);
-            dataGridView1.DataSource = ds.Tables[0].DefaultView;
+            dataGridView1.DataSource = ds.Tables[0].DefaultView;*/
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            UpdateAddressObject.update(this.dbConnection);
+            if (backgroundWorker1.IsBusy != true)
+            {
+                backgroundWorker1.RunWorkerAsync();
+            }
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker worker = sender as BackgroundWorker;
+            e.Result = UpdateAddressObject.update(this.dbConnection);
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (e.Error != null)
+            {
+                MessageBox.Show(e.Error.Message);
+            }
+            else
+            {
+                MessageBox.Show(e.Result.ToString());
+            }
         }
     }
 

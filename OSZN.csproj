@@ -39,6 +39,9 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="NUnrar">
+      <HintPath>packages\nunrar.1.0.1\lib\net40\NUnrar.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -63,6 +66,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddressObject.cs" />
+    <Compile Include="AddEditKladrForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEditKladrForm.Designer.cs">
+      <DependentUpon>AddEditKladrForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UpdateAddressObject.cs" />
     <Compile Include="DbFacadeSQLite.cs" />
     <Compile Include="ViewKladrForm.cs">
@@ -90,6 +100,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddEditKladrForm.resx">
+      <DependentUpon>AddEditKladrForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ViewKladrForm.resx">
       <DependentUpon>ViewKladrForm.cs</DependentUpon>
     </EmbeddedResource>
