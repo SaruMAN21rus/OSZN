@@ -1,4 +1,5 @@
 ﻿using DatabaseLib;
+using OSZN.DAO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,13 +15,12 @@ namespace OSZN
 {
     public partial class AddEditKladrForm : Form
     {
-        private SQLiteConnection dbConnection;
-        private string SelectedAddressGuid;
 
-        public AddEditKladrForm(SQLiteConnection dbConnection, string SelectedAddressGuid)
+        private string AddressObjectGuid;
+
+        public AddEditKladrForm(string AddressObjectGuid)
         {
-            this.dbConnection = dbConnection;
-            this.SelectedAddressGuid = SelectedAddressGuid;
+            this.AddressObjectGuid = AddressObjectGuid;
 
             InitializeComponent();
 
@@ -29,15 +29,8 @@ namespace OSZN
             TypeBriefErrorProvider.SetIconAlignment(TypeBriefComboBox, ErrorIconAlignment.MiddleRight);
             CodeErrorProvider.SetIconAlignment(CodeTextBox, ErrorIconAlignment.MiddleRight);
 
-            string getTypes =
-                "select ID, NAME "
-                + "from VOC_LEVEL "
-                + "where ID > (select AOLEVEL from VOC_ADDRESS_OBJECT where CURRSTATUS = 0 and AOGUID = '" + SelectedAddressGuid + "') "
-                + "order by ID ASC";
-            SQLiteDataAdapter da = new SQLiteDataAdapter(getTypes, dbConnection);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            TypeComboBox.DataSource = ds.Tables[0].DefaultView;
+            CatalogDAO catalogDAO = new CatalogDAO();
+            TypeComboBox.DataSource = catalogDAO.getLowLevels(AddressObjectGuid);
         }
 
         private void CloseButton_Click(object sender, EventArgs e)
@@ -54,40 +47,13 @@ namespace OSZN
             }
             else
             {
-                int codeLength = CodeTextBox.Text.Length;
-                DbFacadeSQLite db = new DbFacadeSQLite(dbConnection);
-                ParametersCollection parameters = new ParametersCollection();
-                parameters.Add("aoguid", 0, System.Data.DbType.String);
-                parameters.Add("formalname", NameTextBox.Text, System.Data.DbType.String);
-                parameters.Add("regioncode", "21", System.Data.DbType.String);
-                parameters.Add("autocode","" , System.Data.DbType.String);
-                parameters.Add("areacode", CodeTextBox.Text.Substring(2, 3), System.Data.DbType.String);
-                parameters.Add("citycode", CodeTextBox.Text.Substring(5, 3), System.Data.DbType.String);
-                parameters.Add("ctarcode", "000", System.Data.DbType.String);
-                parameters.Add("placecode", CodeTextBox.Text.Substring(8, 3), System.Data.DbType.String);
-                if (codeLength == 17) {
-                    parameters.Add("streetcode", CodeTextBox.Text.Substring(11, 4), System.Data.DbType.String);
-                } else {
-                    parameters.Add("streetcode", "0000", System.Data.DbType.String);
-                }
-                parameters.Add("extrcode", "0000", System.Data.DbType.String);
-                parameters.Add("sextcode", "000", System.Data.DbType.String);
-                parameters.Add("offname", NameTextBox.Text, System.Data.DbType.String);
-                parameters.Add("updatedate", DateTime.Now, System.Data.DbType.Date);
-                parameters.Add("shortname", TypeBriefComboBox.SelectedValue, System.Data.DbType.String);
-                parameters.Add("aolevel", TypeComboBox.SelectedValue, System.Data.DbType.Int32);
-                parameters.Add("parentguid", SelectedAddressGuid, System.Data.DbType.String);
-                parameters.Add("aoid", Convert.ToInt32(db.Execute("select max(id) from VOC_ADDRESS_OBJECT").Rows[0][0]) + 1, System.Data.DbType.String);
-                parameters.Add("code", CodeTextBox.Text, System.Data.DbType.String);
-                parameters.Add("plaincode", CodeTextBox.Text.Substring(0, codeLength - 2), System.Data.DbType.String);
-                parameters.Add("actstatus", 1, System.Data.DbType.Int32);
-                parameters.Add("centstatus", 0, System.Data.DbType.Int32);
-                parameters.Add("operstatus", 10, System.Data.DbType.Int32);
-                parameters.Add("currstatus", CodeTextBox.Text.Substring(codeLength - 2, 2), System.Data.DbType.Int32);
-                parameters.Add("startdate", DateTime.Now, System.Data.DbType.Date);
-                parameters.Add("enddate", DateTime.Parse("2079-06-06"), System.Data.DbType.Date);
-                parameters.Add("livestatus", 1, System.Data.DbType.Int32);
-                db.Insert("VOC_ADDRESS_OBJECT", parameters);
+                VocAddressObjectDAO aoDAO = new VocAddressObjectDAO();
+                aoDAO.insertAddress(NameTextBox.Text, 
+                    Convert.ToInt32(TypeComboBox.SelectedValue), 
+                    TypeBriefComboBox.SelectedValue.ToString(), 
+                    CodeTextBox.Text, 
+                    AddressObjectGuid);
+                this.DialogResult = DialogResult.OK;
                 Close();
             }
         }
@@ -136,11 +102,34 @@ namespace OSZN
 
         private void CodeTextBox_Validating(object sender, CancelEventArgs e)
         {
+            int type = Convert.ToInt32(TypeComboBox.SelectedValue);
+            //string checkCode = "select id from VOC_ADDRESS_OBJECT where "
+            
             if (string.IsNullOrEmpty((sender as TextBox).Text))
             {
                 CodeErrorProvider.SetError(CodeTextBox, "Заполените поле!");
                 e.Cancel = true;
             }
+            else if (!CodeTextBox.Text.StartsWith("21"))
+            {
+                CodeErrorProvider.SetError(CodeTextBox, "Код должен начинаться с 21!");
+                e.Cancel = true;
+            }
+            else if (type >= 7 && CodeTextBox.TextLength != 17) 
+            {
+                CodeErrorProvider.SetError(CodeTextBox, "Длина кода должна быть равна 17!");
+                e.Cancel = true;
+            } 
+            else if (type < 7 && CodeTextBox.TextLength != 13)
+            {
+                CodeErrorProvider.SetError(CodeTextBox, "Длина кода должна быть равна 13!");
+                e.Cancel = true;
+            }/*
+            else if ()
+            {
+                CodeErrorProvider.SetError(CodeTextBox, null);
+                e.Cancel = false;
+            }*/
             else
             {
                 CodeErrorProvider.SetError(CodeTextBox, null);
@@ -150,15 +139,16 @@ namespace OSZN
 
         private void TypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string getTypeBriefs =
-                "select SOCRNAME "
-                + "from VOC_ADDRESS_TYPE "
-                + "where LEVEL = " + (sender as ComboBox).SelectedValue + " "
-                + "order by ID ASC";
-            SQLiteDataAdapter da = new SQLiteDataAdapter(getTypeBriefs, dbConnection);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            TypeBriefComboBox.DataSource = ds.Tables[0].DefaultView;
+            CatalogDAO catalogDAO = new CatalogDAO();
+            TypeBriefComboBox.DataSource = catalogDAO.getTypeBriefs(Convert.ToInt32((sender as ComboBox).SelectedValue));
+        }
+
+        private void CodeTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

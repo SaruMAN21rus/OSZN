@@ -18,7 +18,6 @@ namespace OSZN
         
         public HeadForm()
         {
-            connectToDatabase();
             InitializeComponent();
         }
 
@@ -32,15 +31,9 @@ namespace OSZN
 
         }
 
-        void connectToDatabase()
-        {
-            dbConnection = new SQLiteConnection("Data Source=OSZN.sqlite;Version=3;");
-            dbConnection.Open();
-        }
-
         private void адресныйКлассификаторToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            KladrForm kForm = new KladrForm(dbConnection);
+            KladrForm kForm = new KladrForm();
             kForm.Show();
         }
     }

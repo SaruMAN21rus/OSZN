@@ -178,6 +178,7 @@
             this.DeleteButton.TabIndex = 1;
             this.DeleteButton.Text = "Удалить";
             this.DeleteButton.UseVisualStyleBackColor = true;
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // EditButton
             // 
@@ -203,13 +204,13 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(377, 221);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
-            // ViewKladr
+            // ViewKladrForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(377, 221);
             this.Controls.Add(this.tableLayoutPanel2);
-            this.Name = "ViewKladr";
+            this.Name = "ViewKladrForm";
             this.Text = "Просмотр элемента классификатора";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

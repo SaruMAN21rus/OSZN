@@ -73,8 +73,11 @@
     <Compile Include="AddEditKladrForm.Designer.cs">
       <DependentUpon>AddEditKladrForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DAO\AddressObjectDAO.cs" />
+    <Compile Include="DAO\CatalogDAO.cs" />
+    <Compile Include="DAO\CommonDAO.cs" />
     <Compile Include="UpdateAddressObject.cs" />
-    <Compile Include="DbFacadeSQLite.cs" />
+    <Compile Include="Utils\DbFacadeSQLite.cs" />
     <Compile Include="ViewKladrForm.cs">
       <SubType>Form</SubType>
     </Compile>

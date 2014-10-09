@@ -15,6 +15,7 @@ using DatabaseLib;
 using System.Xml;
 using System.Data;
 using System.Windows.Forms;
+using OSZN.DAO;
 
 namespace OSZN
 {
@@ -22,17 +23,14 @@ namespace OSZN
     {
         static string UpdateFolderPath = @"UpdateFolder";
         
-        public static string update(SQLiteConnection conn)
+        public static string update()
         {
             WebClient webClient;
             
             DownloadService downloadService = new DownloadService();
             DownloadFileInfo lastUpdateFile = downloadService.GetLastDownloadFileInfo();
-            string lastVersionFromDB = "select max(VERSION) from FIAS_UPDATE_VERSION";
-            SQLiteCommand command = new SQLiteCommand(lastVersionFromDB, conn);
-            SQLiteDataReader reader = command.ExecuteReader();
-            reader.Read();
-            int lastVersion = reader.GetInt16(0);
+            VocAddressObjectDAO aoDAO = new VocAddressObjectDAO();
+            int lastVersion = aoDAO.getAddressObjectsUpdateLastVersion();
             if (lastVersion < lastUpdateFile.VersionId)
             {
                 SortedSet<int> versions = new SortedSet<int>();
@@ -65,7 +63,7 @@ namespace OSZN
                     }
                 }
                 extractAllArchive();
-                xmlToDb(versions, conn);
+                xmlToDb(versions);
                 return "Классификатор адресов успешно обновлен.";
             }
             else
@@ -95,12 +93,11 @@ namespace OSZN
             }
         }
 
-        private static void xmlToDb(SortedSet<int> versions, SQLiteConnection conn)
+        private static void xmlToDb(SortedSet<int> versions)
         {
-            DbFacadeSQLite db = new DbFacadeSQLite(conn);
-
-            db.Vacuum();
-            db.BeginTransaction();
+            VocAddressObjectDAO aoDAO = new VocAddressObjectDAO();
+            aoDAO.vacuum();
+            aoDAO.beginTransaction();
             
             foreach (var item in versions)
             {
@@ -150,15 +147,7 @@ namespace OSZN
                                 parameters.Add("enddate", a.ENDDATE, System.Data.DbType.Date);
                                 parameters.Add("normdoc", a.NORMDOC, System.Data.DbType.String);
                                 parameters.Add("livestatus", a.LIVESTATUS, System.Data.DbType.Int32);
-                                DataTable dt = db.FetchByColumn("VOC_ADDRESS_OBJECT", "AOID", "AOID = '"+ a.AOID +"'");
-                                if (dt != null && dt.Rows.Count > 0)
-                                {
-                                    db.Update("VOC_ADDRESS_OBJECT", parameters, "AOID = '" + a.AOID + "'");
-                                }
-                                else
-                                {
-                                    db.Insert("VOC_ADDRESS_OBJECT", parameters);
-                                }
+                                aoDAO.insertOrUpdateAddressObjects(parameters, a.AOID);
                             }
                         }
                         else
@@ -170,12 +159,9 @@ namespace OSZN
                         }
                     }
                 }
-                ParametersCollection parameter = new ParametersCollection();
-                parameter.Add("version", item, System.Data.DbType.Int32);
-                parameter.Add("update_date", DateTime.Now, System.Data.DbType.Date);
-                db.Insert("FIAS_UPDATE_VERSION", parameter);
+                aoDAO.insertUpdateVersion(item);
             }
-            db.CommitTransaction();
+            aoDAO.commitTransaction();
         }
     }
 }

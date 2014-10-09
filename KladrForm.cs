@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OSZN.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,32 +15,24 @@ namespace OSZN
 {
     public partial class KladrForm : Form
     {
-        private SQLiteConnection dbConnection;
 
         private string SelectedAddressGuid;
 
-        public KladrForm(SQLiteConnection dbConnection)
+        public KladrForm()
         {
-            this.dbConnection = dbConnection;
             InitializeComponent();
             InitializeTreeView();
         }
 
         private void InitializeTreeView()
         {
-            string getParentNode =
-                "select ao.AOGUID, ao.FORMALNAME, at.SCNAME "
-                + "from VOC_ADDRESS_OBJECT ao "
-                + "left join VOC_ADDRESS_TYPE at on ao.AOLEVEL = at.LEVEL and ao.SHORTNAME = at.SOCRNAME "
-                + "where ao.CURRSTATUS = 0 and ao.PARENTGUID is null";
-
-            SQLiteCommand command = new SQLiteCommand(getParentNode, dbConnection);
-            SQLiteDataReader reader = command.ExecuteReader();
-            while (reader.Read())
+            VocAddressObjectDAO aoDAO = new VocAddressObjectDAO();
+            DataTable dt = aoDAO.getTreeRootNode();
+            foreach (DataRow row in dt.Rows)
             {
                 TreeNode rootNode = new TreeNode();
-                rootNode.Text = reader.GetString(1) + " " + reader.GetString(2);
-                rootNode.Tag = reader.GetString(0);
+                rootNode.Text = row[1] + " " + row[2];
+                rootNode.Tag = row[0];
                 TreeNode dummyNode = new TreeNode("Загрузка. Пожалуйста подождите...");
                 dummyNode.Tag = "dummy";
                 rootNode.Nodes.Add(dummyNode);
@@ -49,22 +42,16 @@ namespace OSZN
 
         private IEnumerable<TreeNodeData> GetChildData(string parentGuid)
         {
-            string getChildNode =
-                "select ao.AOGUID, ao.FORMALNAME, CASE WHEN at.SCNAME is null THEN ao.SHORTNAME ELSE at.SCNAME END, (select count(*) from VOC_ADDRESS_OBJECT ao2 where ao2.CURRSTATUS = 0 AND ao2.PARENTGUID = ao.AOGUID) as CHILDCOUNT "
-                + "from VOC_ADDRESS_OBJECT ao "
-                + "left join VOC_ADDRESS_TYPE at on ao.AOLEVEL = at.LEVEL and ao.SHORTNAME = at.SOCRNAME "
-                + "where ao.CURRSTATUS = 0 and ao.PARENTGUID = '" + parentGuid + "'"
-                + "order by CODE ASC";
-            SQLiteCommand command = new SQLiteCommand(getChildNode, dbConnection);
-            SQLiteDataReader reader = command.ExecuteReader();
+            VocAddressObjectDAO aoDAO = new VocAddressObjectDAO();
+            DataTable dt = aoDAO.getTreeChildNode(parentGuid);
             List<TreeNodeData> data = new List<TreeNodeData>();
-            while (reader.Read())
+            foreach (DataRow row in dt.Rows)
             {
                 TreeNodeData d = new TreeNodeData();
-                d.Guid = reader.GetString(0);
-                d.Name = reader.GetString(1);
-                d.Type = reader.GetString(2);
-                d.ChildCount = reader.GetInt32(3);
+                d.Guid = row[0].ToString();
+                d.Name = row[1].ToString();
+                d.Type = row[2].ToString();
+                d.ChildCount = Convert.ToInt32(row[3]);
                 data.Add(d);
             }
             return data;
@@ -109,48 +96,41 @@ namespace OSZN
         private void kladrTree_AfterSelect(object sender, TreeViewEventArgs e)
         {
             SelectedAddressGuid = e.Node.Tag.ToString();
-            string getChildNode =
-                "select ao.AOGUID, ao.FORMALNAME, CASE WHEN at.SCNAME is null THEN ao.SHORTNAME ELSE at.SCNAME END as TYPE, ao.CODE "
-                + "from VOC_ADDRESS_OBJECT ao "
-                + "left join VOC_ADDRESS_TYPE at on ao.AOLEVEL = at.LEVEL and ao.SHORTNAME = at.SOCRNAME "
-                + "where ao.CURRSTATUS = 0 and ao.PARENTGUID = '" + SelectedAddressGuid + "'"
-                + "order by PLAINCODE ASC";
-            SQLiteDataAdapter da = new SQLiteDataAdapter(getChildNode, dbConnection);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            dataGridView1.DataSource = ds.Tables[0].DefaultView;
+            VocAddressObjectDAO aoDAO = new VocAddressObjectDAO();
+            DataTable dt = aoDAO.getTableData(SelectedAddressGuid, null);
+            dataGridView1.DataSource = dt;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            string searchText = textBox1.Text;
-            string getChildNode =
-                "select ao.AOGUID, ao.FORMALNAME, CASE WHEN at.SCNAME is null THEN ao.SHORTNAME ELSE at.SCNAME END as TYPE, ao.CODE "
-                + "from VOC_ADDRESS_OBJECT ao "
-                + "left join VOC_ADDRESS_TYPE at on ao.AOLEVEL = at.LEVEL and ao.SHORTNAME = at.SOCRNAME "
-                + "where ao.CURRSTATUS = 0 and ao.PARENTGUID = '" + SelectedAddressGuid + "' "
-                + "and (lower(ao.FORMALNAME) LIKE ('%" + searchText.ToLower() + "%') or lower(at.SCNAME) LIKE ('%" + searchText.ToLower() + "%') or ao.CODE LIKE ('%" + searchText + "%'))"
-                + "order by PLAINCODE ASC";
-            SQLiteDataAdapter da = new SQLiteDataAdapter(getChildNode, dbConnection);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            dataGridView1.DataSource = ds.Tables[0].DefaultView;
+            VocAddressObjectDAO aoDAO = new VocAddressObjectDAO();
+            DataTable dt = aoDAO.getTableData(SelectedAddressGuid, textBox1.Text);
+            dataGridView1.DataSource = dt;
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > -1)
             {
-                this.SelectedAddressGuid = dataGridView1.Rows[e.RowIndex].Cells["Guid"].Value.ToString();
-                ViewKladrForm viewKladr = new ViewKladrForm(this.dbConnection, SelectedAddressGuid);
-                viewKladr.Show();
+                ViewKladrForm viewKladr = new ViewKladrForm(dataGridView1.Rows[e.RowIndex].Cells["Guid"].Value.ToString());
+                if (viewKladr.ShowDialog(this) == DialogResult.OK)
+                {
+                    VocAddressObjectDAO aoDAO = new VocAddressObjectDAO();
+                    DataTable dt = aoDAO.getTableData(SelectedAddressGuid, textBox1.Text);
+                    dataGridView1.DataSource = dt;
+                }
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            AddEditKladrForm addKladr = new AddEditKladrForm(this.dbConnection, SelectedAddressGuid);
-            addKladr.Show();
+            AddEditKladrForm addKladr = new AddEditKladrForm(SelectedAddressGuid);
+            if (addKladr.ShowDialog(this) == DialogResult.OK)
+            {
+                VocAddressObjectDAO aoDAO = new VocAddressObjectDAO();
+                DataTable dt = aoDAO.getTableData(SelectedAddressGuid, textBox1.Text);
+                dataGridView1.DataSource = dt;
+            }
             
             //Оптимизировать
            /* string sql = "WITH RECURSIVE "
@@ -184,7 +164,7 @@ namespace OSZN
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
             BackgroundWorker worker = sender as BackgroundWorker;
-            e.Result = UpdateAddressObject.update(this.dbConnection);
+            e.Result = UpdateAddressObject.update();
         }
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
