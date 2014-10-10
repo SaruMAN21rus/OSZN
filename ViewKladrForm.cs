@@ -51,5 +51,13 @@ namespace OSZN
                 Close();
             }
         }
+
+        private void EditButton_Click(object sender, EventArgs e)
+        {
+            AddEditKladrForm addKladr = new AddEditKladrForm(this.recordGuid, true);
+            if (addKladr.ShowDialog(this) == DialogResult.OK)
+            {
+            }
+        }
     }
 }

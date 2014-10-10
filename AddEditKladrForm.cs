@@ -18,7 +18,7 @@ namespace OSZN
 
         private string AddressObjectGuid;
 
-        public AddEditKladrForm(string AddressObjectGuid)
+        public AddEditKladrForm(string AddressObjectGuid, bool edit)
         {
             this.AddressObjectGuid = AddressObjectGuid;
 
@@ -30,7 +30,22 @@ namespace OSZN
             CodeErrorProvider.SetIconAlignment(CodeTextBox, ErrorIconAlignment.MiddleRight);
 
             CatalogDAO catalogDAO = new CatalogDAO();
-            TypeComboBox.DataSource = catalogDAO.getLowLevels(AddressObjectGuid);
+
+            if (edit)
+            {
+                TypeComboBox.DataSource = catalogDAO.getCurrAndLowLevels(AddressObjectGuid);
+                this.Text = "Изменение классификатора";
+                VocAddressObjectDAO aoDAO = new VocAddressObjectDAO();
+                Dictionary<string, object> ao = aoDAO.getAddressByAOGUID(AddressObjectGuid);
+                NameTextBox.Text = ao["FORMALNAME"].ToString();
+                TypeComboBox.SelectedValue = ao["levelId"];
+                TypeBriefComboBox.SelectedValue = ao["SHORTNAME"].ToString();
+                CodeTextBox.Text = ao["CODE"].ToString();
+            }
+            else
+            {
+                TypeComboBox.DataSource = catalogDAO.getLowLevels(AddressObjectGuid);
+            }
         }
 
         private void CloseButton_Click(object sender, EventArgs e)
@@ -40,7 +55,7 @@ namespace OSZN
 
         private void ApplyButton_Click(object sender, EventArgs e)
         {
-            if (!ValidateChildren(ValidationConstraints.None))
+            if (!validateForm())
             {
                 DialogResult = DialogResult.None;
                 return;
@@ -58,83 +73,89 @@ namespace OSZN
             }
         }
 
-        private void NameTextBox_Validating(object sender, CancelEventArgs e)
+        private bool validateNameTextBox()
         {
-            if (string.IsNullOrEmpty((sender as TextBox).Text))
+            if (string.IsNullOrEmpty(NameTextBox.Text))
             {
                 NameErrorProvider.SetError(NameTextBox, "Заполените поле!");
-                e.Cancel = true;
+                return false;
             }
             else
             {
                 NameErrorProvider.SetError(NameTextBox, null);
-                e.Cancel = false;
+                return true;
             }
         }
 
-        private void TypeComboBox_Validating(object sender, CancelEventArgs e)
+        private bool validateTypeComboBox()
         {
-            if ((sender as ComboBox).SelectedIndex == -1)
+            if (TypeComboBox.SelectedIndex == -1)
             {
                 TypeErrorProvider.SetError(TypeComboBox, "Выберите значение из списка!");
-                e.Cancel = true;
+                return false;
             }
             else
             {
                 TypeErrorProvider.SetError(TypeComboBox, null);
-                e.Cancel = false;
+                return true;
             }
         }
 
-        private void TypeBriefComboBox_Validating(object sender, CancelEventArgs e)
+        private bool validateTypeBriefComboBox()
         {
-            if ((sender as ComboBox).SelectedIndex == -1)
+            if (TypeBriefComboBox.SelectedIndex == -1)
             {
-                TypeBriefErrorProvider.SetError(TypeBriefComboBox, "Выберите значение из списка!");
-                e.Cancel = true;
+                TypeErrorProvider.SetError(TypeBriefComboBox, "Выберите значение из списка!");
+                return false;
             }
             else
             {
-                TypeBriefErrorProvider.SetError(TypeBriefComboBox, null);
-                e.Cancel = false;
+                TypeErrorProvider.SetError(TypeBriefComboBox, null);
+                return true;
             }
         }
 
-        private void CodeTextBox_Validating(object sender, CancelEventArgs e)
+        private bool validateCodeTextBox()
         {
             int type = Convert.ToInt32(TypeComboBox.SelectedValue);
-            //string checkCode = "select id from VOC_ADDRESS_OBJECT where "
-            
-            if (string.IsNullOrEmpty((sender as TextBox).Text))
+            VocAddressObjectDAO aoDAO = new VocAddressObjectDAO();
+
+            if (string.IsNullOrEmpty(CodeTextBox.Text))
             {
                 CodeErrorProvider.SetError(CodeTextBox, "Заполените поле!");
-                e.Cancel = true;
+                return false;
             }
             else if (!CodeTextBox.Text.StartsWith("21"))
             {
                 CodeErrorProvider.SetError(CodeTextBox, "Код должен начинаться с 21!");
-                e.Cancel = true;
+                return false;
             }
-            else if (type >= 7 && CodeTextBox.TextLength != 17) 
+            else if (type >= 7 && CodeTextBox.TextLength != 17)
             {
                 CodeErrorProvider.SetError(CodeTextBox, "Длина кода должна быть равна 17!");
-                e.Cancel = true;
-            } 
+                return false;
+            }
             else if (type < 7 && CodeTextBox.TextLength != 13)
             {
                 CodeErrorProvider.SetError(CodeTextBox, "Длина кода должна быть равна 13!");
-                e.Cancel = true;
-            }/*
-            else if ()
+                return false;
+            }
+            else if (!aoDAO.checkCode(CodeTextBox.Text))
             {
-                CodeErrorProvider.SetError(CodeTextBox, null);
-                e.Cancel = false;
-            }*/
+                CodeErrorProvider.SetError(CodeTextBox, "Адрес с таким кодом уже существует!");
+                return false;
+            }
             else
             {
                 CodeErrorProvider.SetError(CodeTextBox, null);
-                e.Cancel = false;
+                return true;
             }
+        }
+
+        private bool validateForm()
+        {
+            return validateNameTextBox() & validateTypeComboBox()
+                & validateTypeBriefComboBox() & validateCodeTextBox();
         }
 
         private void TypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -145,9 +166,25 @@ namespace OSZN
 
         private void CodeTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Char.IsDigit(e.KeyChar))
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void NameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(NameErrorProvider.GetError(NameTextBox)))
+            {
+                validateNameTextBox();
+            }
+        }
+
+        private void CodeTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(CodeErrorProvider.GetError(CodeTextBox)))
+            {
+                validateCodeTextBox();
             }
         }
     }

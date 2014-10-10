@@ -86,7 +86,7 @@ namespace OSZN.DAO
 
         public Dictionary<string, object> getAddressByAOGUID(string aoguid)
         {
-            return db.FetchOneRow("select ao.FORMALNAME, ao.SHORTNAME, ao.CODE, l.NAME, ao.ID "
+            return db.FetchOneRow("select ao.FORMALNAME, ao.SHORTNAME, ao.CODE, l.NAME, ao.ID, l.ID as levelId "
                 + "from VOC_ADDRESS_OBJECT ao "
                 + "left join VOC_LEVEL l on ao.AOLEVEL = l.ID "
                 + "where CURRSTATUS = 0 and ao.AOGUID = '" + aoguid + "'");
@@ -123,6 +123,69 @@ namespace OSZN.DAO
             ParametersCollection parameter = new ParametersCollection();
             parameter.Add("currstatus", 1, System.Data.DbType.Int32);
             db.Update("VOC_ADDRESS_OBJECT", parameter, "id = " + id);
+        }
+
+        public DataTable getCityAndArea()
+        {
+            Select select = new Select()
+                .From("VOC_ADDRESS_OBJECT as ao")
+                .Join("VOC_ADDRESS_TYPE at", "ao.AOLEVEL = at.LEVEL and ao.SHORTNAME = at.SOCRNAME", SQLJoinTypes.LEFT_JOIN)
+                .Columns("ao.id, ao.formalname, ao.aoguid, CASE WHEN at.SCNAME is null THEN ao.SHORTNAME ELSE at.SCNAME END as type")
+                .Where("aolevel in (3,4) and currstatus = 0 and parentguid = (select aoguid from voc_address_object where currstatus = 0 and parentguid is null)")
+                .Order("ao.code ASC");
+            DataTable dt = db.Execute(select);
+            DataColumn name = new DataColumn();
+            name.ColumnName = "name";
+            name.Expression = "formalname + ' ' + type";
+            dt.Columns.Add(name);
+            return dt;
+        }
+
+        public DataTable getPlaceByParentGUID(string parentAddressGuid)
+        {
+            Select select = new Select()
+                .From("VOC_ADDRESS_OBJECT as ao")
+                .Join("VOC_ADDRESS_TYPE at", "ao.AOLEVEL = at.LEVEL and ao.SHORTNAME = at.SOCRNAME", SQLJoinTypes.LEFT_JOIN)
+                .Columns("ao.id, ao.formalname, ao.aoguid, CASE WHEN at.SCNAME is null THEN ao.SHORTNAME ELSE at.SCNAME END as type")
+                .Where("aolevel = 6 and currstatus = 0 and parentguid='" + parentAddressGuid + "'")
+                .Order("ao.code ASC");
+            DataTable dt = db.Execute(select);
+            if (dt != null)
+            {
+                DataColumn name = new DataColumn();
+                name.ColumnName = "name";
+                name.Expression = "formalname + ' ' + type";
+                dt.Columns.Add(name);
+            }
+            return dt;
+        }
+
+        public DataTable getStreetByParentGUID(string parentAddressGuid)
+        {
+            Select select = new Select()
+                .From("VOC_ADDRESS_OBJECT as ao")
+                .Join("VOC_ADDRESS_TYPE at", "ao.AOLEVEL = at.LEVEL and ao.SHORTNAME = at.SOCRNAME", SQLJoinTypes.LEFT_JOIN)
+                .Columns("ao.id, ao.formalname, ao.aoguid, CASE WHEN at.SCNAME is null THEN ao.SHORTNAME ELSE at.SCNAME END as type")
+                .Where("aolevel in (7) and currstatus = 0 and parentguid='" + parentAddressGuid + "'")
+                .Order("ao.code ASC");
+            DataTable dt = db.Execute(select);
+            if (dt != null)
+            {
+                DataColumn name = new DataColumn();
+                name.ColumnName = "name";
+                name.Expression = "formalname + ' ' + type";
+                dt.Columns.Add(name);
+            }
+            return dt;
+        }
+
+        public bool checkCode(string code)
+        {
+            Dictionary<string, object> res = db.FetchOneRow("select ao.FORMALNAME, ao.SHORTNAME, ao.CODE, l.NAME, ao.ID "
+                + "from VOC_ADDRESS_OBJECT ao "
+                + "left join VOC_LEVEL l on ao.AOLEVEL = l.ID "
+                + "where CURRSTATUS = 0 and ao.CODE = '" + code + "'");
+            return res.Count == 0;
         }
     }
 }

@@ -124,7 +124,7 @@ namespace OSZN
 
         private void button1_Click(object sender, EventArgs e)
         {
-            AddEditKladrForm addKladr = new AddEditKladrForm(SelectedAddressGuid);
+            AddEditKladrForm addKladr = new AddEditKladrForm(SelectedAddressGuid, false);
             if (addKladr.ShowDialog(this) == DialogResult.OK)
             {
                 VocAddressObjectDAO aoDAO = new VocAddressObjectDAO();

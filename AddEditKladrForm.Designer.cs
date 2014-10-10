@@ -38,6 +38,7 @@
             this.NameTextBox = new System.Windows.Forms.TextBox();
             this.TypeComboBox = new System.Windows.Forms.ComboBox();
             this.TypeBriefComboBox = new System.Windows.Forms.ComboBox();
+            this.CodeTextBox = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.CloseButton = new System.Windows.Forms.Button();
             this.ApplyButton = new System.Windows.Forms.Button();
@@ -45,7 +46,6 @@
             this.TypeErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.TypeBriefErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.CodeErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.CodeTextBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -150,7 +150,7 @@
             this.NameTextBox.Name = "NameTextBox";
             this.NameTextBox.Size = new System.Drawing.Size(206, 20);
             this.NameTextBox.TabIndex = 7;
-            this.NameTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.NameTextBox_Validating);
+            this.NameTextBox.TextChanged += new System.EventHandler(this.NameTextBox_TextChanged);
             // 
             // TypeComboBox
             // 
@@ -165,7 +165,6 @@
             this.TypeComboBox.TabIndex = 8;
             this.TypeComboBox.ValueMember = "id";
             this.TypeComboBox.SelectedIndexChanged += new System.EventHandler(this.TypeComboBox_SelectedIndexChanged);
-            this.TypeComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.TypeComboBox_Validating);
             // 
             // TypeBriefComboBox
             // 
@@ -179,7 +178,17 @@
             this.TypeBriefComboBox.Size = new System.Drawing.Size(206, 21);
             this.TypeBriefComboBox.TabIndex = 9;
             this.TypeBriefComboBox.ValueMember = "SOCRNAME";
-            this.TypeBriefComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.TypeBriefComboBox_Validating);
+            // 
+            // CodeTextBox
+            // 
+            this.CodeTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.CodeTextBox.Location = new System.Drawing.Point(153, 166);
+            this.CodeTextBox.MaxLength = 17;
+            this.CodeTextBox.Name = "CodeTextBox";
+            this.CodeTextBox.Size = new System.Drawing.Size(206, 20);
+            this.CodeTextBox.TabIndex = 10;
+            this.CodeTextBox.TextChanged += new System.EventHandler(this.CodeTextBox_TextChanged);
+            this.CodeTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CodeTextBox_KeyPress);
             // 
             // flowLayoutPanel1
             // 
@@ -232,17 +241,6 @@
             // 
             this.CodeErrorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.CodeErrorProvider.ContainerControl = this;
-            // 
-            // CodeTextBox
-            // 
-            this.CodeTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.CodeTextBox.Location = new System.Drawing.Point(153, 166);
-            this.CodeTextBox.MaxLength = 17;
-            this.CodeTextBox.Name = "CodeTextBox";
-            this.CodeTextBox.Size = new System.Drawing.Size(206, 20);
-            this.CodeTextBox.TabIndex = 10;
-            this.CodeTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CodeTextBox_KeyPress);
-            this.CodeTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.CodeTextBox_Validating);
             // 
             // AddEditKladrForm
             // 

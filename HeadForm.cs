@@ -36,5 +36,11 @@ namespace OSZN
             KladrForm kForm = new KladrForm();
             kForm.Show();
         }
+
+        private void льготникиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddEditHouseForm houseForm = new AddEditHouseForm();
+            houseForm.Show();
+        }
     }
 }

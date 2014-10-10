@@ -188,6 +188,7 @@
             this.EditButton.TabIndex = 0;
             this.EditButton.Text = "Редактировать";
             this.EditButton.UseVisualStyleBackColor = true;
+            this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
             // 
             // tableLayoutPanel2
             // 

@@ -25,5 +25,13 @@ namespace OSZN.DAO
                 + "order by ID ASC");
         }
 
+        public DataTable getCurrAndLowLevels(string addressObjectGuid)
+        {
+            return db.Execute("select ID, NAME "
+                + "from VOC_LEVEL "
+                + "where ID >= (select AOLEVEL from VOC_ADDRESS_OBJECT where CURRSTATUS = 0 and AOGUID = '" + addressObjectGuid + "') "
+                + "order by ID ASC");
+        }
+
     }
 }
