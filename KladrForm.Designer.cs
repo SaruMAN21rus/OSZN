@@ -32,8 +32,8 @@
             this.kladrTree = new System.Windows.Forms.TreeView();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.UpdateButton = new System.Windows.Forms.Button();
+            this.AddButon = new System.Windows.Forms.Button();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -98,8 +98,8 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.button2, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.button1, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.UpdateButton, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.AddButon, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.checkBox2, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.label1, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.textBox1, 4, 0);
@@ -111,27 +111,27 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(718, 34);
             this.tableLayoutPanel2.TabIndex = 4;
             // 
-            // button2
+            // UpdateButton
             // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button2.Location = new System.Drawing.Point(83, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(155, 28);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Обновить классификатор";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.UpdateButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.UpdateButton.Location = new System.Drawing.Point(83, 3);
+            this.UpdateButton.Name = "UpdateButton";
+            this.UpdateButton.Size = new System.Drawing.Size(155, 28);
+            this.UpdateButton.TabIndex = 1;
+            this.UpdateButton.Text = "Обновить классификатор";
+            this.UpdateButton.UseVisualStyleBackColor = true;
+            this.UpdateButton.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button1
+            // AddButon
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(74, 28);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Добавить";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.AddButon.Dock = System.Windows.Forms.DockStyle.Left;
+            this.AddButon.Location = new System.Drawing.Point(3, 3);
+            this.AddButon.Name = "AddButon";
+            this.AddButon.Size = new System.Drawing.Size(74, 28);
+            this.AddButon.TabIndex = 0;
+            this.AddButon.Text = "Добавить";
+            this.AddButon.UseVisualStyleBackColor = true;
+            this.AddButon.Click += new System.EventHandler(this.button1_Click);
             // 
             // checkBox2
             // 
@@ -237,6 +237,8 @@
             this.ClientSize = new System.Drawing.Size(1026, 421);
             this.Controls.Add(this.headPanel);
             this.Name = "KladrForm";
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Адресный классификатор";
             this.headPanel.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -253,8 +255,8 @@
         private System.Windows.Forms.TreeView kladrTree;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button UpdateButton;
+        private System.Windows.Forms.Button AddButon;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.Label label1;

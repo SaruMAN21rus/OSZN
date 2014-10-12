@@ -13,10 +13,34 @@ namespace OSZN
 {
     public partial class AddEditHouseForm : Form
     {
-        public AddEditHouseForm()
+        private House house;
+        
+        public AddEditHouseForm(House house)
         {
             InitializeComponent();
             setCityAndAreaComboBoxValue();
+
+            PostalCodeErrorProvider.SetIconAlignment(PostalCodeTextBox, ErrorIconAlignment.MiddleRight);
+            CityAndAreaErrorProvider.SetIconAlignment(CityAndAreaComboBox, ErrorIconAlignment.MiddleRight);
+            HouseNumberErrorProvider.SetIconAlignment(HouseTextBox, ErrorIconAlignment.MiddleRight);
+
+            if (house != null)
+            {
+                this.house = house;
+                PostalCodeTextBox.Text = house.postalCode;
+                CityAndAreaComboBox.SelectedValue = house.cityOrArea.id;
+                HouseTextBox.Text = house.houseNumber;
+                HousingTextBox.Text = house.housingNumber;
+                if (house.place != null)
+                    PlaceComboBox.SelectedValue = house.place.id;
+                RoomTextBox.Text = house.roomNumber;
+                if (house.street != null)
+                    StreetComboBox.SelectedValue = house.street.id;
+            }
+            else
+            {
+                this.house = new House();
+            }
         }
 
         private void setCityAndAreaComboBoxValue()
@@ -38,7 +62,10 @@ namespace OSZN
             PlaceComboBox.Text = "";
             PlaceComboBox.DataSource = aoDAO.getPlaceByParentGUID(aoguid);
             PlaceComboBox.SelectedIndex = -1;
-            
+            if (!String.IsNullOrEmpty(CityAndAreaErrorProvider.GetError(CityAndAreaComboBox)))
+            {
+                validateCityAndAreaComboBox();
+            }
         }
 
         private void PlaceComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -72,6 +99,128 @@ namespace OSZN
         private void CityAndAreaComboBox_TextChanged(object sender, EventArgs e)
         {
             (sender as ComboBox).DroppedDown = false;
+        }
+
+        private void NameTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void CloseButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        public House ReturnData()
+        {
+            return this.house;
+        }
+
+        private void ApplyButton_Click(object sender, EventArgs e)
+        {
+            if (validateForm())
+            {
+                this.house.postalCode = PostalCodeTextBox.Text;
+                this.house.houseNumber = HouseTextBox.Text;
+                this.house.housingNumber = HousingTextBox.Text;
+                this.house.roomNumber = RoomTextBox.Text;
+                if (CityAndAreaComboBox.SelectedIndex != -1)
+                {
+                    this.house.cityOrArea = getSelectedVocAddressObject(CityAndAreaComboBox);
+                }
+                if (PlaceComboBox.SelectedIndex != -1)
+                {
+                    this.house.place = getSelectedVocAddressObject(PlaceComboBox);
+                }
+                if (StreetComboBox.SelectedIndex != -1)
+                {
+                    this.house.street = getSelectedVocAddressObject(StreetComboBox);
+                }
+                this.DialogResult = DialogResult.OK;
+            }
+            else
+            {
+                this.DialogResult = DialogResult.None;
+            }
+        }
+
+        private VocAddressObject getSelectedVocAddressObject(ComboBox cb)
+        {
+            VocAddressObject ao = new VocAddressObject();
+            ao.id = Convert.ToInt32(cb.SelectedValue);
+            DataTable dt = (DataTable)cb.DataSource;
+            var selectedRow = dt.Rows[cb.SelectedIndex];
+            ao.name = selectedRow["formalname"].ToString();
+            ao.typeBrief = selectedRow["typeBrief"].ToString();
+            ao.typeBriefHasPoint = Convert.ToBoolean(selectedRow["POINT"]);
+            ao.typeBriefInLeft = Convert.ToBoolean(selectedRow["LEFT"]);
+            return ao;
+        }
+
+        private bool validatePostalCodeTextBox()
+        {
+            if (PostalCodeTextBox.Text.Length > 0 && PostalCodeTextBox.Text.Length < 6)
+            {
+                PostalCodeErrorProvider.SetError(PostalCodeTextBox, "Индекс должен состять из 6 цифр!");
+                return false;
+            }
+            else
+            {
+                PostalCodeErrorProvider.SetError(PostalCodeTextBox, null);
+                return true;
+            }
+        }
+
+        private bool validateCityAndAreaComboBox()
+        {
+            if (CityAndAreaComboBox.SelectedIndex == -1)
+            {
+                CityAndAreaErrorProvider.SetError(CityAndAreaComboBox, "Выберите значение из списка!");
+                return false;
+            }
+            else
+            {
+                CityAndAreaErrorProvider.SetError(CityAndAreaComboBox, null);
+                return true;
+            }
+        }
+
+        private bool validateHouseTextBox()
+        {
+            if (String.IsNullOrEmpty(HouseTextBox.Text))
+            {
+                HouseNumberErrorProvider.SetError(HouseTextBox, "Заполните поле!");
+                return false;
+            }
+            else
+            {
+                HouseNumberErrorProvider.SetError(HouseTextBox, null);
+                return true;
+            }
+        }
+
+        private bool validateForm()
+        {
+            return validatePostalCodeTextBox() & validateCityAndAreaComboBox() & validateHouseTextBox();
+        }
+
+        private void PostalCodeTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(PostalCodeErrorProvider.GetError(PostalCodeTextBox)))
+            {
+                validatePostalCodeTextBox();
+            }
+        }
+
+        private void HouseTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(HouseNumberErrorProvider.GetError(HouseTextBox)))
+            {
+                validateHouseTextBox();
+            }
         }
     }
 }

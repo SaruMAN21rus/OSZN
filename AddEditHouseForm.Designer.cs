@@ -28,30 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.HousingTextBox = new System.Windows.Forms.TextBox();
             this.HousingLabel = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.RoomTextBox = new System.Windows.Forms.TextBox();
             this.RoomLabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.HouseTextBox = new System.Windows.Forms.TextBox();
             this.HouseLabel = new System.Windows.Forms.Label();
-            this.NameLabel = new System.Windows.Forms.Label();
-            this.TypeLabel = new System.Windows.Forms.Label();
+            this.PostalCodeLabel = new System.Windows.Forms.Label();
+            this.CityOrAreaLabel = new System.Windows.Forms.Label();
             this.PlaceLabel = new System.Windows.Forms.Label();
             this.StreetLabel = new System.Windows.Forms.Label();
-            this.NameTextBox = new System.Windows.Forms.TextBox();
+            this.PostalCodeTextBox = new System.Windows.Forms.TextBox();
             this.CityAndAreaComboBox = new System.Windows.Forms.ComboBox();
             this.PlaceComboBox = new System.Windows.Forms.ComboBox();
             this.StreetComboBox = new System.Windows.Forms.ComboBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.CloseButton = new System.Windows.Forms.Button();
             this.ApplyButton = new System.Windows.Forms.Button();
+            this.CityAndAreaErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.HouseNumberErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.PostalCodeErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CityAndAreaErrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HouseNumberErrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PostalCodeErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel2
@@ -77,11 +84,11 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.HouseLabel, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.NameLabel, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.TypeLabel, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.PostalCodeLabel, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.CityOrAreaLabel, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.PlaceLabel, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.StreetLabel, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.NameTextBox, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.PostalCodeTextBox, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.CityAndAreaComboBox, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.PlaceComboBox, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.StreetComboBox, 1, 3);
@@ -105,11 +112,11 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 85F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tableLayoutPanel3.Controls.Add(this.textBox3, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.HousingTextBox, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.HousingLabel, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.textBox2, 4, 0);
+            this.tableLayoutPanel3.Controls.Add(this.RoomTextBox, 4, 0);
             this.tableLayoutPanel3.Controls.Add(this.RoomLabel, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.textBox1, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.HouseTextBox, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(133, 179);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -118,14 +125,14 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(468, 39);
             this.tableLayoutPanel3.TabIndex = 5;
             // 
-            // textBox3
+            // HousingTextBox
             // 
-            this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox3.Location = new System.Drawing.Point(180, 9);
-            this.textBox3.MaxLength = 17;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(96, 20);
-            this.textBox3.TabIndex = 15;
+            this.HousingTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.HousingTextBox.Location = new System.Drawing.Point(180, 9);
+            this.HousingTextBox.MaxLength = 10;
+            this.HousingTextBox.Name = "HousingTextBox";
+            this.HousingTextBox.Size = new System.Drawing.Size(96, 20);
+            this.HousingTextBox.TabIndex = 15;
             // 
             // HousingLabel
             // 
@@ -139,14 +146,14 @@
             this.HousingLabel.Text = "Корпус:";
             this.HousingLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // textBox2
+            // RoomTextBox
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Location = new System.Drawing.Point(367, 9);
-            this.textBox2.MaxLength = 17;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(98, 20);
-            this.textBox2.TabIndex = 13;
+            this.RoomTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.RoomTextBox.Location = new System.Drawing.Point(367, 9);
+            this.RoomTextBox.MaxLength = 10;
+            this.RoomTextBox.Name = "RoomTextBox";
+            this.RoomTextBox.Size = new System.Drawing.Size(98, 20);
+            this.RoomTextBox.TabIndex = 13;
             // 
             // RoomLabel
             // 
@@ -160,14 +167,15 @@
             this.RoomLabel.Text = "Квартира:";
             this.RoomLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // textBox1
+            // HouseTextBox
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(3, 9);
-            this.textBox1.MaxLength = 17;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(96, 20);
-            this.textBox1.TabIndex = 11;
+            this.HouseTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.HouseTextBox.Location = new System.Drawing.Point(3, 9);
+            this.HouseTextBox.MaxLength = 10;
+            this.HouseTextBox.Name = "HouseTextBox";
+            this.HouseTextBox.Size = new System.Drawing.Size(96, 20);
+            this.HouseTextBox.TabIndex = 11;
+            this.HouseTextBox.TextChanged += new System.EventHandler(this.HouseTextBox_TextChanged);
             // 
             // HouseLabel
             // 
@@ -181,29 +189,29 @@
             this.HouseLabel.Text = "Дом:";
             this.HouseLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // NameLabel
+            // PostalCodeLabel
             // 
-            this.NameLabel.AutoSize = true;
-            this.NameLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.NameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.NameLabel.Location = new System.Drawing.Point(3, 0);
-            this.NameLabel.Name = "NameLabel";
-            this.NameLabel.Size = new System.Drawing.Size(124, 44);
-            this.NameLabel.TabIndex = 0;
-            this.NameLabel.Text = "Индекс:";
-            this.NameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.PostalCodeLabel.AutoSize = true;
+            this.PostalCodeLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PostalCodeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.PostalCodeLabel.Location = new System.Drawing.Point(3, 0);
+            this.PostalCodeLabel.Name = "PostalCodeLabel";
+            this.PostalCodeLabel.Size = new System.Drawing.Size(124, 44);
+            this.PostalCodeLabel.TabIndex = 0;
+            this.PostalCodeLabel.Text = "Индекс:";
+            this.PostalCodeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // TypeLabel
+            // CityOrAreaLabel
             // 
-            this.TypeLabel.AutoSize = true;
-            this.TypeLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TypeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.TypeLabel.Location = new System.Drawing.Point(3, 44);
-            this.TypeLabel.Name = "TypeLabel";
-            this.TypeLabel.Size = new System.Drawing.Size(124, 44);
-            this.TypeLabel.TabIndex = 2;
-            this.TypeLabel.Text = "Город/район:";
-            this.TypeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.CityOrAreaLabel.AutoSize = true;
+            this.CityOrAreaLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CityOrAreaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.CityOrAreaLabel.Location = new System.Drawing.Point(3, 44);
+            this.CityOrAreaLabel.Name = "CityOrAreaLabel";
+            this.CityOrAreaLabel.Size = new System.Drawing.Size(124, 44);
+            this.CityOrAreaLabel.TabIndex = 2;
+            this.CityOrAreaLabel.Text = "Город/район:";
+            this.CityOrAreaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // PlaceLabel
             // 
@@ -229,13 +237,16 @@
             this.StreetLabel.Text = "Улица:";
             this.StreetLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // NameTextBox
+            // PostalCodeTextBox
             // 
-            this.NameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.NameTextBox.Location = new System.Drawing.Point(133, 12);
-            this.NameTextBox.Name = "NameTextBox";
-            this.NameTextBox.Size = new System.Drawing.Size(468, 20);
-            this.NameTextBox.TabIndex = 7;
+            this.PostalCodeTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.PostalCodeTextBox.Location = new System.Drawing.Point(133, 12);
+            this.PostalCodeTextBox.MaxLength = 6;
+            this.PostalCodeTextBox.Name = "PostalCodeTextBox";
+            this.PostalCodeTextBox.Size = new System.Drawing.Size(468, 20);
+            this.PostalCodeTextBox.TabIndex = 7;
+            this.PostalCodeTextBox.TextChanged += new System.EventHandler(this.PostalCodeTextBox_TextChanged);
+            this.PostalCodeTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NameTextBox_KeyPress);
             // 
             // CityAndAreaComboBox
             // 
@@ -301,6 +312,7 @@
             this.CloseButton.TabIndex = 1;
             this.CloseButton.Text = "Закрыть";
             this.CloseButton.UseVisualStyleBackColor = true;
+            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
             // ApplyButton
             // 
@@ -310,6 +322,19 @@
             this.ApplyButton.TabIndex = 0;
             this.ApplyButton.Text = "Применить";
             this.ApplyButton.UseVisualStyleBackColor = true;
+            this.ApplyButton.Click += new System.EventHandler(this.ApplyButton_Click);
+            // 
+            // CityAndAreaErrorProvider
+            // 
+            this.CityAndAreaErrorProvider.ContainerControl = this;
+            // 
+            // HouseNumberErrorProvider
+            // 
+            this.HouseNumberErrorProvider.ContainerControl = this;
+            // 
+            // PostalCodeErrorProvider
+            // 
+            this.PostalCodeErrorProvider.ContainerControl = this;
             // 
             // AddEditHouseForm
             // 
@@ -318,6 +343,8 @@
             this.ClientSize = new System.Drawing.Size(630, 262);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Name = "AddEditHouseForm";
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Добавление адреса";
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
@@ -326,6 +353,9 @@
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.CityAndAreaErrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HouseNumberErrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PostalCodeErrorProvider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -335,23 +365,26 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label HouseLabel;
-        private System.Windows.Forms.Label NameLabel;
-        private System.Windows.Forms.Label TypeLabel;
+        private System.Windows.Forms.Label PostalCodeLabel;
+        private System.Windows.Forms.Label CityOrAreaLabel;
         private System.Windows.Forms.Label PlaceLabel;
         private System.Windows.Forms.Label StreetLabel;
-        private System.Windows.Forms.TextBox NameTextBox;
+        private System.Windows.Forms.TextBox PostalCodeTextBox;
         private System.Windows.Forms.ComboBox CityAndAreaComboBox;
         private System.Windows.Forms.ComboBox PlaceComboBox;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button CloseButton;
         private System.Windows.Forms.Button ApplyButton;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox HousingTextBox;
         private System.Windows.Forms.Label HousingLabel;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox RoomTextBox;
         private System.Windows.Forms.Label RoomLabel;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox HouseTextBox;
         private System.Windows.Forms.ComboBox StreetComboBox;
+        private System.Windows.Forms.ErrorProvider CityAndAreaErrorProvider;
+        private System.Windows.Forms.ErrorProvider HouseNumberErrorProvider;
+        private System.Windows.Forms.ErrorProvider PostalCodeErrorProvider;
 
 
     }

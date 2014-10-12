@@ -34,13 +34,17 @@ namespace OSZN
         private void адресныйКлассификаторToolStripMenuItem_Click(object sender, EventArgs e)
         {
             KladrForm kForm = new KladrForm();
-            kForm.Show();
+            kForm.ShowDialog();
         }
 
         private void льготникиToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddEditHouseForm houseForm = new AddEditHouseForm();
-            houseForm.Show();
+        }
+
+        private void организацияToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EditViewOrganizationForm f = new EditViewOrganizationForm();
+            f.ShowDialog();
         }
     }
 }

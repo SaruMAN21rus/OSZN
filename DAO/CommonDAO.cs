@@ -15,6 +15,11 @@ namespace OSZN.DAO
             db = new DbFacadeSQLite(connectionStringBuilder);
         }
 
+        public CommonDAO(DbFacadeSQLite db)
+        {
+            this.db = db;
+        }
+
         ~CommonDAO()
         {
             db.Close();

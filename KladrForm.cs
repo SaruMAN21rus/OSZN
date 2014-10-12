@@ -97,6 +97,15 @@ namespace OSZN
         {
             SelectedAddressGuid = e.Node.Tag.ToString();
             VocAddressObjectDAO aoDAO = new VocAddressObjectDAO();
+            Dictionary<string, object> selectedAddress = aoDAO.getAddressByAOGUID(SelectedAddressGuid);
+            if (Convert.ToInt32(selectedAddress["levelId"]) == 7)
+            {
+                AddButon.Hide();
+            }
+            else
+            {
+                AddButon.Show();
+            }
             DataTable dt = aoDAO.getTableData(SelectedAddressGuid, null);
             dataGridView1.DataSource = dt;
         }
@@ -112,24 +121,28 @@ namespace OSZN
         {
             if (e.RowIndex > -1)
             {
-                ViewKladrForm viewKladr = new ViewKladrForm(dataGridView1.Rows[e.RowIndex].Cells["Guid"].Value.ToString());
+                AddEditViewKladrForm viewKladr = new AddEditViewKladrForm(dataGridView1.Rows[e.RowIndex].Cells["Guid"].Value.ToString(), "View");
                 if (viewKladr.ShowDialog(this) == DialogResult.OK)
                 {
                     VocAddressObjectDAO aoDAO = new VocAddressObjectDAO();
                     DataTable dt = aoDAO.getTableData(SelectedAddressGuid, textBox1.Text);
                     dataGridView1.DataSource = dt;
+
+                    UpdateTree();
                 }
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            AddEditKladrForm addKladr = new AddEditKladrForm(SelectedAddressGuid, false);
+            AddEditViewKladrForm addKladr = new AddEditViewKladrForm(SelectedAddressGuid, "Add");
             if (addKladr.ShowDialog(this) == DialogResult.OK)
             {
                 VocAddressObjectDAO aoDAO = new VocAddressObjectDAO();
                 DataTable dt = aoDAO.getTableData(SelectedAddressGuid, textBox1.Text);
                 dataGridView1.DataSource = dt;
+
+                UpdateTree();
             }
             
             //Оптимизировать
@@ -157,6 +170,7 @@ namespace OSZN
         {
             if (backgroundWorker1.IsBusy != true)
             {
+                this.Enabled = false;
                 backgroundWorker1.RunWorkerAsync();
             }
         }
@@ -169,6 +183,7 @@ namespace OSZN
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
+            this.Enabled = true;
             if (e.Error != null)
             {
                 MessageBox.Show(e.Error.Message);
@@ -177,6 +192,40 @@ namespace OSZN
             {
                 MessageBox.Show(e.Result.ToString());
             }
+        }
+
+        public TreeNode FindNodeByTag(string itemId, TreeNode rootNode)
+        {
+            if (rootNode.Tag.Equals(itemId)) return rootNode;
+            else
+            {
+                foreach (TreeNode node in rootNode.Nodes)
+                {
+                    if (node.Tag.Equals(itemId)) return node;
+                    TreeNode next = FindNodeByTag(itemId, node);
+                    if (next != null) return next;
+                }
+                return null;
+            }
+        }
+
+        public void UpdateTree()
+        {
+            TreeNode parentNode = null;
+            foreach (TreeNode node in kladrTree.Nodes)
+            {
+                parentNode = FindNodeByTag(SelectedAddressGuid, node);
+                if (parentNode != null) break;
+            }
+            parentNode.Nodes.Clear();
+            TreeNode dummyNode = new TreeNode("Загрузка. Пожалуйста подождите...");
+            dummyNode.Tag = "dummy";
+            parentNode.Nodes.Add(dummyNode);
+            IEnumerable<TreeNodeData> childItems = GetChildData(SelectedAddressGuid);
+            kladrTree.BeginInvoke((Action)delegate
+            {
+                PopulateChildren(parentNode, childItems);
+            });
         }
     }
 
