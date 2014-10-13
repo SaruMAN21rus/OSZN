@@ -67,9 +67,9 @@ namespace OSZN
         {
             get
             {
-                string tb = "";
+                string tb = typeBrief;
                 if (typeBriefHasPoint) {
-                    tb = typeBrief + "."; 
+                    tb += ".";
                 }
                 if (typeBriefInLeft)
                 {

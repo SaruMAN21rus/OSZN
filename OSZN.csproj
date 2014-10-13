@@ -66,6 +66,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddEditViewExemptForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEditViewExemptForm.Designer.cs">
+      <DependentUpon>AddEditViewExemptForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddressObject.cs" />
     <Compile Include="AddEditViewKladrForm.cs">
       <SubType>Form</SubType>
@@ -90,6 +96,12 @@
     <Compile Include="EditViewOrganizationForm.Designer.cs">
       <DependentUpon>EditViewOrganizationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ExemptListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExemptListForm.Designer.cs">
+      <DependentUpon>ExemptListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="House.cs" />
     <Compile Include="UpdateAddressObject.cs" />
     <Compile Include="Utils\DbFacadeSQLite.cs" />
@@ -112,6 +124,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddEditViewExemptForm.resx">
+      <DependentUpon>AddEditViewExemptForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddEditViewKladrForm.resx">
       <DependentUpon>AddEditViewKladrForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -120,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EditViewOrganizationForm.resx">
       <DependentUpon>EditViewOrganizationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExemptListForm.resx">
+      <DependentUpon>ExemptListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KladrForm.resx">
       <DependentUpon>KladrForm.cs</DependentUpon>

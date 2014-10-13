@@ -36,6 +36,7 @@ namespace OSZN
             btn.Location = new Point(AddressTextBox.ClientSize.Width - btn.Width, -1);
             btn.Cursor = Cursors.Default;
             btn.Text = "∙∙∙";
+            btn.Anchor = AnchorStyles.Right;
             AddressTextBox.Controls.Add(btn);
             // Send EM_SETMARGINS to prevent text from disappearing underneath the button
             SendMessage(AddressTextBox.Handle, 0xd3, (IntPtr)2, (IntPtr)(btn.Width << 16));

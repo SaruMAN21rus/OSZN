@@ -39,6 +39,8 @@ namespace OSZN
 
         private void льготникиToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            ExemptListForm f = new ExemptListForm();
+            f.ShowDialog();
         }
 
         private void организацияToolStripMenuItem_Click(object sender, EventArgs e)
