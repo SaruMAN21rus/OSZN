@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.AddButon = new System.Windows.Forms.Button();
             this.SearchLabel = new System.Windows.Forms.Label();
             this.SearchTextBox = new System.Windows.Forms.TextBox();
             this.ExemptListGrid = new System.Windows.Forms.DataGridView();
-            this.ObjectName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GUID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.passport = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sex = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BirthDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SNILS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -119,82 +119,90 @@
             this.ExemptListGrid.AllowUserToDeleteRows = false;
             this.ExemptListGrid.BackgroundColor = System.Drawing.SystemColors.Control;
             this.ExemptListGrid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ExemptListGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ExemptListGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.ExemptListGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ExemptListGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ObjectName,
-            this.Type,
-            this.Code,
-            this.GUID,
+            this.fio,
+            this.id,
+            this.passport,
+            this.sex,
             this.BirthDate,
             this.SNILS,
             this.Address});
             this.ExemptListGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ExemptListGrid.Location = new System.Drawing.Point(3, 43);
+            this.ExemptListGrid.MultiSelect = false;
             this.ExemptListGrid.Name = "ExemptListGrid";
             this.ExemptListGrid.ReadOnly = true;
             this.ExemptListGrid.RowHeadersVisible = false;
+            this.ExemptListGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.ExemptListGrid.Size = new System.Drawing.Size(978, 299);
             this.ExemptListGrid.TabIndex = 5;
+            this.ExemptListGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ExemptListGrid_CellDoubleClick);
             // 
-            // ObjectName
+            // fio
             // 
-            this.ObjectName.DataPropertyName = "FORMALNAME";
-            this.ObjectName.HeaderText = "ФИО";
-            this.ObjectName.MinimumWidth = 50;
-            this.ObjectName.Name = "ObjectName";
-            this.ObjectName.ReadOnly = true;
-            this.ObjectName.Width = 200;
+            this.fio.DataPropertyName = "fio";
+            this.fio.HeaderText = "ФИО";
+            this.fio.MinimumWidth = 50;
+            this.fio.Name = "fio";
+            this.fio.ReadOnly = true;
+            this.fio.Width = 200;
             // 
-            // Type
+            // id
             // 
-            this.Type.DataPropertyName = "TYPE";
-            this.Type.HeaderText = "ИД";
-            this.Type.MinimumWidth = 50;
-            this.Type.Name = "Type";
-            this.Type.ReadOnly = true;
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "ИД";
+            this.id.MinimumWidth = 50;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 80;
             // 
-            // Code
+            // passport
             // 
-            this.Code.DataPropertyName = "CODE";
-            this.Code.HeaderText = "Паспортные данные";
-            this.Code.MinimumWidth = 100;
-            this.Code.Name = "Code";
-            this.Code.ReadOnly = true;
-            this.Code.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Code.Width = 200;
+            this.passport.DataPropertyName = "document";
+            this.passport.HeaderText = "Паспортные данные";
+            this.passport.MinimumWidth = 100;
+            this.passport.Name = "passport";
+            this.passport.ReadOnly = true;
+            this.passport.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.passport.Width = 200;
             // 
-            // GUID
+            // sex
             // 
-            this.GUID.DataPropertyName = "AOGUID";
-            this.GUID.HeaderText = "Пол";
-            this.GUID.Name = "GUID";
-            this.GUID.ReadOnly = true;
-            this.GUID.Visible = false;
+            this.sex.DataPropertyName = "sex";
+            this.sex.HeaderText = "Пол";
+            this.sex.Name = "sex";
+            this.sex.ReadOnly = true;
+            this.sex.Width = 55;
             // 
             // BirthDate
             // 
+            this.BirthDate.DataPropertyName = "birth_date";
             this.BirthDate.HeaderText = "Дата рождения";
             this.BirthDate.Name = "BirthDate";
             this.BirthDate.ReadOnly = true;
-            this.BirthDate.Width = 125;
+            this.BirthDate.Width = 123;
             // 
             // SNILS
             // 
+            this.SNILS.DataPropertyName = "SNILS";
             this.SNILS.HeaderText = "СНИЛС";
             this.SNILS.Name = "SNILS";
             this.SNILS.ReadOnly = true;
+            this.SNILS.Width = 90;
             // 
             // Address
             // 
             this.Address.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Address.DataPropertyName = "address";
             this.Address.HeaderText = "Адрес места проживания";
             this.Address.Name = "Address";
             this.Address.ReadOnly = true;
@@ -223,10 +231,10 @@
         private System.Windows.Forms.Label SearchLabel;
         private System.Windows.Forms.TextBox SearchTextBox;
         private System.Windows.Forms.DataGridView ExemptListGrid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ObjectName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Type;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Code;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GUID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn passport;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sex;
         private System.Windows.Forms.DataGridViewTextBoxColumn BirthDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn SNILS;
         private System.Windows.Forms.DataGridViewTextBoxColumn Address;

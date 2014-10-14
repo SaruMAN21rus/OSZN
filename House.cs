@@ -53,6 +53,25 @@ namespace OSZN
             }
         }
 
+        public string code
+        {
+            get
+            {
+                if (street != null)
+                {
+                    return street.code;
+                }
+                else if (place != null)
+                {
+                    return place.code;
+                }
+                else
+                {
+                    return cityOrArea.code;
+                }
+            }
+        }
+
     }
 
     public class VocAddressObject
@@ -62,7 +81,7 @@ namespace OSZN
         public string typeBrief { get; set; }
         public bool typeBriefHasPoint { get; set; }
         public bool typeBriefInLeft { get; set; }
-
+        public string code { get; set; }
         public string fullName
         {
             get

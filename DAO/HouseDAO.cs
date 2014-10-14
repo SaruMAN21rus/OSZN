@@ -46,7 +46,7 @@ namespace OSZN.DAO
             return house;
         }
 
-        public int insertHouse(House house)
+        public int saveHouse(House house)
         {
             ParametersCollection parameters = new ParametersCollection();
             parameters.Add("city_or_area_id", house.cityOrArea.id, System.Data.DbType.Int32);
@@ -62,26 +62,15 @@ namespace OSZN.DAO
             parameters.Add("house_number", house.houseNumber, System.Data.DbType.String);
             parameters.Add("housing_number", house.housingNumber, System.Data.DbType.String);
             parameters.Add("room_number", house.roomNumber, System.Data.DbType.String);
-            return db.Insert("house", parameters);
-        }
-
-        public void updateHouse(House house)
-        {
-            ParametersCollection parameters = new ParametersCollection();
-            parameters.Add("city_or_area_id", house.cityOrArea.id, System.Data.DbType.Int32);
-            if (house.place != null)
+            if (house.id != null)
             {
-                parameters.Add("place_id", house.place.id, System.Data.DbType.Int32);
+                db.Update("house", parameters, "id = " + house.id);
+                return house.id.Value;
             }
-            if (house.street != null)
+            else
             {
-                parameters.Add("street_id", house.street.id, System.Data.DbType.Int32);
+                return db.Insert("house", parameters);
             }
-            parameters.Add("postal_code", house.postalCode, System.Data.DbType.String);
-            parameters.Add("house_number", house.houseNumber, System.Data.DbType.String);
-            parameters.Add("housing_number", house.housingNumber, System.Data.DbType.String);
-            parameters.Add("room_number", house.roomNumber, System.Data.DbType.String);
-            db.Update("house", parameters, "id = " + house.id);
         }
     }
 }

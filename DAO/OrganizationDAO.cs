@@ -23,14 +23,7 @@ namespace OSZN.DAO
         {
             db.BeginTransaction();
             HouseDAO hDAO = new HouseDAO(db);
-            if (house.id != null)
-            {
-                hDAO.updateHouse(house);
-            }
-            else
-            {
-                house.id = hDAO.insertHouse(house);
-            }
+            house.id = hDAO.saveHouse(house);
             parameters.Add("HOUSE_ID", house.id, System.Data.DbType.Int32);
             if (add)
             {

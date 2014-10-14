@@ -131,7 +131,7 @@ namespace OSZN.DAO
                 .From("VOC_ADDRESS_OBJECT as ao")
                 .Join("VOC_ADDRESS_TYPE at", "ao.AOLEVEL = at.LEVEL and ao.SHORTNAME = at.SOCRNAME", SQLJoinTypes.LEFT_JOIN)
                 .Columns("ao.id, ao.formalname, ao.aoguid, CASE WHEN at.SCNAME is null THEN ao.SHORTNAME ELSE at.SCNAME END as type"
-                        + ", ao.SHORTNAME as typeBrief, at.POINT, at.LEFT")
+                        + ", ao.SHORTNAME as typeBrief, at.POINT, at.LEFT, ao.CODE")
                 .Where("aolevel in (3,4) and currstatus = 0 and parentguid = (select aoguid from voc_address_object where currstatus = 0 and parentguid is null)")
                 .Order("ao.code ASC");
             DataTable dt = db.Execute(select);
@@ -148,7 +148,7 @@ namespace OSZN.DAO
                 .From("VOC_ADDRESS_OBJECT as ao")
                 .Join("VOC_ADDRESS_TYPE at", "ao.AOLEVEL = at.LEVEL and ao.SHORTNAME = at.SOCRNAME", SQLJoinTypes.LEFT_JOIN)
                 .Columns("ao.id, ao.formalname, ao.aoguid, CASE WHEN at.SCNAME is null THEN ao.SHORTNAME ELSE at.SCNAME END as type"
-                        + ", ao.SHORTNAME as typeBrief, at.POINT, at.LEFT")
+                        + ", ao.SHORTNAME as typeBrief, at.POINT, at.LEFT, ao.CODE")
                 .Where("aolevel = 6 and currstatus = 0 and parentguid='" + parentAddressGuid + "'")
                 .Order("ao.code ASC");
             DataTable dt = db.Execute(select);
@@ -168,7 +168,7 @@ namespace OSZN.DAO
                 .From("VOC_ADDRESS_OBJECT as ao")
                 .Join("VOC_ADDRESS_TYPE at", "ao.AOLEVEL = at.LEVEL and ao.SHORTNAME = at.SOCRNAME", SQLJoinTypes.LEFT_JOIN)
                 .Columns("ao.id, ao.formalname, ao.aoguid, CASE WHEN at.SCNAME is null THEN ao.SHORTNAME ELSE at.SCNAME END as type"
-                        + ", ao.SHORTNAME as typeBrief, at.POINT, at.LEFT")
+                        + ", ao.SHORTNAME as typeBrief, at.POINT, at.LEFT, ao.CODE")
                 .Where("aolevel in (7) and currstatus = 0 and parentguid='" + parentAddressGuid + "'")
                 .Order("ao.code ASC");
             DataTable dt = db.Execute(select);
@@ -216,7 +216,7 @@ namespace OSZN.DAO
 
         public VocAddressObject getAddressById(int id)
         {
-            Dictionary<string, object> a = db.FetchOneRow("select ao.ID, ao.FORMALNAME, ao.SHORTNAME,  at.POINT, at.LEFT "
+            Dictionary<string, object> a = db.FetchOneRow("select ao.ID, ao.FORMALNAME, ao.SHORTNAME,  at.POINT, at.LEFT, ao.CODE "
                 + "from VOC_ADDRESS_OBJECT ao "
                 + "left join VOC_ADDRESS_TYPE at on ao.AOLEVEL = at.LEVEL and ao.SHORTNAME = at.SOCRNAME "
                 + "where ao.ID = " + id);
@@ -226,6 +226,7 @@ namespace OSZN.DAO
             vao.typeBrief = a["SHORTNAME"].ToString();
             vao.typeBriefHasPoint = Convert.ToBoolean(a["POINT"]);
             vao.typeBriefInLeft = Convert.ToBoolean(a["LEFT"]);
+            vao.code = a["CODE"].ToString();
             return vao;
         }
     }

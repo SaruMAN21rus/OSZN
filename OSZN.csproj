@@ -79,6 +79,8 @@
     <Compile Include="AddEditViewKladrForm.Designer.cs">
       <DependentUpon>AddEditViewKladrForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DAO\ExemptDAO.cs" />
+    <Compile Include="ExemtHouseroom.cs" />
     <Compile Include="DAO\VocAddressObjectDAO.cs" />
     <Compile Include="DAO\CatalogDAO.cs" />
     <Compile Include="DAO\CommonDAO.cs" />
@@ -96,6 +98,7 @@
     <Compile Include="EditViewOrganizationForm.Designer.cs">
       <DependentUpon>EditViewOrganizationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Exempt.cs" />
     <Compile Include="ExemptListForm.cs">
       <SubType>Form</SubType>
     </Compile>

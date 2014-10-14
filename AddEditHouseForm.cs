@@ -157,6 +157,7 @@ namespace OSZN
             ao.typeBrief = selectedRow["typeBrief"].ToString();
             ao.typeBriefHasPoint = Convert.ToBoolean(selectedRow["POINT"]);
             ao.typeBriefInLeft = Convert.ToBoolean(selectedRow["LEFT"]);
+            ao.code = selectedRow["CODE"].ToString();
             return ao;
         }
 
