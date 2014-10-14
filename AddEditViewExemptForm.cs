@@ -15,6 +15,9 @@ namespace OSZN
     {
         Exempt exempt;
         int? exemptId;
+        int? houseId;
+
+        private Button AddressTextBoxClearButton;
 
         public AddEditViewExemptForm(int? exemptId)
         {
@@ -29,6 +32,10 @@ namespace OSZN
                 setViewData();
                 panel1.Hide();
                 panel2.Show();
+                if (exempt.houseId != null)
+                {
+                    this.houseId = exempt.houseId;
+                }
             }
             else
             {
@@ -166,17 +173,51 @@ namespace OSZN
 
         protected override void OnLoad(EventArgs e)
         {
+            var panel = new FlowLayoutPanel();
+            panel.Size = new Size(42, AddressTextBox.ClientSize.Height + 2);
+            panel.Location = new Point(AddressTextBox.ClientSize.Width - panel.Width, -1);
+            panel.Anchor = AnchorStyles.Right;
+            panel.FlowDirection = FlowDirection.RightToLeft;
+
+            AddressTextBoxClearButton = new Button();
+            AddressTextBoxClearButton.Size = new Size(AddressTextBox.ClientSize.Height + 2, AddressTextBox.ClientSize.Height + 2);
+            AddressTextBoxClearButton.BackColor = Color.Transparent;
+            AddressTextBoxClearButton.BackgroundImage = Properties.Resources.e10a_Cancel_48;
+            AddressTextBoxClearButton.BackgroundImageLayout = ImageLayout.Stretch;
+            AddressTextBoxClearButton.Cursor = Cursors.Default;
+            AddressTextBoxClearButton.FlatAppearance.BorderSize = 0;
+            AddressTextBoxClearButton.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            AddressTextBoxClearButton.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            AddressTextBoxClearButton.FlatStyle = FlatStyle.Flat;
+            AddressTextBoxClearButton.Margin = new Padding(0);
+            AddressTextBoxClearButton.UseVisualStyleBackColor = false;
+            AddressTextBoxClearButton.Click += AddressTextBoxClearButton_Click;
+            AddressTextBoxClearButton.Hide();
+            ToolTip clearButtontoolTip = new ToolTip();
+            clearButtontoolTip.AutomaticDelay = 100;
+            clearButtontoolTip.AutoPopDelay = 5000;
+            clearButtontoolTip.SetToolTip(AddressTextBoxClearButton, "Очистить");
+            
             var btn = new Button();
             btn.Size = new Size(24, AddressTextBox.ClientSize.Height + 2);
-            btn.Location = new Point(AddressTextBox.ClientSize.Width - btn.Width, -1);
             btn.Cursor = Cursors.Default;
+            btn.Margin = new Padding(0);
             btn.Text = "∙∙∙";
-            btn.Anchor = AnchorStyles.Right;
-            AddressTextBox.Controls.Add(btn);
-            // Send EM_SETMARGINS to prevent text from disappearing underneath the button
-            SendMessage(AddressTextBox.Handle, 0xd3, (IntPtr)2, (IntPtr)(btn.Width << 16));
             btn.Click += new System.EventHandler(this.AddressTextBoxButton_Click);
+
+            panel.Controls.Add(btn);
+            panel.Controls.Add(AddressTextBoxClearButton);
+            AddressTextBox.Controls.Add(panel);
+            // Send EM_SETMARGINS to prevent text from disappearing underneath the button
+            SendMessage(AddressTextBox.Handle, 0xd3, (IntPtr)2, (IntPtr)(panel.Width << 16));
             base.OnLoad(e);
+        }
+
+        void AddressTextBoxClearButton_Click(object sender, EventArgs e)
+        {
+            AddressTextBox.Clear();
+            CodeTextBox.Clear();
+            exempt.house = null;
         }
 
         [System.Runtime.InteropServices.DllImport("user32.dll")]
@@ -220,6 +261,10 @@ namespace OSZN
                 this.exempt.house = f.ReturnData();
                 AddressTextBox.Text = exempt.house.fullAddress;
                 CodeTextBox.Text = exempt.house.code;
+                if (this.houseId != null)
+                {
+                    this.exempt.houseId = this.houseId;
+                }
             }
         }
 
@@ -238,6 +283,18 @@ namespace OSZN
             setEditData();
             panel1.Show();
             panel2.Hide();
+        }
+
+        private void AddressTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(AddressTextBox.Text))
+            {
+                AddressTextBoxClearButton.Hide();
+            }
+            else
+            {
+                AddressTextBoxClearButton.Show();
+            }
         }
     }
 }
