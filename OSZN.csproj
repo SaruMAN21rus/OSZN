@@ -66,58 +66,79 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddEditViewExemptForm.cs">
+    <Compile Include="DAO\ExemptHouseroomDAO.cs" />
+    <Compile Include="DAO\RelationshipDegreeDAO.cs" />
+    <Compile Include="Forms\AddEditViewExemptForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddEditViewExemptForm.Designer.cs">
+    <Compile Include="Forms\AddEditViewExemptForm.Designer.cs">
       <DependentUpon>AddEditViewExemptForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddressObject.cs" />
-    <Compile Include="AddEditViewKladrForm.cs">
+    <Compile Include="Forms\AddEditViewFamilyMember.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddEditViewKladrForm.Designer.cs">
+    <Compile Include="Forms\AddEditViewFamilyMember.Designer.cs">
+      <DependentUpon>AddEditViewFamilyMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AddEditViewRelationshipDegreeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddEditViewRelationshipDegreeForm.Designer.cs">
+      <DependentUpon>AddEditViewRelationshipDegreeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RelationshipDegreeList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RelationshipDegreeList.Designer.cs">
+      <DependentUpon>RelationshipDegreeList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AddressObject.cs" />
+    <Compile Include="Forms\AddEditViewKladrForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddEditViewKladrForm.Designer.cs">
       <DependentUpon>AddEditViewKladrForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DAO\ExemptDAO.cs" />
-    <Compile Include="ExemtHouseroom.cs" />
+    <Compile Include="Model\ExemptHouseroom.cs" />
     <Compile Include="DAO\VocAddressObjectDAO.cs" />
     <Compile Include="DAO\CatalogDAO.cs" />
     <Compile Include="DAO\CommonDAO.cs" />
-    <Compile Include="AddEditHouseForm.cs">
+    <Compile Include="Forms\AddEditHouseForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddEditHouseForm.Designer.cs">
+    <Compile Include="Forms\AddEditHouseForm.Designer.cs">
       <DependentUpon>AddEditHouseForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DAO\HouseDAO.cs" />
     <Compile Include="DAO\OrganizationDAO.cs" />
-    <Compile Include="EditViewOrganizationForm.cs">
+    <Compile Include="Forms\EditViewOrganizationForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditViewOrganizationForm.Designer.cs">
+    <Compile Include="Forms\EditViewOrganizationForm.Designer.cs">
       <DependentUpon>EditViewOrganizationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Exempt.cs" />
-    <Compile Include="ExemptListForm.cs">
+    <Compile Include="Model\Exempt.cs" />
+    <Compile Include="Forms\ExemptListForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ExemptListForm.Designer.cs">
+    <Compile Include="Forms\ExemptListForm.Designer.cs">
       <DependentUpon>ExemptListForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="House.cs" />
+    <Compile Include="Model\House.cs" />
+    <Compile Include="Model\RelationshipDegree.cs" />
     <Compile Include="UpdateAddressObject.cs" />
     <Compile Include="Utils\DbFacadeSQLite.cs" />
-    <Compile Include="KladrForm.cs">
+    <Compile Include="Forms\KladrForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="KladrForm.Designer.cs">
+    <Compile Include="Forms\KladrForm.Designer.cs">
       <DependentUpon>KladrForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="HeadForm.cs">
+    <Compile Include="Forms\HeadForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HeadForm.Designer.cs">
+    <Compile Include="Forms\HeadForm.Designer.cs">
       <DependentUpon>HeadForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -127,26 +148,35 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AddEditViewExemptForm.resx">
+    <EmbeddedResource Include="Forms\AddEditViewExemptForm.resx">
       <DependentUpon>AddEditViewExemptForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddEditViewKladrForm.resx">
+    <EmbeddedResource Include="Forms\AddEditViewFamilyMember.resx">
+      <DependentUpon>AddEditViewFamilyMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddEditViewKladrForm.resx">
       <DependentUpon>AddEditViewKladrForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddEditHouseForm.resx">
+    <EmbeddedResource Include="Forms\AddEditHouseForm.resx">
       <DependentUpon>AddEditHouseForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditViewOrganizationForm.resx">
+    <EmbeddedResource Include="Forms\AddEditViewRelationshipDegreeForm.resx">
+      <DependentUpon>AddEditViewRelationshipDegreeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditViewOrganizationForm.resx">
       <DependentUpon>EditViewOrganizationForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ExemptListForm.resx">
+    <EmbeddedResource Include="Forms\ExemptListForm.resx">
       <DependentUpon>ExemptListForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="KladrForm.resx">
+    <EmbeddedResource Include="Forms\KladrForm.resx">
       <DependentUpon>KladrForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HeadForm.resx">
+    <EmbeddedResource Include="Forms\HeadForm.resx">
       <DependentUpon>HeadForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RelationshipDegreeList.resx">
+      <DependentUpon>RelationshipDegreeList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

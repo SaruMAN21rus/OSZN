@@ -54,9 +54,17 @@ namespace OSZN.DAO
             {
                 parameters.Add("place_id", house.place.id, System.Data.DbType.Int32);
             }
+            else
+            {
+                parameters.Add("place_id", null, System.Data.DbType.Int32);
+            }
             if (house.street != null)
             {
                 parameters.Add("street_id", house.street.id, System.Data.DbType.Int32);
+            }
+            else
+            {
+                parameters.Add("street_id", null, System.Data.DbType.Int32);
             }
             parameters.Add("postal_code", house.postalCode, System.Data.DbType.String);
             parameters.Add("house_number", house.houseNumber, System.Data.DbType.String);

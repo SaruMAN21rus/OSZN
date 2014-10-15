@@ -18,8 +18,7 @@ namespace OSZN.DAO
         public DataTable getExempts(string searchText)
         {
             Select select = new Select()
-                .From("EXEMPT as e")
-                .Join("HOUSE h", "e.house_id = h.id", SQLJoinTypes.LEFT_JOIN);
+                .From("EXEMPT as e");
                 if (searchText != null) {
                     //select.Where("aolevel in (7) and currstatus = 0 and parentguid='" + parentAddressGuid + "'")
                 }
@@ -42,7 +41,7 @@ namespace OSZN.DAO
                 dt.Columns.Add("address");
                 foreach (DataRow dr in dt.Rows)
                 {
-                    if (dr["house_id"] != null)
+                    if (dr["house_id"] != null && !DBNull.Value.Equals(dr["house_id"]))
                         dr["address"] = new HouseDAO(db).getAddressById(Convert.ToInt32(dr["house_id"])).fullAddress;
                 }
             }
