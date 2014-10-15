@@ -29,6 +29,7 @@ namespace OSZN
             InitializeComponent();
 
             IDErrorProvider.SetIconAlignment(IDTextBox, ErrorIconAlignment.MiddleRight);
+            this.FamilyMemberListGrid.AutoGenerateColumns = false;
 
             BirthDateDateTimePicker.CustomFormat = "''";
             BirthDateDateTimePicker.Format = DateTimePickerFormat.Custom;
@@ -88,7 +89,6 @@ namespace OSZN
             ResidentsCountValue.Text = exemptHouseroom.residentsCount.ToString();
             RoomsCountValue.Text = exemptHouseroom.roomsCount.ToString();
             FamilyMembersCountValue.Text = exemptHouseroom.familyMembersCount.ToString();
-
         }
 
         private void setDataForSave()
@@ -490,6 +490,7 @@ namespace OSZN
                 AddressValue2.Text = exempt.house.fullAddress;
                 CodeValue2.Text = exempt.house.code;
             }
+            LoadFamilyMembers();
         }
 
         private void setServicePageViewData()
@@ -510,8 +511,11 @@ namespace OSZN
 
         private void AddMember_Click(object sender, EventArgs e)
         {
-            AddEditViewFamilyMember f = new AddEditViewFamilyMember();
-            f.ShowDialog();
+            AddEditViewFamilyMember f = new AddEditViewFamilyMember(null, exempt);
+            if (f.ShowDialog(this) == DialogResult.OK)
+            {
+                LoadFamilyMembers();
+            }
         }
 
         private void AddEditViewExemptForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -519,6 +523,36 @@ namespace OSZN
             if (refreshTable)
             {
                 this.DialogResult = DialogResult.OK;
+            }
+        }
+
+        private void LoadFamilyMembers()
+        {
+            if (exempt.id != null)
+            {
+                FamilyMembersDAO fmDAO = new FamilyMembersDAO();
+                FamilyMemberListGrid.DataSource = fmDAO.getExemptFamilyMembers(exempt.id.Value);
+            }
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (exempt.id == null && tabControl1.SelectedTab != generalPage)
+            {
+                tabControl1.SelectedTab = generalPage;
+                DialogResult result = MessageBox.Show("Необходимо сохранить данные на вкладке \"Общее\"!",
+                "Ошибка",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+            }
+        }
+
+        private void FamilyMemberListGrid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            AddEditViewFamilyMember f = new AddEditViewFamilyMember(Convert.ToInt32(FamilyMemberListGrid.Rows[e.RowIndex].Cells["id"].Value), exempt);
+            if (f.ShowDialog(this) == DialogResult.OK)
+            {
+                LoadFamilyMembers();
             }
         }
     }

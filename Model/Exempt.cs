@@ -1,4 +1,5 @@
 ﻿using DatabaseLib;
+using OSZN.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace OSZN
 {
-    class Exempt
+    public class Exempt
     {
         public int? id { get; set; }
         public DateTime createDate { get; set; }

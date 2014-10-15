@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.generalPage = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -110,7 +110,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
+            this.RoomsCountTextBox = new System.Windows.Forms.TextBox();
             this.RoomsCountLabel = new System.Windows.Forms.Label();
+            this.FamilyMembersCount = new System.Windows.Forms.TextBox();
             this.FamilyMembersCountLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
             this.DocumentIssuerLabel = new System.Windows.Forms.Label();
@@ -149,6 +151,9 @@
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.PersonalCodeTextBox = new System.Windows.Forms.TextBox();
             this.PersonalAccountLabel = new System.Windows.Forms.Label();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.CreateDateTextBox = new System.Windows.Forms.TextBox();
+            this.CreateDateLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.idLabel = new System.Windows.Forms.Label();
             this.IDTextBox = new System.Windows.Forms.TextBox();
@@ -169,6 +174,7 @@
             this.LivingAreaLabel = new System.Windows.Forms.Label();
             this.LivingAreaTextBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel20 = new System.Windows.Forms.TableLayoutPanel();
+            this.ResidentsCountTextBox = new System.Windows.Forms.TextBox();
             this.ResidentsCountLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
             this.PropertyTypeLabel = new System.Windows.Forms.Label();
@@ -184,7 +190,7 @@
             this.label39 = new System.Windows.Forms.Label();
             this.CodeValue2 = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
-            this.MemberListGrid = new System.Windows.Forms.DataGridView();
+            this.FamilyMemberListGrid = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel50 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel52 = new System.Windows.Forms.TableLayoutPanel();
             this.NameValue2 = new System.Windows.Forms.Label();
@@ -215,6 +221,12 @@
             this.CodeValue3 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.ServiceDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel58 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel59 = new System.Windows.Forms.TableLayoutPanel();
             this.NameValue3 = new System.Windows.Forms.Label();
@@ -238,25 +250,14 @@
             this.tableLayoutPanel65 = new System.Windows.Forms.TableLayoutPanel();
             this.label52 = new System.Windows.Forms.Label();
             this.SearchYearComboBox = new System.Windows.Forms.ComboBox();
-            this.ResidentsCountTextBox = new System.Windows.Forms.TextBox();
-            this.RoomsCountTextBox = new System.Windows.Forms.TextBox();
-            this.FamilyMembersCount = new System.Windows.Forms.TextBox();
             this.IDErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.CreateDateLabel = new System.Windows.Forms.Label();
-            this.CreateDateTextBox = new System.Windows.Forms.TextBox();
-            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.ObjectName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BirthDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GUID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SNILS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MemberLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MemberName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MemberMiddleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MemberBirthDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MemberSex = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MemberRelationshipDegree = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.generalPage.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -299,6 +300,7 @@
             this.tableLayoutPanel8.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
+            this.tableLayoutPanel6.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel16.SuspendLayout();
@@ -312,7 +314,7 @@
             this.panel3.SuspendLayout();
             this.tableLayoutPanel47.SuspendLayout();
             this.tableLayoutPanel55.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MemberListGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FamilyMemberListGrid)).BeginInit();
             this.tableLayoutPanel50.SuspendLayout();
             this.tableLayoutPanel52.SuspendLayout();
             this.tableLayoutPanel51.SuspendLayout();
@@ -334,7 +336,6 @@
             this.tableLayoutPanel64.SuspendLayout();
             this.tableLayoutPanel65.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.IDErrorProvider)).BeginInit();
-            this.tableLayoutPanel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -350,6 +351,7 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(827, 365);
             this.tabControl1.TabIndex = 0;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             this.tabControl1.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl1_Selected);
             // 
             // generalPage
@@ -1123,7 +1125,7 @@
             this.tableLayoutPanel41.ColumnCount = 3;
             this.tableLayoutPanel41.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.30016F));
             this.tableLayoutPanel41.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.69984F));
-            this.tableLayoutPanel41.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 315F));
+            this.tableLayoutPanel41.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 316F));
             this.tableLayoutPanel41.Controls.Add(this.tableLayoutPanel42, 0, 1);
             this.tableLayoutPanel41.Controls.Add(this.tableLayoutPanel43, 0, 1);
             this.tableLayoutPanel41.Controls.Add(this.tableLayoutPanel44, 0, 1);
@@ -1152,7 +1154,7 @@
             this.tableLayoutPanel42.Name = "tableLayoutPanel42";
             this.tableLayoutPanel42.RowCount = 1;
             this.tableLayoutPanel42.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel42.Size = new System.Drawing.Size(250, 29);
+            this.tableLayoutPanel42.Size = new System.Drawing.Size(249, 29);
             this.tableLayoutPanel42.TabIndex = 14;
             // 
             // TotalAreaValue
@@ -1162,7 +1164,7 @@
             this.TotalAreaValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.TotalAreaValue.Location = new System.Drawing.Point(158, 8);
             this.TotalAreaValue.Name = "TotalAreaValue";
-            this.TotalAreaValue.Size = new System.Drawing.Size(89, 13);
+            this.TotalAreaValue.Size = new System.Drawing.Size(88, 13);
             this.TotalAreaValue.TabIndex = 2;
             // 
             // label21
@@ -1184,7 +1186,7 @@
             this.tableLayoutPanel43.Controls.Add(this.LivingAreaValue, 0, 0);
             this.tableLayoutPanel43.Controls.Add(this.label22, 0, 0);
             this.tableLayoutPanel43.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel43.Location = new System.Drawing.Point(250, 29);
+            this.tableLayoutPanel43.Location = new System.Drawing.Point(249, 29);
             this.tableLayoutPanel43.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel43.Name = "tableLayoutPanel43";
             this.tableLayoutPanel43.RowCount = 1;
@@ -1222,12 +1224,12 @@
             this.tableLayoutPanel44.Controls.Add(this.ResidentsCountValue, 0, 0);
             this.tableLayoutPanel44.Controls.Add(this.label23, 0, 0);
             this.tableLayoutPanel44.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel44.Location = new System.Drawing.Point(497, 29);
+            this.tableLayoutPanel44.Location = new System.Drawing.Point(496, 29);
             this.tableLayoutPanel44.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel44.Name = "tableLayoutPanel44";
             this.tableLayoutPanel44.RowCount = 1;
             this.tableLayoutPanel44.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel44.Size = new System.Drawing.Size(316, 29);
+            this.tableLayoutPanel44.Size = new System.Drawing.Size(317, 29);
             this.tableLayoutPanel44.TabIndex = 11;
             // 
             // ResidentsCountValue
@@ -1235,7 +1237,7 @@
             this.ResidentsCountValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.ResidentsCountValue.AutoSize = true;
             this.ResidentsCountValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ResidentsCountValue.Location = new System.Drawing.Point(239, 8);
+            this.ResidentsCountValue.Location = new System.Drawing.Point(240, 8);
             this.ResidentsCountValue.Name = "ResidentsCountValue";
             this.ResidentsCountValue.Size = new System.Drawing.Size(74, 13);
             this.ResidentsCountValue.TabIndex = 2;
@@ -1248,7 +1250,7 @@
             this.label23.Location = new System.Drawing.Point(20, 8);
             this.label23.Margin = new System.Windows.Forms.Padding(20, 0, 3, 0);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(213, 13);
+            this.label23.Size = new System.Drawing.Size(214, 13);
             this.label23.TabIndex = 0;
             this.label23.Text = "Количество проживающих, чел.:";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1266,7 +1268,7 @@
             this.tableLayoutPanel45.Name = "tableLayoutPanel45";
             this.tableLayoutPanel45.RowCount = 1;
             this.tableLayoutPanel45.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel45.Size = new System.Drawing.Size(250, 29);
+            this.tableLayoutPanel45.Size = new System.Drawing.Size(249, 29);
             this.tableLayoutPanel45.TabIndex = 10;
             // 
             // PropertyTypeValue
@@ -1276,7 +1278,7 @@
             this.PropertyTypeValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.PropertyTypeValue.Location = new System.Drawing.Point(158, 8);
             this.PropertyTypeValue.Name = "PropertyTypeValue";
-            this.PropertyTypeValue.Size = new System.Drawing.Size(89, 13);
+            this.PropertyTypeValue.Size = new System.Drawing.Size(88, 13);
             this.PropertyTypeValue.TabIndex = 2;
             // 
             // label24
@@ -1298,7 +1300,7 @@
             this.tableLayoutPanel46.Controls.Add(this.label25, 0, 0);
             this.tableLayoutPanel46.Controls.Add(this.IsOwnerValue, 1, 0);
             this.tableLayoutPanel46.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel46.Location = new System.Drawing.Point(250, 0);
+            this.tableLayoutPanel46.Location = new System.Drawing.Point(249, 0);
             this.tableLayoutPanel46.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel46.Name = "tableLayoutPanel46";
             this.tableLayoutPanel46.RowCount = 1;
@@ -1384,6 +1386,15 @@
             this.tableLayoutPanel18.Size = new System.Drawing.Size(813, 29);
             this.tableLayoutPanel18.TabIndex = 13;
             // 
+            // RoomsCountTextBox
+            // 
+            this.RoomsCountTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.RoomsCountTextBox.Location = new System.Drawing.Point(223, 4);
+            this.RoomsCountTextBox.Name = "RoomsCountTextBox";
+            this.RoomsCountTextBox.Size = new System.Drawing.Size(137, 20);
+            this.RoomsCountTextBox.TabIndex = 5;
+            this.RoomsCountTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IDTextBox_KeyPress);
+            // 
             // RoomsCountLabel
             // 
             this.RoomsCountLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -1394,6 +1405,15 @@
             this.RoomsCountLabel.Size = new System.Drawing.Size(214, 13);
             this.RoomsCountLabel.TabIndex = 2;
             this.RoomsCountLabel.Text = "Количество комнат в квартире:";
+            // 
+            // FamilyMembersCount
+            // 
+            this.FamilyMembersCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.FamilyMembersCount.Location = new System.Drawing.Point(736, 4);
+            this.FamilyMembersCount.Name = "FamilyMembersCount";
+            this.FamilyMembersCount.Size = new System.Drawing.Size(74, 20);
+            this.FamilyMembersCount.TabIndex = 6;
+            this.FamilyMembersCount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IDTextBox_KeyPress);
             // 
             // FamilyMembersCountLabel
             // 
@@ -1884,6 +1904,43 @@
             this.PersonalAccountLabel.TabIndex = 2;
             this.PersonalAccountLabel.Text = "л/с";
             // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.ColumnCount = 2;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 140F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel6.Controls.Add(this.CreateDateTextBox, 1, 0);
+            this.tableLayoutPanel6.Controls.Add(this.CreateDateLabel, 0, 0);
+            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(271, 0);
+            this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 1;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(271, 29);
+            this.tableLayoutPanel6.TabIndex = 1;
+            // 
+            // CreateDateTextBox
+            // 
+            this.CreateDateTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.CreateDateTextBox.Location = new System.Drawing.Point(143, 4);
+            this.CreateDateTextBox.Name = "CreateDateTextBox";
+            this.CreateDateTextBox.ReadOnly = true;
+            this.CreateDateTextBox.Size = new System.Drawing.Size(125, 20);
+            this.CreateDateTextBox.TabIndex = 3;
+            // 
+            // CreateDateLabel
+            // 
+            this.CreateDateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.CreateDateLabel.AutoSize = true;
+            this.CreateDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.CreateDateLabel.Location = new System.Drawing.Point(20, 8);
+            this.CreateDateLabel.Margin = new System.Windows.Forms.Padding(20, 0, 3, 0);
+            this.CreateDateLabel.Name = "CreateDateLabel";
+            this.CreateDateLabel.Size = new System.Drawing.Size(117, 13);
+            this.CreateDateLabel.TabIndex = 1;
+            this.CreateDateLabel.Text = "Дата создания:";
+            // 
             // tableLayoutPanel5
             // 
             this.tableLayoutPanel5.ColumnCount = 2;
@@ -2034,7 +2091,7 @@
             this.tableLayoutPanel17.ColumnCount = 3;
             this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.30016F));
             this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.69984F));
-            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 319F));
+            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 320F));
             this.tableLayoutPanel17.Controls.Add(this.tableLayoutPanel23, 0, 1);
             this.tableLayoutPanel17.Controls.Add(this.tableLayoutPanel22, 0, 1);
             this.tableLayoutPanel17.Controls.Add(this.tableLayoutPanel20, 0, 1);
@@ -2063,7 +2120,7 @@
             this.tableLayoutPanel23.Name = "tableLayoutPanel23";
             this.tableLayoutPanel23.RowCount = 1;
             this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel23.Size = new System.Drawing.Size(248, 29);
+            this.tableLayoutPanel23.Size = new System.Drawing.Size(247, 29);
             this.tableLayoutPanel23.TabIndex = 14;
             // 
             // TotalAreaLabel
@@ -2082,7 +2139,7 @@
             this.TotalAreaTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.TotalAreaTextBox.Location = new System.Drawing.Point(158, 4);
             this.TotalAreaTextBox.Name = "TotalAreaTextBox";
-            this.TotalAreaTextBox.Size = new System.Drawing.Size(87, 20);
+            this.TotalAreaTextBox.Size = new System.Drawing.Size(86, 20);
             this.TotalAreaTextBox.TabIndex = 4;
             this.TotalAreaTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TotalAreaTextBox_KeyPress);
             // 
@@ -2094,7 +2151,7 @@
             this.tableLayoutPanel22.Controls.Add(this.LivingAreaLabel, 0, 0);
             this.tableLayoutPanel22.Controls.Add(this.LivingAreaTextBox, 1, 0);
             this.tableLayoutPanel22.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel22.Location = new System.Drawing.Point(248, 29);
+            this.tableLayoutPanel22.Location = new System.Drawing.Point(247, 29);
             this.tableLayoutPanel22.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel22.Name = "tableLayoutPanel22";
             this.tableLayoutPanel22.RowCount = 1;
@@ -2131,13 +2188,22 @@
             this.tableLayoutPanel20.Controls.Add(this.ResidentsCountTextBox, 0, 0);
             this.tableLayoutPanel20.Controls.Add(this.ResidentsCountLabel, 0, 0);
             this.tableLayoutPanel20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel20.Location = new System.Drawing.Point(493, 29);
+            this.tableLayoutPanel20.Location = new System.Drawing.Point(492, 29);
             this.tableLayoutPanel20.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel20.Name = "tableLayoutPanel20";
             this.tableLayoutPanel20.RowCount = 1;
             this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel20.Size = new System.Drawing.Size(320, 29);
+            this.tableLayoutPanel20.Size = new System.Drawing.Size(321, 29);
             this.tableLayoutPanel20.TabIndex = 11;
+            // 
+            // ResidentsCountTextBox
+            // 
+            this.ResidentsCountTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.ResidentsCountTextBox.Location = new System.Drawing.Point(244, 4);
+            this.ResidentsCountTextBox.Name = "ResidentsCountTextBox";
+            this.ResidentsCountTextBox.Size = new System.Drawing.Size(74, 20);
+            this.ResidentsCountTextBox.TabIndex = 5;
+            this.ResidentsCountTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IDTextBox_KeyPress);
             // 
             // ResidentsCountLabel
             // 
@@ -2147,7 +2213,7 @@
             this.ResidentsCountLabel.Location = new System.Drawing.Point(20, 8);
             this.ResidentsCountLabel.Margin = new System.Windows.Forms.Padding(20, 0, 3, 0);
             this.ResidentsCountLabel.Name = "ResidentsCountLabel";
-            this.ResidentsCountLabel.Size = new System.Drawing.Size(217, 13);
+            this.ResidentsCountLabel.Size = new System.Drawing.Size(218, 13);
             this.ResidentsCountLabel.TabIndex = 0;
             this.ResidentsCountLabel.Text = "Количество проживающих, чел.:";
             this.ResidentsCountLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -2165,7 +2231,7 @@
             this.tableLayoutPanel19.Name = "tableLayoutPanel19";
             this.tableLayoutPanel19.RowCount = 1;
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel19.Size = new System.Drawing.Size(248, 29);
+            this.tableLayoutPanel19.Size = new System.Drawing.Size(247, 29);
             this.tableLayoutPanel19.TabIndex = 10;
             // 
             // PropertyTypeLabel
@@ -2189,7 +2255,7 @@
             "Федеральная"});
             this.PropertyTypeComboBox.Location = new System.Drawing.Point(158, 4);
             this.PropertyTypeComboBox.Name = "PropertyTypeComboBox";
-            this.PropertyTypeComboBox.Size = new System.Drawing.Size(87, 21);
+            this.PropertyTypeComboBox.Size = new System.Drawing.Size(86, 21);
             this.PropertyTypeComboBox.TabIndex = 1;
             // 
             // tableLayoutPanel21
@@ -2200,7 +2266,7 @@
             this.tableLayoutPanel21.Controls.Add(this.IsOwnerLabel, 0, 0);
             this.tableLayoutPanel21.Controls.Add(this.IsOwnerCheckBox, 1, 0);
             this.tableLayoutPanel21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel21.Location = new System.Drawing.Point(248, 0);
+            this.tableLayoutPanel21.Location = new System.Drawing.Point(247, 0);
             this.tableLayoutPanel21.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel21.Name = "tableLayoutPanel21";
             this.tableLayoutPanel21.RowCount = 1;
@@ -2255,7 +2321,7 @@
             this.tableLayoutPanel47.ColumnCount = 1;
             this.tableLayoutPanel47.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel47.Controls.Add(this.tableLayoutPanel55, 0, 1);
-            this.tableLayoutPanel47.Controls.Add(this.MemberListGrid, 0, 4);
+            this.tableLayoutPanel47.Controls.Add(this.FamilyMemberListGrid, 0, 4);
             this.tableLayoutPanel47.Controls.Add(this.tableLayoutPanel50, 0, 0);
             this.tableLayoutPanel47.Controls.Add(this.label42, 0, 2);
             this.tableLayoutPanel47.Controls.Add(this.AddMember, 0, 3);
@@ -2334,35 +2400,38 @@
             this.label41.TabIndex = 2;
             this.label41.Text = "Код:";
             // 
-            // MemberListGrid
+            // FamilyMemberListGrid
             // 
-            this.MemberListGrid.AllowUserToAddRows = false;
-            this.MemberListGrid.AllowUserToDeleteRows = false;
-            this.MemberListGrid.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.MemberListGrid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MemberListGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            this.MemberListGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.MemberListGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ObjectName,
-            this.Type,
-            this.Code,
-            this.BirthDate,
-            this.GUID,
-            this.SNILS});
-            this.MemberListGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MemberListGrid.Location = new System.Drawing.Point(3, 159);
-            this.MemberListGrid.Name = "MemberListGrid";
-            this.MemberListGrid.ReadOnly = true;
-            this.MemberListGrid.RowHeadersVisible = false;
-            this.MemberListGrid.Size = new System.Drawing.Size(807, 171);
-            this.MemberListGrid.TabIndex = 15;
+            this.FamilyMemberListGrid.AllowUserToAddRows = false;
+            this.FamilyMemberListGrid.AllowUserToDeleteRows = false;
+            this.FamilyMemberListGrid.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.FamilyMemberListGrid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.FamilyMemberListGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.FamilyMemberListGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.FamilyMemberListGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MemberLastName,
+            this.id,
+            this.MemberName,
+            this.MemberMiddleName,
+            this.MemberBirthDate,
+            this.MemberSex,
+            this.MemberRelationshipDegree});
+            this.FamilyMemberListGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FamilyMemberListGrid.Location = new System.Drawing.Point(3, 159);
+            this.FamilyMemberListGrid.Name = "FamilyMemberListGrid";
+            this.FamilyMemberListGrid.ReadOnly = true;
+            this.FamilyMemberListGrid.RowHeadersVisible = false;
+            this.FamilyMemberListGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.FamilyMemberListGrid.Size = new System.Drawing.Size(807, 171);
+            this.FamilyMemberListGrid.TabIndex = 15;
+            this.FamilyMemberListGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.FamilyMemberListGrid_CellDoubleClick);
             // 
             // tableLayoutPanel50
             // 
@@ -2747,14 +2816,14 @@
             this.ServiceDataGridView.AllowUserToDeleteRows = false;
             this.ServiceDataGridView.BackgroundColor = System.Drawing.SystemColors.Control;
             this.ServiceDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ServiceDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ServiceDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.ServiceDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ServiceDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -2770,6 +2839,59 @@
             this.ServiceDataGridView.RowHeadersVisible = false;
             this.ServiceDataGridView.Size = new System.Drawing.Size(807, 171);
             this.ServiceDataGridView.TabIndex = 15;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "FORMALNAME";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Период";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 50;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 76;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "TYPE";
+            this.dataGridViewTextBoxColumn2.FillWeight = 70F;
+            this.dataGridViewTextBoxColumn2.HeaderText = "Сумма оплаты";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 50;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "CODE";
+            this.dataGridViewTextBoxColumn3.FillWeight = 60F;
+            this.dataGridViewTextBoxColumn3.HeaderText = "Сумма пени";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 100;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn4.HeaderText = "Сумма задолженности";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "AOGUID";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Кол-во месяцев з-ти";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn6.HeaderText = "Внесенная оплата з-ти";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
             // tableLayoutPanel58
             // 
@@ -3068,182 +3190,75 @@
             this.SearchYearComboBox.Size = new System.Drawing.Size(144, 21);
             this.SearchYearComboBox.TabIndex = 3;
             // 
-            // ResidentsCountTextBox
-            // 
-            this.ResidentsCountTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.ResidentsCountTextBox.Location = new System.Drawing.Point(243, 4);
-            this.ResidentsCountTextBox.Name = "ResidentsCountTextBox";
-            this.ResidentsCountTextBox.Size = new System.Drawing.Size(74, 20);
-            this.ResidentsCountTextBox.TabIndex = 5;
-            this.ResidentsCountTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IDTextBox_KeyPress);
-            // 
-            // RoomsCountTextBox
-            // 
-            this.RoomsCountTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.RoomsCountTextBox.Location = new System.Drawing.Point(223, 4);
-            this.RoomsCountTextBox.Name = "RoomsCountTextBox";
-            this.RoomsCountTextBox.Size = new System.Drawing.Size(137, 20);
-            this.RoomsCountTextBox.TabIndex = 5;
-            this.RoomsCountTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IDTextBox_KeyPress);
-            // 
-            // FamilyMembersCount
-            // 
-            this.FamilyMembersCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.FamilyMembersCount.Location = new System.Drawing.Point(736, 4);
-            this.FamilyMembersCount.Name = "FamilyMembersCount";
-            this.FamilyMembersCount.Size = new System.Drawing.Size(74, 20);
-            this.FamilyMembersCount.TabIndex = 6;
-            this.FamilyMembersCount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.IDTextBox_KeyPress);
-            // 
             // IDErrorProvider
             // 
             this.IDErrorProvider.ContainerControl = this;
             // 
-            // CreateDateLabel
+            // MemberLastName
             // 
-            this.CreateDateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.CreateDateLabel.AutoSize = true;
-            this.CreateDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.CreateDateLabel.Location = new System.Drawing.Point(20, 8);
-            this.CreateDateLabel.Margin = new System.Windows.Forms.Padding(20, 0, 3, 0);
-            this.CreateDateLabel.Name = "CreateDateLabel";
-            this.CreateDateLabel.Size = new System.Drawing.Size(117, 13);
-            this.CreateDateLabel.TabIndex = 1;
-            this.CreateDateLabel.Text = "Дата создания:";
+            this.MemberLastName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.MemberLastName.DataPropertyName = "last_name";
+            this.MemberLastName.FillWeight = 4F;
+            this.MemberLastName.HeaderText = "Фамилия";
+            this.MemberLastName.MinimumWidth = 50;
+            this.MemberLastName.Name = "MemberLastName";
+            this.MemberLastName.ReadOnly = true;
             // 
-            // CreateDateTextBox
+            // id
             // 
-            this.CreateDateTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.CreateDateTextBox.Location = new System.Drawing.Point(143, 4);
-            this.CreateDateTextBox.Name = "CreateDateTextBox";
-            this.CreateDateTextBox.ReadOnly = true;
-            this.CreateDateTextBox.Size = new System.Drawing.Size(125, 20);
-            this.CreateDateTextBox.TabIndex = 3;
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
             // 
-            // tableLayoutPanel6
+            // MemberName
             // 
-            this.tableLayoutPanel6.ColumnCount = 2;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 140F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Controls.Add(this.CreateDateTextBox, 1, 0);
-            this.tableLayoutPanel6.Controls.Add(this.CreateDateLabel, 0, 0);
-            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(271, 0);
-            this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 1;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(271, 29);
-            this.tableLayoutPanel6.TabIndex = 1;
+            this.MemberName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.MemberName.DataPropertyName = "name";
+            this.MemberName.FillWeight = 4F;
+            this.MemberName.HeaderText = "Имя";
+            this.MemberName.MinimumWidth = 50;
+            this.MemberName.Name = "MemberName";
+            this.MemberName.ReadOnly = true;
             // 
-            // ObjectName
+            // MemberMiddleName
             // 
-            this.ObjectName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ObjectName.DataPropertyName = "FORMALNAME";
-            this.ObjectName.FillWeight = 4F;
-            this.ObjectName.HeaderText = "Фамилия";
-            this.ObjectName.MinimumWidth = 50;
-            this.ObjectName.Name = "ObjectName";
-            this.ObjectName.ReadOnly = true;
+            this.MemberMiddleName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.MemberMiddleName.DataPropertyName = "middle_name";
+            this.MemberMiddleName.FillWeight = 4F;
+            this.MemberMiddleName.HeaderText = "Отчество";
+            this.MemberMiddleName.MinimumWidth = 100;
+            this.MemberMiddleName.Name = "MemberMiddleName";
+            this.MemberMiddleName.ReadOnly = true;
+            this.MemberMiddleName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
-            // Type
+            // MemberBirthDate
             // 
-            this.Type.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Type.DataPropertyName = "TYPE";
-            this.Type.FillWeight = 4F;
-            this.Type.HeaderText = "Имя";
-            this.Type.MinimumWidth = 50;
-            this.Type.Name = "Type";
-            this.Type.ReadOnly = true;
+            this.MemberBirthDate.DataPropertyName = "birth_date";
+            this.MemberBirthDate.FillWeight = 2F;
+            this.MemberBirthDate.HeaderText = "Дата рождения";
+            this.MemberBirthDate.Name = "MemberBirthDate";
+            this.MemberBirthDate.ReadOnly = true;
+            this.MemberBirthDate.Width = 125;
             // 
-            // Code
+            // MemberSex
             // 
-            this.Code.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Code.DataPropertyName = "CODE";
-            this.Code.FillWeight = 4F;
-            this.Code.HeaderText = "Отчество";
-            this.Code.MinimumWidth = 100;
-            this.Code.Name = "Code";
-            this.Code.ReadOnly = true;
-            this.Code.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.MemberSex.DataPropertyName = "sex";
+            this.MemberSex.FillWeight = 2F;
+            this.MemberSex.HeaderText = "Пол";
+            this.MemberSex.Name = "MemberSex";
+            this.MemberSex.ReadOnly = true;
+            this.MemberSex.Width = 85;
             // 
-            // BirthDate
+            // MemberRelationshipDegree
             // 
-            this.BirthDate.FillWeight = 2F;
-            this.BirthDate.HeaderText = "Дата рождения";
-            this.BirthDate.Name = "BirthDate";
-            this.BirthDate.ReadOnly = true;
-            this.BirthDate.Width = 125;
-            // 
-            // GUID
-            // 
-            this.GUID.DataPropertyName = "AOGUID";
-            this.GUID.FillWeight = 2F;
-            this.GUID.HeaderText = "Пол";
-            this.GUID.Name = "GUID";
-            this.GUID.ReadOnly = true;
-            this.GUID.Width = 85;
-            // 
-            // SNILS
-            // 
-            this.SNILS.FillWeight = 3F;
-            this.SNILS.HeaderText = "Степень родства";
-            this.SNILS.Name = "SNILS";
-            this.SNILS.ReadOnly = true;
-            this.SNILS.Width = 135;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "FORMALNAME";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Период";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 50;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 76;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "TYPE";
-            this.dataGridViewTextBoxColumn2.FillWeight = 70F;
-            this.dataGridViewTextBoxColumn2.HeaderText = "Сумма оплаты";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 50;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "CODE";
-            this.dataGridViewTextBoxColumn3.FillWeight = 60F;
-            this.dataGridViewTextBoxColumn3.HeaderText = "Сумма пени";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 100;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn4.HeaderText = "Сумма задолженности";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "AOGUID";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Кол-во месяцев з-ти";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn6.HeaderText = "Внесенная оплата з-ти";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.MemberRelationshipDegree.DataPropertyName = "relationship_degree";
+            this.MemberRelationshipDegree.FillWeight = 3F;
+            this.MemberRelationshipDegree.HeaderText = "Степень родства";
+            this.MemberRelationshipDegree.Name = "MemberRelationshipDegree";
+            this.MemberRelationshipDegree.ReadOnly = true;
+            this.MemberRelationshipDegree.Width = 135;
             // 
             // AddEditViewExemptForm
             // 
@@ -3332,6 +3347,8 @@
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel7.ResumeLayout(false);
             this.tableLayoutPanel7.PerformLayout();
+            this.tableLayoutPanel6.ResumeLayout(false);
+            this.tableLayoutPanel6.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
@@ -3354,7 +3371,7 @@
             this.tableLayoutPanel47.PerformLayout();
             this.tableLayoutPanel55.ResumeLayout(false);
             this.tableLayoutPanel55.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MemberListGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FamilyMemberListGrid)).EndInit();
             this.tableLayoutPanel50.ResumeLayout(false);
             this.tableLayoutPanel52.ResumeLayout(false);
             this.tableLayoutPanel52.PerformLayout();
@@ -3391,8 +3408,6 @@
             this.tableLayoutPanel65.ResumeLayout(false);
             this.tableLayoutPanel65.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.IDErrorProvider)).EndInit();
-            this.tableLayoutPanel6.ResumeLayout(false);
-            this.tableLayoutPanel6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -3551,7 +3566,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel50;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.Button AddMember;
-        private System.Windows.Forms.DataGridView MemberListGrid;
+        private System.Windows.Forms.DataGridView FamilyMemberListGrid;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel55;
         private System.Windows.Forms.Label AddressValue2;
         private System.Windows.Forms.Label label39;
@@ -3613,17 +3628,18 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.TextBox CreateDateTextBox;
         private System.Windows.Forms.Label CreateDateLabel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ObjectName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Type;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Code;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BirthDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GUID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SNILS;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MemberLastName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MemberName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MemberMiddleName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MemberBirthDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MemberSex;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MemberRelationshipDegree;
     }
 }

@@ -32,6 +32,14 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Release\</OutputPath>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework">
       <HintPath>packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
@@ -67,6 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\ExemptHouseroomDAO.cs" />
+    <Compile Include="DAO\FamilyMembersDAO.cs" />
     <Compile Include="DAO\RelationshipDegreeDAO.cs" />
     <Compile Include="Forms\AddEditViewExemptForm.cs">
       <SubType>Form</SubType>
@@ -125,6 +134,7 @@
     <Compile Include="Forms\ExemptListForm.Designer.cs">
       <DependentUpon>ExemptListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\FamilyMembers.cs" />
     <Compile Include="Model\House.cs" />
     <Compile Include="Model\RelationshipDegree.cs" />
     <Compile Include="UpdateAddressObject.cs" />
