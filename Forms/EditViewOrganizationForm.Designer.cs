@@ -37,13 +37,13 @@
             this.PlaceLabel = new System.Windows.Forms.Label();
             this.NameTextBox = new System.Windows.Forms.TextBox();
             this.AddressTextBox = new System.Windows.Forms.TextBox();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.CloseButton = new System.Windows.Forms.Button();
-            this.ApplyButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.SeparatorLabel = new System.Windows.Forms.Label();
             this.INNTextBox = new System.Windows.Forms.TextBox();
             this.KPPTextBox = new System.Windows.Forms.TextBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.CloseButton = new System.Windows.Forms.Button();
+            this.ApplyButton = new System.Windows.Forms.Button();
             this.NameErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.INNErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.AddressErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
@@ -54,17 +54,17 @@
             this.NameLabel2 = new System.Windows.Forms.Label();
             this.INNKPPLabel2 = new System.Windows.Forms.Label();
             this.AddressLabel2 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.CloseButton2 = new System.Windows.Forms.Button();
-            this.EditButton = new System.Windows.Forms.Button();
             this.NameValue = new System.Windows.Forms.Label();
             this.INNKPPValue = new System.Windows.Forms.Label();
             this.AddressValue = new System.Windows.Forms.Label();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.CloseButton2 = new System.Windows.Forms.Button();
+            this.EditButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NameErrorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.INNErrorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AddressErrorProvider)).BeginInit();
@@ -176,38 +176,6 @@
             this.AddressTextBox.Size = new System.Drawing.Size(395, 20);
             this.AddressTextBox.TabIndex = 8;
             // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.AutoSize = true;
-            this.flowLayoutPanel1.Controls.Add(this.CloseButton);
-            this.flowLayoutPanel1.Controls.Add(this.ApplyButton);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 151);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(608, 29);
-            this.flowLayoutPanel1.TabIndex = 1;
-            // 
-            // CloseButton
-            // 
-            this.CloseButton.Location = new System.Drawing.Point(530, 3);
-            this.CloseButton.Name = "CloseButton";
-            this.CloseButton.Size = new System.Drawing.Size(75, 23);
-            this.CloseButton.TabIndex = 1;
-            this.CloseButton.Text = "Закрыть";
-            this.CloseButton.UseVisualStyleBackColor = true;
-            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
-            // 
-            // ApplyButton
-            // 
-            this.ApplyButton.Location = new System.Drawing.Point(444, 3);
-            this.ApplyButton.Name = "ApplyButton";
-            this.ApplyButton.Size = new System.Drawing.Size(80, 23);
-            this.ApplyButton.TabIndex = 0;
-            this.ApplyButton.Text = "Применить";
-            this.ApplyButton.UseVisualStyleBackColor = true;
-            this.ApplyButton.Click += new System.EventHandler(this.ApplyButton_Click);
-            // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 3;
@@ -257,6 +225,38 @@
             this.KPPTextBox.Size = new System.Drawing.Size(173, 20);
             this.KPPTextBox.TabIndex = 5;
             this.KPPTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.INNTextBox_KeyPress);
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoSize = true;
+            this.flowLayoutPanel1.Controls.Add(this.CloseButton);
+            this.flowLayoutPanel1.Controls.Add(this.ApplyButton);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 151);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(608, 29);
+            this.flowLayoutPanel1.TabIndex = 1;
+            // 
+            // CloseButton
+            // 
+            this.CloseButton.Location = new System.Drawing.Point(530, 3);
+            this.CloseButton.Name = "CloseButton";
+            this.CloseButton.Size = new System.Drawing.Size(75, 23);
+            this.CloseButton.TabIndex = 1;
+            this.CloseButton.Text = "Закрыть";
+            this.CloseButton.UseVisualStyleBackColor = true;
+            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
+            // 
+            // ApplyButton
+            // 
+            this.ApplyButton.Location = new System.Drawing.Point(444, 3);
+            this.ApplyButton.Name = "ApplyButton";
+            this.ApplyButton.Size = new System.Drawing.Size(80, 23);
+            this.ApplyButton.TabIndex = 0;
+            this.ApplyButton.Text = "Применить";
+            this.ApplyButton.UseVisualStyleBackColor = true;
+            this.ApplyButton.Click += new System.EventHandler(this.ApplyButton_Click);
             // 
             // NameErrorProvider
             // 
@@ -356,38 +356,6 @@
             this.AddressLabel2.Text = "Юридический адрес:";
             this.AddressLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // flowLayoutPanel2
-            // 
-            this.flowLayoutPanel2.AutoSize = true;
-            this.flowLayoutPanel2.Controls.Add(this.CloseButton2);
-            this.flowLayoutPanel2.Controls.Add(this.EditButton);
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 151);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(608, 29);
-            this.flowLayoutPanel2.TabIndex = 1;
-            // 
-            // CloseButton2
-            // 
-            this.CloseButton2.Location = new System.Drawing.Point(530, 3);
-            this.CloseButton2.Name = "CloseButton2";
-            this.CloseButton2.Size = new System.Drawing.Size(75, 23);
-            this.CloseButton2.TabIndex = 1;
-            this.CloseButton2.Text = "Закрыть";
-            this.CloseButton2.UseVisualStyleBackColor = true;
-            this.CloseButton2.Click += new System.EventHandler(this.CloseButton2_Click);
-            // 
-            // EditButton
-            // 
-            this.EditButton.Location = new System.Drawing.Point(432, 3);
-            this.EditButton.Name = "EditButton";
-            this.EditButton.Size = new System.Drawing.Size(92, 23);
-            this.EditButton.TabIndex = 0;
-            this.EditButton.Text = "Редактировать";
-            this.EditButton.UseVisualStyleBackColor = true;
-            this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
-            // 
             // NameValue
             // 
             this.NameValue.AutoSize = true;
@@ -421,6 +389,38 @@
             this.AddressValue.TabIndex = 7;
             this.AddressValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.AutoSize = true;
+            this.flowLayoutPanel2.Controls.Add(this.CloseButton2);
+            this.flowLayoutPanel2.Controls.Add(this.EditButton);
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 151);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(608, 29);
+            this.flowLayoutPanel2.TabIndex = 1;
+            // 
+            // CloseButton2
+            // 
+            this.CloseButton2.Location = new System.Drawing.Point(530, 3);
+            this.CloseButton2.Name = "CloseButton2";
+            this.CloseButton2.Size = new System.Drawing.Size(75, 23);
+            this.CloseButton2.TabIndex = 1;
+            this.CloseButton2.Text = "Закрыть";
+            this.CloseButton2.UseVisualStyleBackColor = true;
+            this.CloseButton2.Click += new System.EventHandler(this.CloseButton2_Click);
+            // 
+            // EditButton
+            // 
+            this.EditButton.Location = new System.Drawing.Point(432, 3);
+            this.EditButton.Name = "EditButton";
+            this.EditButton.Size = new System.Drawing.Size(92, 23);
+            this.EditButton.TabIndex = 0;
+            this.EditButton.Text = "Редактировать";
+            this.EditButton.UseVisualStyleBackColor = true;
+            this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
+            // 
             // EditViewOrganizationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -430,15 +430,15 @@
             this.Controls.Add(this.panel1);
             this.Name = "EditViewOrganizationForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Организация";
+            this.Text = "Организация ЖКХ";
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            this.flowLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.NameErrorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.INNErrorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AddressErrorProvider)).EndInit();

@@ -25,13 +25,13 @@ namespace OSZN.DAO
 
         public int insertRelationshipDegree(RelationshipDegree relationshipDegree)
         {
-            return db.Insert("relationship_degree", relationshipDegree.getParametersCollection());
+            return db.Insert("voc_relationship_degree", relationshipDegree.getParametersCollection());
         }
 
         public DataTable getRelationshipDegrees(string searchText)
         {
             Select select = new Select()
-                .From("relationship_degree");
+                .From("voc_relationship_degree");
             if (!String.IsNullOrEmpty(searchText) && searchText != "Все")
             {
                 if (searchText == "Активные")
@@ -46,14 +46,14 @@ namespace OSZN.DAO
         public RelationshipDegree getRelationshipDegreeById(int id)
         {
             Select query = new Select()
-                .From("relationship_degree")
+                .From("voc_relationship_degree")
                 .Where("id = " + id);
             return new RelationshipDegree(db.FetchOneRow(query));
         }
 
         public void updateRelationshipDegree(RelationshipDegree relationshipDegree)
         {
-            db.Update("relationship_degree", relationshipDegree.getParametersCollection(), "id = " + relationshipDegree.id);
+            db.Update("voc_relationship_degree", relationshipDegree.getParametersCollection(), "id = " + relationshipDegree.id);
         }
     }
 }

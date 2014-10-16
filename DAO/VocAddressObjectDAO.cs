@@ -132,7 +132,7 @@ namespace OSZN.DAO
                 .Join("VOC_ADDRESS_TYPE at", "ao.AOLEVEL = at.LEVEL and ao.SHORTNAME = at.SOCRNAME", SQLJoinTypes.LEFT_JOIN)
                 .Columns("ao.id, ao.formalname, ao.aoguid, CASE WHEN at.SCNAME is null THEN ao.SHORTNAME ELSE at.SCNAME END as type"
                         + ", ao.SHORTNAME as typeBrief, at.POINT, at.LEFT, ao.CODE")
-                .Where("aolevel in (3,4) and currstatus = 0 and parentguid = (select aoguid from voc_address_object where currstatus = 0 and parentguid is null)")
+                .Where("(aolevel = 3 or aolevel = 4 and ao.SHORTNAME = 'г') and currstatus = 0")
                 .Order("ao.code ASC");
             DataTable dt = db.Execute(select);
             DataColumn name = new DataColumn();

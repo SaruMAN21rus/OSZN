@@ -30,6 +30,7 @@ namespace OSZN
 
             IDErrorProvider.SetIconAlignment(IDTextBox, ErrorIconAlignment.MiddleRight);
             this.FamilyMemberListGrid.AutoGenerateColumns = false;
+            this.ServiceDataGridView.AutoGenerateColumns = false;
 
             BirthDateDateTimePicker.CustomFormat = "''";
             BirthDateDateTimePicker.Format = DateTimePickerFormat.Custom;
@@ -326,7 +327,10 @@ namespace OSZN
                 setDataForSave();
                 ExemptDAO eDAO = new ExemptDAO();
                 if (exemptId == null)
+                {
                     exemptId = eDAO.insertExempt(exempt);
+                    exempt.id = exemptId;
+                }
                 else
                 {
                     eDAO.updateExempt(exempt);
@@ -545,6 +549,10 @@ namespace OSZN
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Error);
             }
+            else if (tabControl1.SelectedTab == ServicePage)
+            {
+                setYearComboBoxItems();
+            }
         }
 
         private void FamilyMemberListGrid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -553,6 +561,38 @@ namespace OSZN
             if (f.ShowDialog(this) == DialogResult.OK)
             {
                 LoadFamilyMembers();
+            }
+        }
+
+        private void setYearComboBoxItems()
+        {
+            for (int i = 2000; i <= DateTime.Now.Year + 1; i++)
+            {
+                SearchYearComboBox.Items.Add(i);
+                SearchYearComboBox.SelectedItem = DateTime.Now.Year;
+            }
+
+        }
+
+        private void SearchYearComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selectedYear = Convert.ToInt32(SearchYearComboBox.SelectedItem);
+            ExemptServiceDAO esDAO = new ExemptServiceDAO();
+            DataTable dt = esDAO.getExemptServicesByExemptIdAndYear(exempt.id.Value, selectedYear);
+            if (dt.Rows.Count <= 0)
+            {
+                esDAO.insertExemptServicesByYear(exempt.id.Value, selectedYear);
+                dt = esDAO.getExemptServicesByExemptIdAndYear(exempt.id.Value, selectedYear);
+            }
+            ServiceDataGridView.DataSource = dt;
+        }
+
+        private void ServiceDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            EditViewCalculationDetails f = new EditViewCalculationDetails(Convert.ToInt32(ServiceDataGridView.Rows[e.RowIndex].Cells["id1"].Value), exempt);
+            if (f.ShowDialog(this) == DialogResult.OK)
+            {
+                SearchYearComboBox_SelectedIndexChanged(sender, null);
             }
         }
     }

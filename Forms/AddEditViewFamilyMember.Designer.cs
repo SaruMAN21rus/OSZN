@@ -62,25 +62,25 @@
             this.IsOwnerCheckBoxValue = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
+            this.MiddleNameValue = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
+            this.NameValue = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
+            this.LastNameValue = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
+            this.RelationshipDegreeValue = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.DeleteButton = new System.Windows.Forms.Button();
             this.EditButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.RelationshipDegreeValue = new System.Windows.Forms.Label();
-            this.LastNameValue = new System.Windows.Forms.Label();
-            this.NameValue = new System.Windows.Forms.Label();
-            this.MiddleNameValue = new System.Windows.Forms.Label();
             this.BirthDateValue = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.SexValue = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel18.SuspendLayout();
@@ -556,6 +556,16 @@
             this.tableLayoutPanel9.Size = new System.Drawing.Size(370, 39);
             this.tableLayoutPanel9.TabIndex = 9;
             // 
+            // MiddleNameValue
+            // 
+            this.MiddleNameValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.MiddleNameValue.AutoSize = true;
+            this.MiddleNameValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.MiddleNameValue.Location = new System.Drawing.Point(123, 13);
+            this.MiddleNameValue.Name = "MiddleNameValue";
+            this.MiddleNameValue.Size = new System.Drawing.Size(244, 13);
+            this.MiddleNameValue.TabIndex = 2;
+            // 
             // label2
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -582,6 +592,16 @@
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel10.Size = new System.Drawing.Size(370, 36);
             this.tableLayoutPanel10.TabIndex = 6;
+            // 
+            // NameValue
+            // 
+            this.NameValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.NameValue.AutoSize = true;
+            this.NameValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.NameValue.Location = new System.Drawing.Point(123, 11);
+            this.NameValue.Name = "NameValue";
+            this.NameValue.Size = new System.Drawing.Size(244, 13);
+            this.NameValue.TabIndex = 2;
             // 
             // label3
             // 
@@ -610,6 +630,16 @@
             this.tableLayoutPanel11.Size = new System.Drawing.Size(370, 36);
             this.tableLayoutPanel11.TabIndex = 3;
             // 
+            // LastNameValue
+            // 
+            this.LastNameValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.LastNameValue.AutoSize = true;
+            this.LastNameValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LastNameValue.Location = new System.Drawing.Point(123, 11);
+            this.LastNameValue.Name = "LastNameValue";
+            this.LastNameValue.Size = new System.Drawing.Size(244, 13);
+            this.LastNameValue.TabIndex = 2;
+            // 
             // label4
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -636,6 +666,16 @@
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel13.Size = new System.Drawing.Size(370, 36);
             this.tableLayoutPanel13.TabIndex = 0;
+            // 
+            // RelationshipDegreeValue
+            // 
+            this.RelationshipDegreeValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.RelationshipDegreeValue.AutoSize = true;
+            this.RelationshipDegreeValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.RelationshipDegreeValue.Location = new System.Drawing.Point(123, 11);
+            this.RelationshipDegreeValue.Name = "RelationshipDegreeValue";
+            this.RelationshipDegreeValue.Size = new System.Drawing.Size(244, 13);
+            this.RelationshipDegreeValue.TabIndex = 1;
             // 
             // label5
             // 
@@ -702,17 +742,15 @@
             this.tableLayoutPanel14.Size = new System.Drawing.Size(370, 36);
             this.tableLayoutPanel14.TabIndex = 11;
             // 
-            // label6
+            // BirthDateValue
             // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(230, 11);
-            this.label6.Margin = new System.Windows.Forms.Padding(20, 0, 3, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(37, 13);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Пол:";
+            this.BirthDateValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.BirthDateValue.AutoSize = true;
+            this.BirthDateValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.BirthDateValue.Location = new System.Drawing.Point(123, 11);
+            this.BirthDateValue.Name = "BirthDateValue";
+            this.BirthDateValue.Size = new System.Drawing.Size(84, 13);
+            this.BirthDateValue.TabIndex = 2;
             // 
             // label7
             // 
@@ -725,56 +763,6 @@
             this.label7.TabIndex = 1;
             this.label7.Text = "Дата рождения:";
             // 
-            // RelationshipDegreeValue
-            // 
-            this.RelationshipDegreeValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.RelationshipDegreeValue.AutoSize = true;
-            this.RelationshipDegreeValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.RelationshipDegreeValue.Location = new System.Drawing.Point(123, 11);
-            this.RelationshipDegreeValue.Name = "RelationshipDegreeValue";
-            this.RelationshipDegreeValue.Size = new System.Drawing.Size(244, 13);
-            this.RelationshipDegreeValue.TabIndex = 1;
-            // 
-            // LastNameValue
-            // 
-            this.LastNameValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.LastNameValue.AutoSize = true;
-            this.LastNameValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LastNameValue.Location = new System.Drawing.Point(123, 11);
-            this.LastNameValue.Name = "LastNameValue";
-            this.LastNameValue.Size = new System.Drawing.Size(244, 13);
-            this.LastNameValue.TabIndex = 2;
-            // 
-            // NameValue
-            // 
-            this.NameValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.NameValue.AutoSize = true;
-            this.NameValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.NameValue.Location = new System.Drawing.Point(123, 11);
-            this.NameValue.Name = "NameValue";
-            this.NameValue.Size = new System.Drawing.Size(244, 13);
-            this.NameValue.TabIndex = 2;
-            // 
-            // MiddleNameValue
-            // 
-            this.MiddleNameValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.MiddleNameValue.AutoSize = true;
-            this.MiddleNameValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.MiddleNameValue.Location = new System.Drawing.Point(123, 13);
-            this.MiddleNameValue.Name = "MiddleNameValue";
-            this.MiddleNameValue.Size = new System.Drawing.Size(244, 13);
-            this.MiddleNameValue.TabIndex = 2;
-            // 
-            // BirthDateValue
-            // 
-            this.BirthDateValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.BirthDateValue.AutoSize = true;
-            this.BirthDateValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.BirthDateValue.Location = new System.Drawing.Point(123, 11);
-            this.BirthDateValue.Name = "BirthDateValue";
-            this.BirthDateValue.Size = new System.Drawing.Size(84, 13);
-            this.BirthDateValue.TabIndex = 2;
-            // 
             // SexValue
             // 
             this.SexValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -784,6 +772,18 @@
             this.SexValue.Name = "SexValue";
             this.SexValue.Size = new System.Drawing.Size(94, 13);
             this.SexValue.TabIndex = 3;
+            // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.Location = new System.Drawing.Point(230, 11);
+            this.label6.Margin = new System.Windows.Forms.Padding(20, 0, 3, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(37, 13);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Пол:";
             // 
             // AddEditViewFamilyMember
             // 
@@ -795,7 +795,7 @@
             this.Name = "AddEditViewFamilyMember";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Просмотр члена семьи";
+            this.Text = "Состав семьи";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddEditViewFamilyMember_FormClosed);
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);

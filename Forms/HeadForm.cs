@@ -49,8 +49,25 @@ namespace OSZN
 
         private void степеньРодстваToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            RelationshipDegreeList f = new RelationshipDegreeList();
+            RelationshipDegreeListForm f = new RelationshipDegreeListForm();
             f.ShowDialog();
+        }
+
+        private void организацияToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            EditViewOrganizationForm f = new EditViewOrganizationForm();
+            f.ShowDialog();
+        }
+
+        private void услугиЖКХToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ServiceListForm f = new ServiceListForm();
+            f.ShowDialog(this);
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
