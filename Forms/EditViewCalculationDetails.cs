@@ -31,6 +31,7 @@ namespace OSZN.Forms
                 ExemptServiceDAO esDAO = new ExemptServiceDAO();
                 exemptService = esDAO.getExemptServiceById(exemptServiceId.Value);
                 setEditData();
+                LoadServiceDetailes();
                 //setViewData();
                 //panel1.Hide();
                 //panel2.Show();
@@ -135,6 +136,30 @@ namespace OSZN.Forms
                 exemptService.paymentDebtAmount = Convert.ToDecimal(PaymentDebtAmountTextBox.Text);
             else
                 exemptService.paymentDebtAmount = null;
+        }
+
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            AddEditViewCalculationService f = new AddEditViewCalculationService(null, exemptService);
+            if (f.ShowDialog(this) == DialogResult.OK)
+            {
+                LoadServiceDetailes();
+            }
+        }
+
+        private void LoadServiceDetailes()
+        {
+            ExemptServiceDetailDAO esdDAO = new ExemptServiceDetailDAO();
+            Grid.DataSource = esdDAO.getExemptServiceDetailsByExemptServiceId(exemptService.id.Value);
+        }
+
+        private void Grid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            AddEditViewCalculationService f = new AddEditViewCalculationService(Convert.ToInt32(Grid.Rows[e.RowIndex].Cells["id"].Value), exemptService);
+            if (f.ShowDialog(this) == DialogResult.OK)
+            {
+                LoadServiceDetailes();
+            }
         }
     }
 }

@@ -22,6 +22,8 @@ namespace OSZN
 
         private Button AddressTextBoxClearButton;
         private Button AddressTextBoxSelectButton;
+        private Button BirthDatePickerClearButton;
+        private Button DocumentDatePickerClearButton;
 
         public AddEditViewExemptForm(int? exemptId)
         {
@@ -32,8 +34,6 @@ namespace OSZN
             this.FamilyMemberListGrid.AutoGenerateColumns = false;
             this.ServiceDataGridView.AutoGenerateColumns = false;
 
-            BirthDateDateTimePicker.CustomFormat = "''";
-            BirthDateDateTimePicker.Format = DateTimePickerFormat.Custom;
             if (exemptId != null)
             {
                 ExemptDAO eDAO = new ExemptDAO();
@@ -46,6 +46,10 @@ namespace OSZN
                 if (exempt.houseId != null)
                 {
                     this.houseId = exempt.houseId;
+                }
+                if (!exempt.HasFamilyComposition)
+                {
+                    tabControl1.TabPages.Remove(FamilyPage);
                 }
             }
             else
@@ -61,21 +65,24 @@ namespace OSZN
         private void setViewData()
         {
             IDValue.Text = exempt.id.ToString();
-            if (exempt.createDate != DateTime.MinValue)
-                CreateDateValue.Text = exempt.createDate.ToString("dd.MM.yyyy");
+            CreateDateValue.Text = exempt.createDate.ToString("dd.MM.yyyy");
             PersonalAccountValue.Text = exempt.personalAccount;
             LastNameValue.Text = exempt.lastName;
             NameValue.Text = exempt.name;
             MidleNameValue.Text = exempt.middleName;
-            if (exempt.birthDate != DateTime.MinValue)
-                BirthDateValue.Text = exempt.birthDate.ToString("dd.MM.yyyy");
+            if (exempt.birthDate != null)
+                BirthDateValue.Text = exempt.birthDate.Value.ToString("dd.MM.yyyy");
+            else
+                BirthDateValue.Text = "";
             SexValue.Text = exempt.sex;
             SNILSValue.Text = exempt.SNILS;
             DocumentNameValue.Text = exempt.documentName;
             DocumentSeriesValue.Text = exempt.documentSeries;
             DocumentNumberValue.Text = exempt.documentNumber;
-            if (exempt.documentDate != DateTime.MinValue)
-                DocumentDateValue.Text = exempt.documentDate.ToString("dd.MM.yyyy");
+            if (exempt.documentDate != null)
+                DocumentDateValue.Text = exempt.documentDate.Value.ToString("dd.MM.yyyy");
+            else
+                DocumentDateValue.Text = "";
             DocumentIssuerValue.Text = exempt.documentIssuer;
             if (exempt.house != null)
             {
@@ -117,7 +124,7 @@ namespace OSZN
             if (BirthDateDateTimePicker.Value != DateTime.MinValue)
                 exempt.birthDate = BirthDateDateTimePicker.Value;
             else
-                exempt.birthDate = DateTime.MinValue;
+                exempt.birthDate = null;
             if (MaleRadioButton.Checked)
                 exempt.sex = "мужской";
             else if (FemaleRadioButton.Checked)
@@ -147,7 +154,7 @@ namespace OSZN
             if (DocumentDateDateTimePicker.Value != DateTime.MinValue)
                 exempt.documentDate = DocumentDateDateTimePicker.Value;
             else 
-                exempt.documentDate = DateTime.MinValue;
+                exempt.documentDate = null;
             if (!String.IsNullOrEmpty(DocumentIssuerTextBox.Text))
                 exempt.documentIssuer = DocumentIssuerTextBox.Text;
             else
@@ -187,14 +194,13 @@ namespace OSZN
         private void setEditData()
         {
             IDTextBox.Text = exempt.id.ToString();
-            if (exempt.createDate != DateTime.MinValue)
-                CreateDateTextBox.Text = exempt.createDate.ToString("dd.MM.yyyy");
+            CreateDateTextBox.Text = exempt.createDate.ToString("dd.MM.yyyy");
             PersonalCodeTextBox.Text = exempt.personalAccount;
             LastNameTextBox.Text = exempt.lastName;
             NameTextBox.Text = exempt.name;
             MiddleNameTextBox.Text = exempt.middleName;
-            if (exempt.birthDate != DateTime.MinValue)
-                BirthDateDateTimePicker.Value = exempt.birthDate;
+            if (exempt.birthDate != null)
+                BirthDateDateTimePicker.Value = exempt.birthDate.Value;
             if (!String.IsNullOrEmpty(exempt.sex))
             {
                 if (exempt.sex.Equals("мужской"))
@@ -210,8 +216,8 @@ namespace OSZN
             DocumentNameTextBox.Text = exempt.documentName;
             DocumetnSeriesTextBox.Text = exempt.documentSeries;
             DocumentNumberTextBox.Text = exempt.documentNumber;
-            if (exempt.documentDate != DateTime.MinValue)
-                DocumentDateDateTimePicker.Value = exempt.documentDate;
+            if (exempt.documentDate != null)
+                DocumentDateDateTimePicker.Value = exempt.documentDate.Value;
             DocumentIssuerTextBox.Text = exempt.documentIssuer;
             if (exempt.house != null)
             {
@@ -240,7 +246,7 @@ namespace OSZN
                 birthDateTextBox.Location = new Point(143, 4);
                 birthDateTextBox.ReadOnly = true;
                 birthDateTextBox.Size = new System.Drawing.Size(130, 20);
-                birthDateTextBox.Text = exempt.birthDate.ToString("dd.MM.yyyy");
+                birthDateTextBox.Text = exempt.birthDate.Value.ToString("dd.MM.yyyy");
                 tableLayoutPanel3.Controls.Remove(tableLayoutPanel3.GetControlFromPosition(1, 0));
                 tableLayoutPanel3.Controls.Add(birthDateTextBox);
 
@@ -249,7 +255,7 @@ namespace OSZN
                 documentDateTextBox.Location = new Point(143, 4);
                 documentDateTextBox.ReadOnly = true;
                 documentDateTextBox.Size = new System.Drawing.Size(130, 20);
-                documentDateTextBox.Text = exempt.documentDate.ToString("dd.MM.yyyy");
+                documentDateTextBox.Text = exempt.documentDate.Value.ToString("dd.MM.yyyy");
                 tableLayoutPanel14.Controls.Remove(tableLayoutPanel14.GetControlFromPosition(1, 0));
                 tableLayoutPanel14.Controls.Add(documentDateTextBox);
             }
@@ -302,7 +308,15 @@ namespace OSZN
             AddressTextBox.Controls.Add(panel);
             // Send EM_SETMARGINS to prevent text from disappearing underneath the button
             SendMessage(AddressTextBox.Handle, 0xd3, (IntPtr)2, (IntPtr)(panel.Width << 16));
+
+            BirthDateDateTimePicker.AddClearButton();
+            DocumentDateDateTimePicker.AddClearButton();
             base.OnLoad(e);
+        }
+
+        void BirthDatePickerClearButton_Click(object sender, EventArgs e)
+        {
+            BirthDateDateTimePicker.Value = DateTime.MinValue;
         }
 
         void AddressTextBoxClearButton_Click(object sender, EventArgs e)
@@ -367,20 +381,6 @@ namespace OSZN
             {
                 this.exempt.house = f.ReturnData();
                 AddressTextBox.Text = exempt.house.fullAddress;
-                CodeTextBox.Text = exempt.house.code;
-                if (this.houseId != null)
-                {
-                    this.exempt.houseId = this.houseId;
-                }
-            }
-        }
-
-        private void BirthDateDateTimePicker_ValueChanged(object sender, EventArgs e)
-        {
-            BirthDateDateTimePicker.Format = DateTimePickerFormat.Short;
-            if (exempt.loaded)
-            {
-                BirthDateDateTimePicker.Value = exempt.birthDate;
             }
         }
 

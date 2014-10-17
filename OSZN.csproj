@@ -76,9 +76,13 @@
   <ItemGroup>
     <Compile Include="DAO\ExemptHouseroomDAO.cs" />
     <Compile Include="DAO\ExemptServiceDAO.cs" />
+    <Compile Include="DAO\ExemptServiceDetailDAO.cs" />
     <Compile Include="DAO\FamilyMembersDAO.cs" />
     <Compile Include="DAO\RelationshipDegreeDAO.cs" />
     <Compile Include="DAO\VocServiceDAO.cs" />
+    <Compile Include="DateTimePicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Forms\AddEditViewExemptForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +100,12 @@
     </Compile>
     <Compile Include="Forms\AddEditViewRelationshipDegreeForm.Designer.cs">
       <DependentUpon>AddEditViewRelationshipDegreeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AddEditViewCalculationService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddEditViewCalculationService.Designer.cs">
+      <DependentUpon>AddEditViewCalculationService.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\AddEditViewServiceForm.cs">
       <SubType>Form</SubType>
@@ -155,6 +165,7 @@
       <DependentUpon>ExemptListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\ExemptService.cs" />
+    <Compile Include="Model\ExemptServiceDetail.cs" />
     <Compile Include="Model\FamilyMembers.cs" />
     <Compile Include="Model\House.cs" />
     <Compile Include="Model\RelationshipDegree.cs" />
@@ -194,6 +205,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddEditViewRelationshipDegreeForm.resx">
       <DependentUpon>AddEditViewRelationshipDegreeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddEditViewCalculationService.resx">
+      <DependentUpon>AddEditViewCalculationService.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddEditViewServiceForm.resx">
       <DependentUpon>AddEditViewServiceForm.cs</DependentUpon>

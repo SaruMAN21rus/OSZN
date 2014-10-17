@@ -39,6 +39,12 @@ namespace OSZN.Forms
             }
         }
 
+        protected override void OnLoad(EventArgs e)
+        {
+            BirthDateDateTimePicker.AddClearButton();
+            base.OnLoad(e);
+        }
+
         private void CloseButton_Click(object sender, EventArgs e)
         {
             Close();
@@ -103,7 +109,7 @@ namespace OSZN.Forms
             if (BirthDateDateTimePicker.Value != DateTime.MinValue)
                 member.birthDate = BirthDateDateTimePicker.Value;
             else
-                member.birthDate = DateTime.MinValue;
+                member.birthDate = null;
             if (MaleRadioButton.Checked)
                 member.sex = "мужской";
             else if (FemaleRadioButton.Checked)
@@ -125,8 +131,8 @@ namespace OSZN.Forms
             LastNameTextBox.Text = member.lastName;
             NameTextBox.Text = member.name;
             MiddleNameTextBox.Text = member.middleName;
-            if (member.birthDate != DateTime.MinValue)
-                BirthDateDateTimePicker.Value = member.birthDate;
+            if (member.birthDate != null)
+                BirthDateDateTimePicker.Value = member.birthDate.Value;
             if (!String.IsNullOrEmpty(member.sex))
             {
                 if (member.sex.Equals("мужской"))
@@ -173,8 +179,8 @@ namespace OSZN.Forms
             LastNameValue.Text = member.lastName;
             NameValue.Text = member.name;
             MiddleNameValue.Text = member.middleName;
-            if (member.birthDate != DateTime.MinValue)
-                BirthDateValue.Text = member.birthDate.ToString("dd.MM.yyyy");
+            if (member.birthDate != null)
+                BirthDateValue.Text = member.birthDate.Value.ToString("dd.MM.yyyy");
             else
                 BirthDateValue.Text = "";
             SexValue.Text = member.sex;

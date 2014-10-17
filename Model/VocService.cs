@@ -13,6 +13,7 @@ namespace OSZN.Model
         public int code { get; set; }
         public string name { get; set; }
         public string unit { get; set; }
+        private string codeName;
 
         private bool active = true;
 
@@ -25,6 +26,18 @@ namespace OSZN.Model
             set
             {
                 active = value;
+            }
+        }
+
+        public string CodeName
+        {
+            get
+            {
+                return codeName;
+            }
+            set
+            {
+                codeName = value;
             }
         }
 
@@ -44,6 +57,7 @@ namespace OSZN.Model
                     unit = dict["unit"].ToString();
                 if (dict.ContainsKey("active"))
                     active = Convert.ToBoolean(dict["active"]);
+                codeName = code + " - " + name;
             }
         }
 
