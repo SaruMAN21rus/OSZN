@@ -16,13 +16,13 @@ namespace OSZN
         public string lastName { get; set; }
         public string name { get; set; }
         public string middleName { get; set; }
-        public DateTime birthDate { get; set; }
+        public DateTime? birthDate { get; set; }
         public string sex { get; set; }
         public string SNILS { get; set; }
         public string documentName { get; set; }
         public string documentSeries { get; set; }
         public string documentNumber { get; set; }
-        public DateTime documentDate { get; set; }
+        public DateTime? documentDate { get; set; }
         public string documentIssuer { get; set; }
         public int? houseId { get; set; }
         public House house { get; set; }

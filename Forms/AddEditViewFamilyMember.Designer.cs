@@ -51,7 +51,7 @@
             this.ApplyButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
             this.FemaleRadioButton = new System.Windows.Forms.RadioButton();
-            this.BirthDateDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.BirthDateDateTimePicker = new OSZN.DateTimePicker();
             this.SexLabel = new System.Windows.Forms.Label();
             this.MaleRadioButton = new System.Windows.Forms.RadioButton();
             this.AddressLabel = new System.Windows.Forms.Label();
@@ -109,7 +109,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(370, 258);
+            this.panel1.Size = new System.Drawing.Size(394, 258);
             this.panel1.TabIndex = 1;
             // 
             // tableLayoutPanel1
@@ -131,7 +131,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(370, 258);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(394, 258);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel18
@@ -147,7 +147,7 @@
             this.tableLayoutPanel18.Name = "tableLayoutPanel18";
             this.tableLayoutPanel18.RowCount = 1;
             this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel18.Size = new System.Drawing.Size(370, 36);
+            this.tableLayoutPanel18.Size = new System.Drawing.Size(394, 36);
             this.tableLayoutPanel18.TabIndex = 13;
             // 
             // RoomsCountLabel
@@ -167,7 +167,7 @@
             this.isOwnerCheckBox.AutoSize = true;
             this.isOwnerCheckBox.Location = new System.Drawing.Point(323, 11);
             this.isOwnerCheckBox.Name = "isOwnerCheckBox";
-            this.isOwnerCheckBox.Size = new System.Drawing.Size(44, 14);
+            this.isOwnerCheckBox.Size = new System.Drawing.Size(68, 14);
             this.isOwnerCheckBox.TabIndex = 3;
             this.isOwnerCheckBox.UseVisualStyleBackColor = true;
             // 
@@ -188,7 +188,7 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(370, 147);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(394, 147);
             this.tableLayoutPanel4.TabIndex = 5;
             // 
             // tableLayoutPanel12
@@ -204,7 +204,7 @@
             this.tableLayoutPanel12.Name = "tableLayoutPanel12";
             this.tableLayoutPanel12.RowCount = 1;
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel12.Size = new System.Drawing.Size(370, 39);
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(394, 39);
             this.tableLayoutPanel12.TabIndex = 9;
             // 
             // DocumentNameLabel
@@ -223,7 +223,7 @@
             this.MiddleNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.MiddleNameTextBox.Location = new System.Drawing.Point(123, 9);
             this.MiddleNameTextBox.Name = "MiddleNameTextBox";
-            this.MiddleNameTextBox.Size = new System.Drawing.Size(244, 20);
+            this.MiddleNameTextBox.Size = new System.Drawing.Size(268, 20);
             this.MiddleNameTextBox.TabIndex = 4;
             // 
             // tableLayoutPanel3
@@ -239,7 +239,7 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(370, 36);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(394, 36);
             this.tableLayoutPanel3.TabIndex = 6;
             // 
             // NameTextBox
@@ -247,7 +247,7 @@
             this.NameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.NameTextBox.Location = new System.Drawing.Point(123, 8);
             this.NameTextBox.Name = "NameTextBox";
-            this.NameTextBox.Size = new System.Drawing.Size(244, 20);
+            this.NameTextBox.Size = new System.Drawing.Size(268, 20);
             this.NameTextBox.TabIndex = 5;
             // 
             // BirthDateLabel
@@ -274,7 +274,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(370, 36);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(394, 36);
             this.tableLayoutPanel2.TabIndex = 3;
             // 
             // LastNameLabel
@@ -293,7 +293,7 @@
             this.LastNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.LastNameTextBox.Location = new System.Drawing.Point(123, 8);
             this.LastNameTextBox.Name = "LastNameTextBox";
-            this.LastNameTextBox.Size = new System.Drawing.Size(244, 20);
+            this.LastNameTextBox.Size = new System.Drawing.Size(268, 20);
             this.LastNameTextBox.TabIndex = 4;
             // 
             // tableLayoutPanel5
@@ -309,7 +309,7 @@
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(370, 36);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(394, 36);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
             // idLabel
@@ -332,7 +332,7 @@
             this.RelationshipDegreeComboBox.FormattingEnabled = true;
             this.RelationshipDegreeComboBox.Location = new System.Drawing.Point(123, 7);
             this.RelationshipDegreeComboBox.Name = "RelationshipDegreeComboBox";
-            this.RelationshipDegreeComboBox.Size = new System.Drawing.Size(244, 21);
+            this.RelationshipDegreeComboBox.Size = new System.Drawing.Size(268, 21);
             this.RelationshipDegreeComboBox.TabIndex = 1;
             this.RelationshipDegreeComboBox.ValueMember = "id";
             this.RelationshipDegreeComboBox.TextChanged += new System.EventHandler(this.RelationshipDegreeComboBox_TextChanged);
@@ -347,12 +347,12 @@
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 229);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(370, 29);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(394, 29);
             this.flowLayoutPanel1.TabIndex = 2;
             // 
             // CloseButton
             // 
-            this.CloseButton.Location = new System.Drawing.Point(292, 3);
+            this.CloseButton.Location = new System.Drawing.Point(316, 3);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(75, 23);
             this.CloseButton.TabIndex = 1;
@@ -362,7 +362,7 @@
             // 
             // ApplyButton
             // 
-            this.ApplyButton.Location = new System.Drawing.Point(206, 3);
+            this.ApplyButton.Location = new System.Drawing.Point(230, 3);
             this.ApplyButton.Name = "ApplyButton";
             this.ApplyButton.Size = new System.Drawing.Size(80, 23);
             this.ApplyButton.TabIndex = 0;
@@ -389,14 +389,14 @@
             this.tableLayoutPanel16.Name = "tableLayoutPanel16";
             this.tableLayoutPanel16.RowCount = 1;
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel16.Size = new System.Drawing.Size(370, 36);
+            this.tableLayoutPanel16.Size = new System.Drawing.Size(394, 36);
             this.tableLayoutPanel16.TabIndex = 11;
             // 
             // FemaleRadioButton
             // 
             this.FemaleRadioButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.FemaleRadioButton.AutoSize = true;
-            this.FemaleRadioButton.Location = new System.Drawing.Point(323, 9);
+            this.FemaleRadioButton.Location = new System.Drawing.Point(347, 9);
             this.FemaleRadioButton.Name = "FemaleRadioButton";
             this.FemaleRadioButton.Size = new System.Drawing.Size(44, 17);
             this.FemaleRadioButton.TabIndex = 2;
@@ -412,7 +412,7 @@
             this.BirthDateDateTimePicker.Location = new System.Drawing.Point(123, 8);
             this.BirthDateDateTimePicker.MaxDate = new System.DateTime(9998, 10, 13, 0, 0, 0, 0);
             this.BirthDateDateTimePicker.Name = "BirthDateDateTimePicker";
-            this.BirthDateDateTimePicker.Size = new System.Drawing.Size(84, 20);
+            this.BirthDateDateTimePicker.Size = new System.Drawing.Size(108, 20);
             this.BirthDateDateTimePicker.TabIndex = 1;
             this.BirthDateDateTimePicker.Value = new System.DateTime(2014, 10, 13, 0, 0, 0, 0);
             // 
@@ -421,7 +421,7 @@
             this.SexLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.SexLabel.AutoSize = true;
             this.SexLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SexLabel.Location = new System.Drawing.Point(230, 11);
+            this.SexLabel.Location = new System.Drawing.Point(254, 11);
             this.SexLabel.Margin = new System.Windows.Forms.Padding(20, 0, 3, 0);
             this.SexLabel.Name = "SexLabel";
             this.SexLabel.Size = new System.Drawing.Size(37, 13);
@@ -432,7 +432,7 @@
             // 
             this.MaleRadioButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.MaleRadioButton.AutoSize = true;
-            this.MaleRadioButton.Location = new System.Drawing.Point(273, 9);
+            this.MaleRadioButton.Location = new System.Drawing.Point(297, 9);
             this.MaleRadioButton.Name = "MaleRadioButton";
             this.MaleRadioButton.Size = new System.Drawing.Size(44, 17);
             this.MaleRadioButton.TabIndex = 1;
@@ -457,7 +457,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(370, 258);
+            this.panel2.Size = new System.Drawing.Size(394, 258);
             this.panel2.TabIndex = 2;
             // 
             // tableLayoutPanel6
@@ -479,7 +479,7 @@
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(370, 258);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(394, 258);
             this.tableLayoutPanel6.TabIndex = 0;
             // 
             // tableLayoutPanel7
@@ -495,7 +495,7 @@
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(370, 36);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(394, 36);
             this.tableLayoutPanel7.TabIndex = 13;
             // 
             // label1
@@ -516,7 +516,7 @@
             this.IsOwnerCheckBoxValue.Enabled = false;
             this.IsOwnerCheckBoxValue.Location = new System.Drawing.Point(323, 11);
             this.IsOwnerCheckBoxValue.Name = "IsOwnerCheckBoxValue";
-            this.IsOwnerCheckBoxValue.Size = new System.Drawing.Size(44, 14);
+            this.IsOwnerCheckBoxValue.Size = new System.Drawing.Size(68, 14);
             this.IsOwnerCheckBoxValue.TabIndex = 3;
             this.IsOwnerCheckBoxValue.UseVisualStyleBackColor = true;
             // 
@@ -537,7 +537,7 @@
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(370, 147);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(394, 147);
             this.tableLayoutPanel8.TabIndex = 5;
             // 
             // tableLayoutPanel9
@@ -553,7 +553,7 @@
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 1;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(370, 39);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(394, 39);
             this.tableLayoutPanel9.TabIndex = 9;
             // 
             // MiddleNameValue
@@ -563,7 +563,7 @@
             this.MiddleNameValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.MiddleNameValue.Location = new System.Drawing.Point(123, 13);
             this.MiddleNameValue.Name = "MiddleNameValue";
-            this.MiddleNameValue.Size = new System.Drawing.Size(244, 13);
+            this.MiddleNameValue.Size = new System.Drawing.Size(268, 13);
             this.MiddleNameValue.TabIndex = 2;
             // 
             // label2
@@ -590,7 +590,7 @@
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
             this.tableLayoutPanel10.RowCount = 1;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(370, 36);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(394, 36);
             this.tableLayoutPanel10.TabIndex = 6;
             // 
             // NameValue
@@ -600,7 +600,7 @@
             this.NameValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.NameValue.Location = new System.Drawing.Point(123, 11);
             this.NameValue.Name = "NameValue";
-            this.NameValue.Size = new System.Drawing.Size(244, 13);
+            this.NameValue.Size = new System.Drawing.Size(268, 13);
             this.NameValue.TabIndex = 2;
             // 
             // label3
@@ -627,7 +627,7 @@
             this.tableLayoutPanel11.Name = "tableLayoutPanel11";
             this.tableLayoutPanel11.RowCount = 1;
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(370, 36);
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(394, 36);
             this.tableLayoutPanel11.TabIndex = 3;
             // 
             // LastNameValue
@@ -637,7 +637,7 @@
             this.LastNameValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.LastNameValue.Location = new System.Drawing.Point(123, 11);
             this.LastNameValue.Name = "LastNameValue";
-            this.LastNameValue.Size = new System.Drawing.Size(244, 13);
+            this.LastNameValue.Size = new System.Drawing.Size(268, 13);
             this.LastNameValue.TabIndex = 2;
             // 
             // label4
@@ -664,7 +664,7 @@
             this.tableLayoutPanel13.Name = "tableLayoutPanel13";
             this.tableLayoutPanel13.RowCount = 1;
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel13.Size = new System.Drawing.Size(370, 36);
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(394, 36);
             this.tableLayoutPanel13.TabIndex = 0;
             // 
             // RelationshipDegreeValue
@@ -674,7 +674,7 @@
             this.RelationshipDegreeValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.RelationshipDegreeValue.Location = new System.Drawing.Point(123, 11);
             this.RelationshipDegreeValue.Name = "RelationshipDegreeValue";
-            this.RelationshipDegreeValue.Size = new System.Drawing.Size(244, 13);
+            this.RelationshipDegreeValue.Size = new System.Drawing.Size(268, 13);
             this.RelationshipDegreeValue.TabIndex = 1;
             // 
             // label5
@@ -698,12 +698,12 @@
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 229);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(370, 29);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(394, 29);
             this.flowLayoutPanel2.TabIndex = 2;
             // 
             // DeleteButton
             // 
-            this.DeleteButton.Location = new System.Drawing.Point(292, 3);
+            this.DeleteButton.Location = new System.Drawing.Point(316, 3);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(75, 23);
             this.DeleteButton.TabIndex = 1;
@@ -713,7 +713,7 @@
             // 
             // EditButton
             // 
-            this.EditButton.Location = new System.Drawing.Point(185, 3);
+            this.EditButton.Location = new System.Drawing.Point(209, 3);
             this.EditButton.Name = "EditButton";
             this.EditButton.Size = new System.Drawing.Size(101, 23);
             this.EditButton.TabIndex = 0;
@@ -739,7 +739,7 @@
             this.tableLayoutPanel14.Name = "tableLayoutPanel14";
             this.tableLayoutPanel14.RowCount = 1;
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel14.Size = new System.Drawing.Size(370, 36);
+            this.tableLayoutPanel14.Size = new System.Drawing.Size(394, 36);
             this.tableLayoutPanel14.TabIndex = 11;
             // 
             // BirthDateValue
@@ -749,7 +749,7 @@
             this.BirthDateValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.BirthDateValue.Location = new System.Drawing.Point(123, 11);
             this.BirthDateValue.Name = "BirthDateValue";
-            this.BirthDateValue.Size = new System.Drawing.Size(84, 13);
+            this.BirthDateValue.Size = new System.Drawing.Size(108, 13);
             this.BirthDateValue.TabIndex = 2;
             // 
             // label7
@@ -768,7 +768,7 @@
             this.SexValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.SexValue.AutoSize = true;
             this.SexValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SexValue.Location = new System.Drawing.Point(273, 11);
+            this.SexValue.Location = new System.Drawing.Point(297, 11);
             this.SexValue.Name = "SexValue";
             this.SexValue.Size = new System.Drawing.Size(94, 13);
             this.SexValue.TabIndex = 3;
@@ -778,7 +778,7 @@
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(230, 11);
+            this.label6.Location = new System.Drawing.Point(254, 11);
             this.label6.Margin = new System.Windows.Forms.Padding(20, 0, 3, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(37, 13);
@@ -789,9 +789,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(370, 258);
+            this.ClientSize = new System.Drawing.Size(394, 258);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.MinimumSize = new System.Drawing.Size(410, 0);
             this.Name = "AddEditViewFamilyMember";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -858,7 +859,7 @@
         private System.Windows.Forms.Button ApplyButton;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel16;
         private System.Windows.Forms.RadioButton FemaleRadioButton;
-        private System.Windows.Forms.DateTimePicker BirthDateDateTimePicker;
+        private DateTimePicker BirthDateDateTimePicker;
         private System.Windows.Forms.Label SexLabel;
         private System.Windows.Forms.RadioButton MaleRadioButton;
         private System.Windows.Forms.Label AddressLabel;

@@ -40,7 +40,15 @@ namespace OSZN.DAO
                     select.Where("active = 0");
             }
             select.Order("code ASC");
-            return db.Execute(select);
+            DataTable dt = db.Execute(select);
+            if (dt != null)
+            {
+                DataColumn dc = new DataColumn();
+                dc.ColumnName = "codeName";
+                dc.Expression = "code + ' - ' + ISNULL(name, '')";
+                dt.Columns.Add(dc);
+            } 
+            return dt;
         }
 
         public VocService getVocServiceById(int id)

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OSZN.Model
 {
-    class ExemptService
+    public class ExemptService
     {
         public int? id { get; set; }
         public DateTime period { get; set; }

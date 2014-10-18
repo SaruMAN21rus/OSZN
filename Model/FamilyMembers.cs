@@ -13,7 +13,7 @@ namespace OSZN.Model
         public string lastName { get; set; }
         public string name { get; set; }
         public string middleName { get; set; }
-        public DateTime birthDate { get; set; }
+        public DateTime? birthDate { get; set; }
         public string sex { get; set; }
         public bool isOwner { get; set; }
         public int? exemptId { get; set; }
