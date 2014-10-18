@@ -549,7 +549,7 @@ namespace OSZN
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Error);
             }
-            else if (tabControl1.SelectedTab == ServicePage)
+            else if (tabControl1.SelectedTab == ServicePage && SearchYearComboBox.Items.Count <= 0)
             {
                 setYearComboBoxItems();
             }
@@ -579,7 +579,7 @@ namespace OSZN
             int selectedYear = Convert.ToInt32(SearchYearComboBox.SelectedItem);
             ExemptServiceDAO esDAO = new ExemptServiceDAO();
             DataTable dt = esDAO.getExemptServicesByExemptIdAndYear(exempt.id.Value, selectedYear);
-            if (dt.Rows.Count <= 0)
+            if (dt == null || dt.Rows.Count <= 0)
             {
                 esDAO.insertExemptServicesByYear(exempt.id.Value, selectedYear);
                 dt = esDAO.getExemptServicesByExemptIdAndYear(exempt.id.Value, selectedYear);
