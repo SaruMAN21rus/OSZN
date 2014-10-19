@@ -57,6 +57,7 @@ namespace OSZN.Forms
             //setViewData();
             //panel1.Hide();
             //panel2.Show();
+            Close();
             refreshTable = true;
         }
 
@@ -89,9 +90,9 @@ namespace OSZN.Forms
             if (!String.IsNullOrEmpty(exempt.middleName))
                 exemptStr += " " + exempt.middleName;
             if (!String.IsNullOrEmpty(exempt.personalAccount))
-                exemptStr += ", л/с № " + exempt.personalAccount;
+                exemptStr += (String.IsNullOrEmpty(exemptStr) ? "л/с № " : ", л/с № ") + exempt.personalAccount;
             if (exempt.house != null)
-                exemptStr += ", " + exempt.house.fullAddress;
+                exemptStr += (String.IsNullOrEmpty(exemptStr) ? "" : ", ") + exempt.house.fullAddress;
             return exemptStr.Trim();
         }
 

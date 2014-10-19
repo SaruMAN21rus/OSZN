@@ -136,6 +136,7 @@
             this.настройкиОбменаToolStripMenuItem.Name = "настройкиОбменаToolStripMenuItem";
             this.настройкиОбменаToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.настройкиОбменаToolStripMenuItem.Text = "Настройки обмена";
+            this.настройкиОбменаToolStripMenuItem.Click += new System.EventHandler(this.настройкиОбменаToolStripMenuItem_Click);
             // 
             // справочникиToolStripMenuItem
             // 

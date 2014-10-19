@@ -42,5 +42,11 @@ namespace OSZN
                 LoadData(SearchTextBox.Text);
             }
         }
+
+        private void SearchTextBox_TextChanged(object sender, EventArgs e)
+        {
+            ExemptDAO eDAO = new ExemptDAO();
+            ExemptListGrid.DataSource = eDAO.getExempts(SearchTextBox.Text);
+        }
     }
 }

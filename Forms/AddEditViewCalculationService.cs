@@ -240,7 +240,7 @@ namespace OSZN.Forms
             if (exemptServiceDetail.recalculateStartDate != null)
                 RecalculateStartDateTimePicker.Value = exemptServiceDetail.recalculateStartDate.Value;
             if (exemptServiceDetail.recalculateEndDate != null)
-                RecalculateStartDateTimePicker.Value = exemptServiceDetail.recalculateEndDate.Value;
+                RecalculateEndDateTimePicker.Value = exemptServiceDetail.recalculateEndDate.Value;
         }
     }
 }

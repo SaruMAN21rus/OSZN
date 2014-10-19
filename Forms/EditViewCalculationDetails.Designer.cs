@@ -90,7 +90,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(804, 362);
+            this.panel1.Size = new System.Drawing.Size(941, 362);
             this.panel1.TabIndex = 1;
             // 
             // tableLayoutPanel1
@@ -115,7 +115,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(804, 362);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(941, 362);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // Grid
@@ -150,7 +150,7 @@
             this.Grid.ReadOnly = true;
             this.Grid.RowHeadersVisible = false;
             this.Grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Grid.Size = new System.Drawing.Size(798, 153);
+            this.Grid.Size = new System.Drawing.Size(935, 153);
             this.Grid.TabIndex = 16;
             this.Grid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Grid_CellDoubleClick);
             // 
@@ -257,7 +257,7 @@
             this.tableLayoutPanel15.Name = "tableLayoutPanel15";
             this.tableLayoutPanel15.RowCount = 1;
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel15.Size = new System.Drawing.Size(804, 29);
+            this.tableLayoutPanel15.Size = new System.Drawing.Size(941, 29);
             this.tableLayoutPanel15.TabIndex = 10;
             // 
             // DocumentIssuerLabel
@@ -277,7 +277,7 @@
             this.ExemptTextBox.Location = new System.Drawing.Point(143, 4);
             this.ExemptTextBox.Name = "ExemptTextBox";
             this.ExemptTextBox.ReadOnly = true;
-            this.ExemptTextBox.Size = new System.Drawing.Size(658, 20);
+            this.ExemptTextBox.Size = new System.Drawing.Size(795, 20);
             this.ExemptTextBox.TabIndex = 4;
             // 
             // flowLayoutPanel1
@@ -290,12 +290,12 @@
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 333);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(804, 29);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(941, 29);
             this.flowLayoutPanel1.TabIndex = 2;
             // 
             // CloseButton
             // 
-            this.CloseButton.Location = new System.Drawing.Point(726, 3);
+            this.CloseButton.Location = new System.Drawing.Point(863, 3);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(75, 23);
             this.CloseButton.TabIndex = 1;
@@ -305,7 +305,7 @@
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(640, 3);
+            this.SaveButton.Location = new System.Drawing.Point(777, 3);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(80, 23);
             this.SaveButton.TabIndex = 0;
@@ -326,7 +326,7 @@
             this.tableLayoutPanel16.Name = "tableLayoutPanel16";
             this.tableLayoutPanel16.RowCount = 1;
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel16.Size = new System.Drawing.Size(804, 29);
+            this.tableLayoutPanel16.Size = new System.Drawing.Size(941, 29);
             this.tableLayoutPanel16.TabIndex = 11;
             // 
             // AddressLabel
@@ -356,7 +356,7 @@
             this.tableLayoutPanel17.ColumnCount = 3;
             this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.19352F));
             this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.80649F));
-            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 324F));
+            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 325F));
             this.tableLayoutPanel17.Controls.Add(this.tableLayoutPanel23, 0, 1);
             this.tableLayoutPanel17.Controls.Add(this.tableLayoutPanel22, 0, 1);
             this.tableLayoutPanel17.Controls.Add(this.tableLayoutPanel19, 0, 0);
@@ -369,7 +369,7 @@
             this.tableLayoutPanel17.RowCount = 2;
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel17.Size = new System.Drawing.Size(804, 58);
+            this.tableLayoutPanel17.Size = new System.Drawing.Size(941, 58);
             this.tableLayoutPanel17.TabIndex = 12;
             // 
             // tableLayoutPanel23
@@ -385,7 +385,7 @@
             this.tableLayoutPanel23.Name = "tableLayoutPanel23";
             this.tableLayoutPanel23.RowCount = 1;
             this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel23.Size = new System.Drawing.Size(207, 29);
+            this.tableLayoutPanel23.Size = new System.Drawing.Size(266, 29);
             this.tableLayoutPanel23.TabIndex = 14;
             // 
             // TotalAreaLabel
@@ -404,7 +404,7 @@
             this.PenaltiesAmountTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.PenaltiesAmountTextBox.Location = new System.Drawing.Point(143, 4);
             this.PenaltiesAmountTextBox.Name = "PenaltiesAmountTextBox";
-            this.PenaltiesAmountTextBox.Size = new System.Drawing.Size(61, 20);
+            this.PenaltiesAmountTextBox.Size = new System.Drawing.Size(120, 20);
             this.PenaltiesAmountTextBox.TabIndex = 4;
             this.PenaltiesAmountTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PaymentAmountTextBox_KeyPress);
             // 
@@ -416,12 +416,12 @@
             this.tableLayoutPanel22.Controls.Add(this.LivingAreaLabel, 0, 0);
             this.tableLayoutPanel22.Controls.Add(this.DebtMonthCount, 1, 0);
             this.tableLayoutPanel22.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel22.Location = new System.Drawing.Point(207, 29);
+            this.tableLayoutPanel22.Location = new System.Drawing.Point(266, 29);
             this.tableLayoutPanel22.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel22.Name = "tableLayoutPanel22";
             this.tableLayoutPanel22.RowCount = 1;
             this.tableLayoutPanel22.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel22.Size = new System.Drawing.Size(272, 29);
+            this.tableLayoutPanel22.Size = new System.Drawing.Size(349, 29);
             this.tableLayoutPanel22.TabIndex = 13;
             // 
             // LivingAreaLabel
@@ -441,7 +441,7 @@
             this.DebtMonthCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.DebtMonthCount.Location = new System.Drawing.Point(233, 4);
             this.DebtMonthCount.Name = "DebtMonthCount";
-            this.DebtMonthCount.Size = new System.Drawing.Size(36, 20);
+            this.DebtMonthCount.Size = new System.Drawing.Size(113, 20);
             this.DebtMonthCount.TabIndex = 4;
             this.DebtMonthCount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DebtMonthCount_KeyPress);
             // 
@@ -458,7 +458,7 @@
             this.tableLayoutPanel19.Name = "tableLayoutPanel19";
             this.tableLayoutPanel19.RowCount = 1;
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel19.Size = new System.Drawing.Size(207, 29);
+            this.tableLayoutPanel19.Size = new System.Drawing.Size(266, 29);
             this.tableLayoutPanel19.TabIndex = 10;
             // 
             // PaymentAmountTextBox
@@ -466,7 +466,7 @@
             this.PaymentAmountTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.PaymentAmountTextBox.Location = new System.Drawing.Point(143, 4);
             this.PaymentAmountTextBox.Name = "PaymentAmountTextBox";
-            this.PaymentAmountTextBox.Size = new System.Drawing.Size(61, 20);
+            this.PaymentAmountTextBox.Size = new System.Drawing.Size(120, 20);
             this.PaymentAmountTextBox.TabIndex = 5;
             this.PaymentAmountTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PaymentAmountTextBox_KeyPress);
             // 
@@ -489,12 +489,12 @@
             this.tableLayoutPanel21.Controls.Add(this.DebtAmountTextBox, 0, 0);
             this.tableLayoutPanel21.Controls.Add(this.IsOwnerLabel, 0, 0);
             this.tableLayoutPanel21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel21.Location = new System.Drawing.Point(207, 0);
+            this.tableLayoutPanel21.Location = new System.Drawing.Point(266, 0);
             this.tableLayoutPanel21.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel21.Name = "tableLayoutPanel21";
             this.tableLayoutPanel21.RowCount = 1;
             this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel21.Size = new System.Drawing.Size(272, 29);
+            this.tableLayoutPanel21.Size = new System.Drawing.Size(349, 29);
             this.tableLayoutPanel21.TabIndex = 12;
             // 
             // DebtAmountTextBox
@@ -502,7 +502,7 @@
             this.DebtAmountTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.DebtAmountTextBox.Location = new System.Drawing.Point(173, 4);
             this.DebtAmountTextBox.Name = "DebtAmountTextBox";
-            this.DebtAmountTextBox.Size = new System.Drawing.Size(96, 20);
+            this.DebtAmountTextBox.Size = new System.Drawing.Size(173, 20);
             this.DebtAmountTextBox.TabIndex = 5;
             this.DebtAmountTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PaymentAmountTextBox_KeyPress);
             // 
@@ -526,18 +526,18 @@
             this.tableLayoutPanel20.Controls.Add(this.PaymentDebtAmountTextBox, 0, 0);
             this.tableLayoutPanel20.Controls.Add(this.ResidentsCountLabel, 0, 0);
             this.tableLayoutPanel20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel20.Location = new System.Drawing.Point(479, 0);
+            this.tableLayoutPanel20.Location = new System.Drawing.Point(615, 0);
             this.tableLayoutPanel20.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel20.Name = "tableLayoutPanel20";
             this.tableLayoutPanel20.RowCount = 1;
             this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel20.Size = new System.Drawing.Size(325, 29);
+            this.tableLayoutPanel20.Size = new System.Drawing.Size(326, 29);
             this.tableLayoutPanel20.TabIndex = 11;
             // 
             // PaymentDebtAmountTextBox
             // 
             this.PaymentDebtAmountTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.PaymentDebtAmountTextBox.Location = new System.Drawing.Point(248, 4);
+            this.PaymentDebtAmountTextBox.Location = new System.Drawing.Point(249, 4);
             this.PaymentDebtAmountTextBox.Name = "PaymentDebtAmountTextBox";
             this.PaymentDebtAmountTextBox.Size = new System.Drawing.Size(74, 20);
             this.PaymentDebtAmountTextBox.TabIndex = 5;
@@ -551,7 +551,7 @@
             this.ResidentsCountLabel.Location = new System.Drawing.Point(20, 8);
             this.ResidentsCountLabel.Margin = new System.Windows.Forms.Padding(20, 0, 3, 0);
             this.ResidentsCountLabel.Name = "ResidentsCountLabel";
-            this.ResidentsCountLabel.Size = new System.Drawing.Size(222, 13);
+            this.ResidentsCountLabel.Size = new System.Drawing.Size(223, 13);
             this.ResidentsCountLabel.TabIndex = 0;
             this.ResidentsCountLabel.Text = "Внесенная оплата задолженности:";
             this.ResidentsCountLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -588,7 +588,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(804, 362);
+            this.ClientSize = new System.Drawing.Size(941, 362);
             this.Controls.Add(this.panel1);
             this.MinimumSize = new System.Drawing.Size(820, 300);
             this.Name = "EditViewCalculationDetails";

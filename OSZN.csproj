@@ -74,6 +74,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\CommunicationFoldersDAO.cs" />
     <Compile Include="DAO\ExemptHouseroomDAO.cs" />
     <Compile Include="DAO\ExemptServiceDAO.cs" />
     <Compile Include="DAO\ExemptServiceDetailDAO.cs" />
@@ -113,6 +114,12 @@
     <Compile Include="Forms\AddEditViewServiceForm.Designer.cs">
       <DependentUpon>AddEditViewServiceForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\CommunicationSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CommunicationSettings.Designer.cs">
+      <DependentUpon>CommunicationSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\EditViewCalculationDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +146,7 @@
       <DependentUpon>AddEditViewKladrForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DAO\ExemptDAO.cs" />
+    <Compile Include="Model\CommunicationFolders.cs" />
     <Compile Include="Model\ExemptHouseroom.cs" />
     <Compile Include="DAO\VocAddressObjectDAO.cs" />
     <Compile Include="DAO\CatalogDAO.cs" />
@@ -211,6 +219,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddEditViewServiceForm.resx">
       <DependentUpon>AddEditViewServiceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CommunicationSettings.resx">
+      <DependentUpon>CommunicationSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EditViewCalculationDetails.resx">
       <DependentUpon>EditViewCalculationDetails.cs</DependentUpon>

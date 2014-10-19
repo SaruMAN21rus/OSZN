@@ -56,6 +56,8 @@
             this.tableLayoutPanel20 = new System.Windows.Forms.TableLayoutPanel();
             this.ResidentsCountLabel = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.RecalculateStartDateTimePicker = new OSZN.DateTimePicker();
+            this.RecalculateEndDateTimePicker = new OSZN.DateTimePicker();
             this.tableLayoutPanel22 = new System.Windows.Forms.TableLayoutPanel();
             this.LivingAreaLabel = new System.Windows.Forms.Label();
             this.PaidAmountTextBox = new System.Windows.Forms.TextBox();
@@ -104,8 +106,6 @@
             this.tableLayoutPanel26 = new System.Windows.Forms.TableLayoutPanel();
             this.PenaltiesAmountValue = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.RecalculateStartDateTimePicker = new OSZN.DateTimePicker();
-            this.RecalculateEndDateTimePicker = new OSZN.DateTimePicker();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel15.SuspendLayout();
@@ -281,6 +281,7 @@
             this.ServiceComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.ServiceComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.ServiceComboBox.DisplayMember = "codeName";
+            this.ServiceComboBox.DropDownWidth = 200;
             this.ServiceComboBox.FormattingEnabled = true;
             this.ServiceComboBox.Location = new System.Drawing.Point(103, 4);
             this.ServiceComboBox.Name = "ServiceComboBox";
@@ -526,6 +527,26 @@
             this.label7.TabIndex = 6;
             this.label7.Text = "по";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // RecalculateStartDateTimePicker
+            // 
+            this.RecalculateStartDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.RecalculateStartDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.RecalculateStartDateTimePicker.Location = new System.Drawing.Point(133, 5);
+            this.RecalculateStartDateTimePicker.Name = "RecalculateStartDateTimePicker";
+            this.RecalculateStartDateTimePicker.Size = new System.Drawing.Size(107, 20);
+            this.RecalculateStartDateTimePicker.TabIndex = 7;
+            this.RecalculateStartDateTimePicker.Value = new System.DateTime(2014, 10, 17, 16, 31, 25, 948);
+            // 
+            // RecalculateEndDateTimePicker
+            // 
+            this.RecalculateEndDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.RecalculateEndDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.RecalculateEndDateTimePicker.Location = new System.Drawing.Point(359, 5);
+            this.RecalculateEndDateTimePicker.Name = "RecalculateEndDateTimePicker";
+            this.RecalculateEndDateTimePicker.Size = new System.Drawing.Size(108, 20);
+            this.RecalculateEndDateTimePicker.TabIndex = 8;
+            this.RecalculateEndDateTimePicker.Value = new System.DateTime(2014, 10, 17, 16, 31, 25, 950);
             // 
             // tableLayoutPanel22
             // 
@@ -1175,26 +1196,6 @@
             this.label18.Size = new System.Drawing.Size(117, 13);
             this.label18.TabIndex = 0;
             this.label18.Text = "Начислено пени:";
-            // 
-            // RecalculateStartDateTimePicker
-            // 
-            this.RecalculateStartDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.RecalculateStartDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.RecalculateStartDateTimePicker.Location = new System.Drawing.Point(133, 5);
-            this.RecalculateStartDateTimePicker.Name = "RecalculateStartDateTimePicker";
-            this.RecalculateStartDateTimePicker.Size = new System.Drawing.Size(107, 20);
-            this.RecalculateStartDateTimePicker.TabIndex = 7;
-            this.RecalculateStartDateTimePicker.Value = new System.DateTime(2014, 10, 17, 16, 31, 25, 948);
-            // 
-            // RecalculateEndDateTimePicker
-            // 
-            this.RecalculateEndDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.RecalculateEndDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.RecalculateEndDateTimePicker.Location = new System.Drawing.Point(359, 5);
-            this.RecalculateEndDateTimePicker.Name = "RecalculateEndDateTimePicker";
-            this.RecalculateEndDateTimePicker.Size = new System.Drawing.Size(108, 20);
-            this.RecalculateEndDateTimePicker.TabIndex = 8;
-            this.RecalculateEndDateTimePicker.Value = new System.DateTime(2014, 10, 17, 16, 31, 25, 950);
             // 
             // AddEditViewCalculationService
             // 

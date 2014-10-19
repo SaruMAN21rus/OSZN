@@ -1,5 +1,6 @@
 ﻿using DatabaseLib;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -28,7 +29,7 @@ namespace OSZN.DAO
                 + "order by CODE ASC");
         }
 
-        public DataTable getTableData(string parentNodeId, string searchText)
+        private DataTable getTableDataWithoutChild(string parentNodeId, string searchText)
         {
             string query = "select ao.AOGUID, ao.FORMALNAME, CASE WHEN at.SCNAME is null THEN ao.SHORTNAME ELSE at.SCNAME END as TYPE, ao.CODE "
                 + "from VOC_ADDRESS_OBJECT ao "
@@ -228,6 +229,159 @@ namespace OSZN.DAO
             vao.typeBriefInLeft = Convert.ToBoolean(a["LEFT"]);
             vao.code = a["CODE"].ToString();
             return vao;
+        }
+
+        private DataTable getTableDataWithChild(string parentNodeId, string searchText)
+        {
+            string query = "select ao.AOGUID, ao.FORMALNAME, CASE WHEN at.SCNAME is null THEN ao.SHORTNAME ELSE at.SCNAME END as TYPE, ao.CODE, ao.PARENTGUID  "
+                    + "from VOC_ADDRESS_OBJECT ao "
+                    + "left join VOC_ADDRESS_TYPE at on ao.AOLEVEL = at.LEVEL and ao.SHORTNAME = at.SOCRNAME "
+                    + "where ao.CURRSTATUS = 0 and ao.PARENTGUID = '" + parentNodeId + "' ";
+            DataTable dt = db.Execute(query);
+            string guids = String.Join(", ", dt.AsEnumerable().Select(r => "'" + r.Field<string>("AOGUID") + "'"));
+            int i = 1;
+            while (true)
+            {
+                query = "select ao.AOGUID, ao.FORMALNAME as NAME, CASE WHEN at.SCNAME is null THEN ao.SHORTNAME ELSE at.SCNAME END as TYPE, ao.CODE, ao.PARENTGUID "
+                        + "from VOC_ADDRESS_OBJECT ao "
+                        + "left join VOC_ADDRESS_TYPE at on ao.AOLEVEL = at.LEVEL and ao.SHORTNAME = at.SOCRNAME "
+                        + "where ao.CURRSTATUS = 0 and ao.PARENTGUID in(" + guids + ") ";
+                DataTable dt2 = db.Execute(query);
+                if (dt2 == null || dt2.Rows.Count <= 0)
+                    break;
+                DataColumn dc = new DataColumn();
+                dc.ColumnName = "FORMALNAME";
+                string spaces = "";
+                for (int j = 0; j < i; j++ )
+                    spaces += "      ";
+                dc.Expression = "'" + spaces + "' + NAME";
+                dt2.Columns.Add(dc);
+                dt.Merge(dt2);
+                guids = String.Join(", ", dt2.AsEnumerable().Select(r => "'" + r.Field<string>("AOGUID") + "'"));
+                i++;
+            }
+            dt.DefaultView.Sort = "CODE asc";
+            if (!String.IsNullOrEmpty(searchText))
+            {
+                DataRow[] rows = dt.Select("FORMALNAME LIKE '*" + searchText.ToLower() + "*' OR TYPE LIKE '*" + searchText.ToLower() + "*' OR CODE LIKE '*" + searchText + "*'");
+                if (rows != null && rows.Length > 0 ) {
+                    DataTable res = rows.CopyToDataTable();
+                    string parentGuids = String.Join(", ", rows.AsEnumerable().Select(r => "'" + r.Field<string>("PARENTGUID") + "'").Distinct());
+                    parentGuids = parentGuids.Replace(", '" + parentNodeId + "'", "");
+                    parentGuids = parentGuids.Replace("'" + parentNodeId + "', ", "");
+                    parentGuids = parentGuids.Replace("'" + parentNodeId + "'", "");
+                    List<DataTable> childDts = new List<DataTable>();
+                    while (!String.IsNullOrEmpty(parentGuids))
+                    {
+                        query = "select ao.AOGUID, ao.FORMALNAME as NAME, CASE WHEN at.SCNAME is null THEN ao.SHORTNAME ELSE at.SCNAME END as TYPE, ao.CODE, ao.PARENTGUID "
+                           + "from VOC_ADDRESS_OBJECT ao "
+                           + "left join VOC_ADDRESS_TYPE at on ao.AOLEVEL = at.LEVEL and ao.SHORTNAME = at.SOCRNAME "
+                           + "where ao.CURRSTATUS = 0 and ao.AOGUID in(" + parentGuids + ")";
+                        DataTable dt2 = db.Execute(query);
+                        if (dt2 != null || dt2.Rows.Count > 0)
+                        {
+                            DataColumn dc = new DataColumn();
+                            dc.ColumnName = "FORMALNAME";
+                            dc.Expression = "IIF (PARENTGUID = '" + parentNodeId + "', NAME, '      ' + NAME)";
+                            dt2.Columns.Add(dc);
+
+                            DataTable dtCloned = dt2.Clone();
+                            dtCloned.Columns["TYPE"].DataType = typeof(string);
+                            foreach (DataRow row in dt2.Rows)
+                            {
+                                dtCloned.ImportRow(row);
+                            }
+                            childDts.Add(dt2);
+                            if (childDts.Count > 1)
+                            {
+                                for (int j = childDts.Count; j > 1; j--)
+                                {
+                                    AddSpacesToChild(childDts[j - 1], childDts[j - 2]);
+                                }
+                            }
+                            parentGuids = String.Join(", ", dt2.AsEnumerable().Select(r => "'" + r.Field<string>("PARENTGUID") + "'").Distinct());
+                            parentGuids = parentGuids.Replace(", '" + parentNodeId + "'", "");
+                            parentGuids = parentGuids.Replace("'" + parentNodeId + "', ", "");
+                            parentGuids = parentGuids.Replace("'" + parentNodeId + "'", "");
+                        }
+                        else
+                            break;
+                    }
+                    foreach (DataTable item in childDts)
+                    {
+                        res.Merge(item);
+                    }
+                    res = RemoveDuplicateRows(res, "AOGUID");
+                    res.DefaultView.Sort = "CODE asc";
+                    return res;
+                }
+                else 
+                   dt.Clear();
+            }
+            return dt;
+        }
+
+        public DataTable getTableData(string parentNodeId, string searchText, bool showChild)
+        {
+            if (showChild)
+                return getTableDataWithChild(parentNodeId, searchText);
+            else
+                return getTableDataWithoutChild(parentNodeId, searchText);
+        }
+
+        private DataTable RemoveDuplicateRows(DataTable dTable, string colName)
+        {
+            Hashtable hTable = new Hashtable();
+            ArrayList duplicateList = new ArrayList();
+
+            //Add list of all the unique item value to hashtable, which stores combination of key, value pair.
+            //And add duplicate item value in arraylist.
+            foreach (DataRow drow in dTable.Rows)
+            {
+                if (hTable.Contains(drow[colName]))
+                    duplicateList.Add(drow);
+                else
+                    hTable.Add(drow[colName], string.Empty);
+            }
+
+            //Removing a list of duplicate items from datatable.
+            foreach (DataRow dRow in duplicateList)
+                dTable.Rows.Remove(dRow);
+
+            //Datatable which contains unique records will be return as output.
+            return dTable;
+        }
+
+        private void AddSpacesToChild(DataTable parentTable, DataTable childTable)
+        {
+            foreach (DataRow row in parentTable.Rows)
+            {
+                if (row["FORMALNAME"].ToString().StartsWith("      ")
+                    && (parentTable.Columns.Contains("addSpace") && row["addSpace"].Equals(1)
+                        || !parentTable.Columns.Contains("addSpace")))
+                {
+                    foreach (DataRow r in childTable.Rows)
+                    {
+                        if (r["PARENTGUID"].Equals(row["AOGUID"]))
+                            r["NAME"] = r["FORMALNAME"];
+                    }
+                }
+                else
+                {
+                    if (!childTable.Columns.Contains("addSpace"))
+                    {
+                        DataColumn dc = new DataColumn();
+                        dc.ColumnName = "addSpace";
+                        dc.DefaultValue = 1;
+                        childTable.Columns.Add(dc);
+                    }
+                    foreach (DataRow r in childTable.Rows)
+                    {
+                        if (r["PARENTGUID"].Equals(row["AOGUID"]))
+                            r["addSpace"] = 0;
+                    }
+                }
+            }
         }
     }
 }

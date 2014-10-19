@@ -31,11 +31,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.RelationshipDegreeListGrid = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.AddButon = new System.Windows.Forms.Button();
             this.SearchComboBox = new System.Windows.Forms.ComboBox();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RelationshipDegreeListGrid)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
@@ -53,7 +53,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(243, 262);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(304, 362);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // RelationshipDegreeListGrid
@@ -82,9 +82,27 @@
             this.RelationshipDegreeListGrid.ReadOnly = true;
             this.RelationshipDegreeListGrid.RowHeadersVisible = false;
             this.RelationshipDegreeListGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.RelationshipDegreeListGrid.Size = new System.Drawing.Size(233, 212);
+            this.RelationshipDegreeListGrid.Size = new System.Drawing.Size(294, 312);
             this.RelationshipDegreeListGrid.TabIndex = 6;
             this.RelationshipDegreeListGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RelationshipDegreeListGrid_CellDoubleClick);
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "ИД";
+            this.id.MinimumWidth = 50;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            this.id.Width = 80;
+            // 
+            // name
+            // 
+            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.name.DataPropertyName = "name";
+            this.name.HeaderText = "Наименование";
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
             // 
             // flowLayoutPanel1
             // 
@@ -94,7 +112,7 @@
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(243, 40);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(304, 40);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // AddButon
@@ -125,31 +143,14 @@
             this.SearchComboBox.TabIndex = 3;
             this.SearchComboBox.SelectedIndexChanged += new System.EventHandler(this.SearchComboBox_SelectedIndexChanged);
             // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "ИД";
-            this.id.MinimumWidth = 50;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
-            this.id.Width = 80;
-            // 
-            // name
-            // 
-            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.name.DataPropertyName = "name";
-            this.name.HeaderText = "Наименование";
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            // 
-            // RelationshipDegreeList
+            // RelationshipDegreeListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(243, 262);
+            this.ClientSize = new System.Drawing.Size(304, 362);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "RelationshipDegreeList";
+            this.MinimumSize = new System.Drawing.Size(260, 200);
+            this.Name = "RelationshipDegreeListForm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Степень родства";

@@ -22,6 +22,7 @@ namespace OSZN
         {
             InitializeComponent();
             InitializeTreeView();
+            this.dataGridView1.AutoGenerateColumns = false;
         }
 
         private void InitializeTreeView()
@@ -106,14 +107,14 @@ namespace OSZN
             {
                 AddButon.Show();
             }
-            DataTable dt = aoDAO.getTableData(SelectedAddressGuid, null);
+            DataTable dt = aoDAO.getTableData(SelectedAddressGuid, textBox1.Text, checkBox2.Checked);
             dataGridView1.DataSource = dt;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             VocAddressObjectDAO aoDAO = new VocAddressObjectDAO();
-            DataTable dt = aoDAO.getTableData(SelectedAddressGuid, textBox1.Text);
+            DataTable dt = aoDAO.getTableData(SelectedAddressGuid, textBox1.Text, checkBox2.Checked);
             dataGridView1.DataSource = dt;
         }
 
@@ -125,7 +126,7 @@ namespace OSZN
                 if (viewKladr.ShowDialog(this) == DialogResult.OK)
                 {
                     VocAddressObjectDAO aoDAO = new VocAddressObjectDAO();
-                    DataTable dt = aoDAO.getTableData(SelectedAddressGuid, textBox1.Text);
+                    DataTable dt = aoDAO.getTableData(SelectedAddressGuid, textBox1.Text, checkBox2.Checked);
                     dataGridView1.DataSource = dt;
 
                     UpdateTree();
@@ -139,31 +140,11 @@ namespace OSZN
             if (addKladr.ShowDialog(this) == DialogResult.OK)
             {
                 VocAddressObjectDAO aoDAO = new VocAddressObjectDAO();
-                DataTable dt = aoDAO.getTableData(SelectedAddressGuid, textBox1.Text);
+                DataTable dt = aoDAO.getTableData(SelectedAddressGuid, textBox1.Text, checkBox2.Checked);
                 dataGridView1.DataSource = dt;
 
                 UpdateTree();
             }
-            
-            //Оптимизировать
-           /* string sql = "WITH RECURSIVE "
-                    + "under_alice(guid, name, type, code, level) AS ( "
-                    + "select ao.AOGUID, ao.FORMALNAME, CASE WHEN at.SCNAME is null THEN ao.SHORTNAME ELSE at.SCNAME END as TYPE, ao.CODE, 0 "
-                    + "from VOC_ADDRESS_OBJECT ao "
-                    + "left join VOC_ADDRESS_TYPE at on ao.AOLEVEL = at.LEVEL and ao.SHORTNAME = at.SOCRNAME "
-                    + "where ao.CURRSTATUS = 0 and ao.PARENTGUID = '" + SelectedAddressGuid + "'"
-                    + "UNION ALL "
-                    + "SELECT ao.AOGUID, ao.FORMALNAME, CASE WHEN at.SCNAME is null THEN ao.SHORTNAME ELSE at.SCNAME END as TYPE, ao.CODE, under_alice.level+1 "
-                    + "from VOC_ADDRESS_OBJECT ao "
-                    + "left join VOC_ADDRESS_TYPE at on ao.AOLEVEL = at.LEVEL and ao.SHORTNAME = at.SOCRNAME "
-                    + "inner join under_alice ON ao.PARENTGUID=under_alice.guid and ao.CURRSTATUS = 0 "
-                    + "ORDER BY ao.CODE ASC "
-                    + ") "
-                    + "SELECT substr('            ',1,level*3) || name as FORMALNAME, guid as AOGUID, type, code FROM under_alice;";
-            SQLiteDataAdapter da = new SQLiteDataAdapter(sql, dbConnection);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            dataGridView1.DataSource = ds.Tables[0].DefaultView;*/
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -226,6 +207,13 @@ namespace OSZN
             {
                 PopulateChildren(parentNode, childItems);
             });
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            VocAddressObjectDAO aoDAO = new VocAddressObjectDAO();
+            DataTable dt = aoDAO.getTableData(SelectedAddressGuid, textBox1.Text, checkBox2.Checked);
+            dataGridView1.DataSource = dt;
         }
     }
 

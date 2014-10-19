@@ -151,7 +151,7 @@
             // 
             this.CodeTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.CodeTextBox.Location = new System.Drawing.Point(148, 12);
-            this.CodeTextBox.MaxLength = 4;
+            this.CodeTextBox.MaxLength = 6;
             this.CodeTextBox.Name = "CodeTextBox";
             this.CodeTextBox.Size = new System.Drawing.Size(223, 20);
             this.CodeTextBox.TabIndex = 7;

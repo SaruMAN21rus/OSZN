@@ -108,7 +108,7 @@ namespace OSZN
                         if (xml.NodeType == XmlNodeType.Element && xml.Name == "Object")
                         {
                             AddressObject a = new AddressObject(xml.ReadOuterXml());
-                            if ("21".Equals(a.REGIONCODE))
+                            if ("21".Equals(a.REGIONCODE) && a.AOLEVEL <= 7)
                             {
                                 ParametersCollection parameters = new ParametersCollection();
                                 parameters.Add("aoguid", a.AOGUID, System.Data.DbType.String);

@@ -76,11 +76,7 @@ namespace OSZN.DAO
             if (s != null && s.Count > 0)
             {
                 maxCode = Convert.ToInt32(s["maxCode"]);
-                int i = maxCode / 1000 + 1;
-                if (i < 10)
-                    nextCode = i * 1000;
-                else
-                    nextCode = maxCode + 1;
+                nextCode = (maxCode / 1000 + 1) * 1000;
             }
             return nextCode;
         }

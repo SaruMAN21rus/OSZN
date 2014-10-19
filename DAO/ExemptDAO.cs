@@ -19,8 +19,14 @@ namespace OSZN.DAO
         {
             Select select = new Select()
                 .From("EXEMPT as e");
-                if (searchText != null) {
-                    //select.Where("aolevel in (7) and currstatus = 0 and parentguid='" + parentAddressGuid + "'")
+                if (!String.IsNullOrEmpty(searchText)) {
+                    searchText = searchText.ToLower();
+                    select.Where("id = " + searchText
+                        + " or lower(last_name) LIKE ('%" + searchText + "%')"
+                        + " or lower(name) LIKE ('%" + searchText + "%')"
+                        + " or lower(middle_name) LIKE ('%" + searchText + "%')"
+                        + " or personal_account  LIKE ('%" + searchText + "%')"
+                        + " or SNILS LIKE ('%" + searchText + "%')");
                 }
                 select.Order("e.id ASC");
             DataTable dt = db.Execute(select);

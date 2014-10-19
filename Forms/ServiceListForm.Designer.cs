@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.ServiceListGrid = new System.Windows.Forms.DataGridView();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.AddButon = new System.Windows.Forms.Button();
-            this.SearchComboBox = new System.Windows.Forms.ComboBox();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Сode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.AddButon = new System.Windows.Forms.Button();
+            this.SearchComboBox = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ServiceListGrid)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
@@ -55,7 +55,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(284, 262);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(304, 362);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // ServiceListGrid
@@ -64,14 +64,14 @@
             this.ServiceListGrid.AllowUserToDeleteRows = false;
             this.ServiceListGrid.BackgroundColor = System.Drawing.SystemColors.Control;
             this.ServiceListGrid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ServiceListGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ServiceListGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.ServiceListGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ServiceListGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
@@ -86,48 +86,9 @@
             this.ServiceListGrid.ReadOnly = true;
             this.ServiceListGrid.RowHeadersVisible = false;
             this.ServiceListGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.ServiceListGrid.Size = new System.Drawing.Size(274, 212);
+            this.ServiceListGrid.Size = new System.Drawing.Size(294, 312);
             this.ServiceListGrid.TabIndex = 6;
             this.ServiceListGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ServiceListGrid_CellDoubleClick);
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.AddButon);
-            this.flowLayoutPanel1.Controls.Add(this.SearchComboBox);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(284, 40);
-            this.flowLayoutPanel1.TabIndex = 0;
-            // 
-            // AddButon
-            // 
-            this.AddButon.Location = new System.Drawing.Point(5, 10);
-            this.AddButon.Margin = new System.Windows.Forms.Padding(5, 10, 5, 5);
-            this.AddButon.Name = "AddButon";
-            this.AddButon.Size = new System.Drawing.Size(97, 24);
-            this.AddButon.TabIndex = 1;
-            this.AddButon.Text = "Добавить";
-            this.AddButon.UseVisualStyleBackColor = true;
-            this.AddButon.Click += new System.EventHandler(this.AddButon_Click);
-            // 
-            // SearchComboBox
-            // 
-            this.SearchComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.SearchComboBox.FormattingEnabled = true;
-            this.SearchComboBox.IntegralHeight = false;
-            this.SearchComboBox.ItemHeight = 13;
-            this.SearchComboBox.Items.AddRange(new object[] {
-            "Все",
-            "Активные",
-            "Удаленные"});
-            this.SearchComboBox.Location = new System.Drawing.Point(113, 11);
-            this.SearchComboBox.Margin = new System.Windows.Forms.Padding(6, 11, 6, 6);
-            this.SearchComboBox.Name = "SearchComboBox";
-            this.SearchComboBox.Size = new System.Drawing.Size(121, 21);
-            this.SearchComboBox.TabIndex = 3;
-            this.SearchComboBox.SelectedIndexChanged += new System.EventHandler(this.SearchComboBox_SelectedIndexChanged_1);
             // 
             // id
             // 
@@ -163,12 +124,52 @@
             this.Unit.ReadOnly = true;
             this.Unit.Width = 60;
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.AddButon);
+            this.flowLayoutPanel1.Controls.Add(this.SearchComboBox);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(304, 40);
+            this.flowLayoutPanel1.TabIndex = 0;
+            // 
+            // AddButon
+            // 
+            this.AddButon.Location = new System.Drawing.Point(5, 10);
+            this.AddButon.Margin = new System.Windows.Forms.Padding(5, 10, 5, 5);
+            this.AddButon.Name = "AddButon";
+            this.AddButon.Size = new System.Drawing.Size(97, 24);
+            this.AddButon.TabIndex = 1;
+            this.AddButon.Text = "Добавить";
+            this.AddButon.UseVisualStyleBackColor = true;
+            this.AddButon.Click += new System.EventHandler(this.AddButon_Click);
+            // 
+            // SearchComboBox
+            // 
+            this.SearchComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.SearchComboBox.FormattingEnabled = true;
+            this.SearchComboBox.IntegralHeight = false;
+            this.SearchComboBox.ItemHeight = 13;
+            this.SearchComboBox.Items.AddRange(new object[] {
+            "Все",
+            "Активные",
+            "Удаленные"});
+            this.SearchComboBox.Location = new System.Drawing.Point(113, 11);
+            this.SearchComboBox.Margin = new System.Windows.Forms.Padding(6, 11, 6, 6);
+            this.SearchComboBox.Name = "SearchComboBox";
+            this.SearchComboBox.Size = new System.Drawing.Size(121, 21);
+            this.SearchComboBox.TabIndex = 3;
+            this.SearchComboBox.SelectedIndexChanged += new System.EventHandler(this.SearchComboBox_SelectedIndexChanged_1);
+            // 
             // ServiceListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.ClientSize = new System.Drawing.Size(304, 362);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.MinimumSize = new System.Drawing.Size(320, 200);
             this.Name = "ServiceListForm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
