@@ -1,4 +1,5 @@
 ﻿using OSZN.DAO;
+using OSZN.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,7 @@ namespace OSZN
     {
 
         private string SelectedAddressGuid;
+        private WaitWindow wait = new WaitWindow();
 
         public KladrForm()
         {
@@ -149,30 +151,21 @@ namespace OSZN
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (backgroundWorker1.IsBusy != true)
-            {
                 this.Enabled = false;
-                backgroundWorker1.RunWorkerAsync();
-            }
-        }
-
-        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
-        {
-            BackgroundWorker worker = sender as BackgroundWorker;
-            e.Result = UpdateAddressObject.update();
-        }
-
-        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            this.Enabled = true;
-            if (e.Error != null)
-            {
-                MessageBox.Show(e.Error.Message);
-            }
-            else
-            {
-                MessageBox.Show(e.Result.ToString());
-            }
+                wait.SetMessage("Проверка текущей версии...");
+                if (wait.ShowDialog() == DialogResult.OK)
+                {
+                    this.Enabled = true;
+                    RunWorkerCompletedEventArgs workerResult = wait.ReturnData();
+                    if (workerResult.Error != null)
+                    {
+                        MessageBox.Show(workerResult.Error.Message);
+                    }
+                    else
+                    {
+                        MessageBox.Show(workerResult.Result.ToString());
+                    }
+                }
         }
 
         public TreeNode FindNodeByTag(string itemId, TreeNode rootNode)

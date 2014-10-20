@@ -32,15 +32,11 @@ namespace OSZN.Forms
                 exemptService = esDAO.getExemptServiceById(exemptServiceId.Value);
                 setEditData();
                 LoadServiceDetailes();
-                //setViewData();
-                //panel1.Hide();
-                //panel2.Show();
             }
             else
             {
                 exemptService = new ExemptService();
                 panel1.Show();
-                //panel2.Hide();
             }
         }
 
@@ -54,11 +50,8 @@ namespace OSZN.Forms
             setDataForSave();
             ExemptServiceDAO esDAO = new ExemptServiceDAO();
             esDAO.updateExemptServices(exemptService);
-            //setViewData();
-            //panel1.Hide();
-            //panel2.Show();
-            Close();
             refreshTable = true;
+            Close();
         }
 
         private void EditViewCalculationDetails_FormClosed(object sender, FormClosedEventArgs e)
@@ -72,7 +65,7 @@ namespace OSZN.Forms
         private void setEditData()
         {
             ExemptTextBox.Text = getExemptText();
-            PeriodDateTimePicker.Value = exemptService.period;
+            PeriodTextBox.Text = exemptService.period.ToString("MMMM yyyy");
             PaymentAmountTextBox.Text = exemptService.paymentAmount.ToString();
             PenaltiesAmountTextBox.Text = exemptService.penaltiesAmount.ToString();
             DebtAmountTextBox.Text = exemptService.debtAmount.ToString();
@@ -161,6 +154,52 @@ namespace OSZN.Forms
             {
                 LoadServiceDetailes();
             }
+        }
+
+        private void CopyLastCalculateButton_Click(object sender, EventArgs e)
+        {
+            DateTime prevPeriod = exemptService.period.AddMonths(-1);
+            ExemptServiceDAO esDAO = new ExemptServiceDAO();
+            ExemptService prevService = esDAO.getExemptServiceByPeriodAndExemptId(prevPeriod, exempt.id.Value);
+            exemptService.paymentAmount = prevService.paymentAmount;
+            exemptService.paymentDebtAmount = prevService.paymentDebtAmount;
+            exemptService.penaltiesAmount = prevService.penaltiesAmount;
+            exemptService.debtAmount = prevService.debtAmount;
+            exemptService.debtMonthCount = prevService.debtMonthCount;
+            setEditData();
+            ExemptServiceDetailDAO esdDAO = new ExemptServiceDetailDAO();
+            DataTable exemptServiceDetails = esdDAO.getExemptServiceDetailsByExemptServiceId(prevService.id.Value);
+            esdDAO.beginTransaction();
+            foreach (DataRow row in exemptServiceDetails.Rows)
+            {
+                ExemptServiceDetail d = new ExemptServiceDetail();
+                if (row["accrued_amount"] != null && !DBNull.Value.Equals(row["accrued_amount"]))
+                    d.accruedAmount = Convert.ToDecimal(row["accrued_amount"]);
+                d.exemptServiceId = exemptService.id;
+                if (row["norm"] != null && !DBNull.Value.Equals(row["norm"]))
+                    d.norm = Convert.ToDecimal(row["norm"]);
+                if (row["paid_amount"] != null && !DBNull.Value.Equals(row["paid_amount"]))
+                    d.paidAmount = Convert.ToDecimal(row["paid_amount"]);
+                if (row["accrued_amount"] != null && !DBNull.Value.Equals(row["parameter"]))
+                    d.parameter = row["parameter"].ToString();
+                if (row["penalties_amount"] != null && !DBNull.Value.Equals(row["penalties_amount"]))
+                    d.penaltiesAmount = Convert.ToDecimal(row["penalties_amount"]);
+                if (row["accrued_amount"] != null && !DBNull.Value.Equals(row["rate"]))
+                    d.rate = Convert.ToDecimal(row["rate"]);
+                if (row["recalculated_amount"] != null && !DBNull.Value.Equals(row["recalculated_amount"]))
+                    d.recalculatedAmount = Convert.ToDecimal(row["recalculated_amount"]);
+                if (row["recalculate_end_date"] != null && !DBNull.Value.Equals(row["recalculate_end_date"]))
+                    d.recalculateEndDate = Convert.ToDateTime(row["recalculate_end_date"]);
+                if (row["recalculate_start_date"] != null && !DBNull.Value.Equals(row["recalculate_start_date"]))
+                    d.recalculateStartDate = Convert.ToDateTime(row["recalculate_start_date"]);
+                if (row["voc_service_id"] != null && !DBNull.Value.Equals(row["voc_service_id"]))
+                    d.vocServiceId = Convert.ToInt32(row["voc_service_id"]);
+                if (row["service_volume"] != null && !DBNull.Value.Equals(row["service_volume"]))
+                    d.volume = Convert.ToDecimal(row["service_volume"]);
+                esdDAO.insertExemptServiceDetail(d);
+            }
+            esdDAO.commitTransaction();
+            LoadServiceDetailes();
         }
     }
 }

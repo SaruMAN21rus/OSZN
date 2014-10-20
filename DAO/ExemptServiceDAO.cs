@@ -44,5 +44,13 @@ namespace OSZN.DAO
                 .Where("id = " + serviceId);
             return new ExemptService(db.FetchOneRow(query));
         }
+
+        public ExemptService getExemptServiceByPeriodAndExemptId(DateTime period, int exemptId)
+        {
+            Select query = new Select()
+                .From("exempt_service")
+                .Where("exempt_id = " + exemptId + " and period = '" + period.ToString("yyyy-MM-dd HH:mm:ss") + "'");
+            return new ExemptService(db.FetchOneRow(query));
+        }
     }
 }

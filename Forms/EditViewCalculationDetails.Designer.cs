@@ -50,7 +50,6 @@
             this.SaveButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
             this.AddressLabel = new System.Windows.Forms.Label();
-            this.PeriodDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel23 = new System.Windows.Forms.TableLayoutPanel();
             this.TotalAreaLabel = new System.Windows.Forms.Label();
@@ -70,6 +69,7 @@
             this.CopyLastCalculateButton = new System.Windows.Forms.Button();
             this.AddButton = new System.Windows.Forms.Button();
             this.ResidentsCountTextBox = new System.Windows.Forms.TextBox();
+            this.PeriodTextBox = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grid)).BeginInit();
@@ -318,8 +318,8 @@
             this.tableLayoutPanel16.ColumnCount = 2;
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 140F));
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel16.Controls.Add(this.PeriodTextBox, 1, 0);
             this.tableLayoutPanel16.Controls.Add(this.AddressLabel, 0, 0);
-            this.tableLayoutPanel16.Controls.Add(this.PeriodDateTimePicker, 1, 0);
             this.tableLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel16.Location = new System.Drawing.Point(0, 58);
             this.tableLayoutPanel16.Margin = new System.Windows.Forms.Padding(0);
@@ -340,23 +340,12 @@
             this.AddressLabel.TabIndex = 1;
             this.AddressLabel.Text = "Период начисления:";
             // 
-            // PeriodDateTimePicker
-            // 
-            this.PeriodDateTimePicker.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.PeriodDateTimePicker.CustomFormat = "MMMM yyyy";
-            this.PeriodDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.PeriodDateTimePicker.Location = new System.Drawing.Point(143, 4);
-            this.PeriodDateTimePicker.Name = "PeriodDateTimePicker";
-            this.PeriodDateTimePicker.ShowUpDown = true;
-            this.PeriodDateTimePicker.Size = new System.Drawing.Size(106, 20);
-            this.PeriodDateTimePicker.TabIndex = 2;
-            // 
             // tableLayoutPanel17
             // 
             this.tableLayoutPanel17.ColumnCount = 3;
             this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.19352F));
             this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.80649F));
-            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 325F));
+            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 326F));
             this.tableLayoutPanel17.Controls.Add(this.tableLayoutPanel23, 0, 1);
             this.tableLayoutPanel17.Controls.Add(this.tableLayoutPanel22, 0, 1);
             this.tableLayoutPanel17.Controls.Add(this.tableLayoutPanel19, 0, 0);
@@ -385,7 +374,7 @@
             this.tableLayoutPanel23.Name = "tableLayoutPanel23";
             this.tableLayoutPanel23.RowCount = 1;
             this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel23.Size = new System.Drawing.Size(266, 29);
+            this.tableLayoutPanel23.Size = new System.Drawing.Size(265, 29);
             this.tableLayoutPanel23.TabIndex = 14;
             // 
             // TotalAreaLabel
@@ -404,7 +393,7 @@
             this.PenaltiesAmountTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.PenaltiesAmountTextBox.Location = new System.Drawing.Point(143, 4);
             this.PenaltiesAmountTextBox.Name = "PenaltiesAmountTextBox";
-            this.PenaltiesAmountTextBox.Size = new System.Drawing.Size(120, 20);
+            this.PenaltiesAmountTextBox.Size = new System.Drawing.Size(119, 20);
             this.PenaltiesAmountTextBox.TabIndex = 4;
             this.PenaltiesAmountTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PaymentAmountTextBox_KeyPress);
             // 
@@ -416,7 +405,7 @@
             this.tableLayoutPanel22.Controls.Add(this.LivingAreaLabel, 0, 0);
             this.tableLayoutPanel22.Controls.Add(this.DebtMonthCount, 1, 0);
             this.tableLayoutPanel22.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel22.Location = new System.Drawing.Point(266, 29);
+            this.tableLayoutPanel22.Location = new System.Drawing.Point(265, 29);
             this.tableLayoutPanel22.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel22.Name = "tableLayoutPanel22";
             this.tableLayoutPanel22.RowCount = 1;
@@ -458,7 +447,7 @@
             this.tableLayoutPanel19.Name = "tableLayoutPanel19";
             this.tableLayoutPanel19.RowCount = 1;
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel19.Size = new System.Drawing.Size(266, 29);
+            this.tableLayoutPanel19.Size = new System.Drawing.Size(265, 29);
             this.tableLayoutPanel19.TabIndex = 10;
             // 
             // PaymentAmountTextBox
@@ -466,7 +455,7 @@
             this.PaymentAmountTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.PaymentAmountTextBox.Location = new System.Drawing.Point(143, 4);
             this.PaymentAmountTextBox.Name = "PaymentAmountTextBox";
-            this.PaymentAmountTextBox.Size = new System.Drawing.Size(120, 20);
+            this.PaymentAmountTextBox.Size = new System.Drawing.Size(119, 20);
             this.PaymentAmountTextBox.TabIndex = 5;
             this.PaymentAmountTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PaymentAmountTextBox_KeyPress);
             // 
@@ -489,7 +478,7 @@
             this.tableLayoutPanel21.Controls.Add(this.DebtAmountTextBox, 0, 0);
             this.tableLayoutPanel21.Controls.Add(this.IsOwnerLabel, 0, 0);
             this.tableLayoutPanel21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel21.Location = new System.Drawing.Point(266, 0);
+            this.tableLayoutPanel21.Location = new System.Drawing.Point(265, 0);
             this.tableLayoutPanel21.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel21.Name = "tableLayoutPanel21";
             this.tableLayoutPanel21.RowCount = 1;
@@ -526,18 +515,18 @@
             this.tableLayoutPanel20.Controls.Add(this.PaymentDebtAmountTextBox, 0, 0);
             this.tableLayoutPanel20.Controls.Add(this.ResidentsCountLabel, 0, 0);
             this.tableLayoutPanel20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel20.Location = new System.Drawing.Point(615, 0);
+            this.tableLayoutPanel20.Location = new System.Drawing.Point(614, 0);
             this.tableLayoutPanel20.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel20.Name = "tableLayoutPanel20";
             this.tableLayoutPanel20.RowCount = 1;
             this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel20.Size = new System.Drawing.Size(326, 29);
+            this.tableLayoutPanel20.Size = new System.Drawing.Size(327, 29);
             this.tableLayoutPanel20.TabIndex = 11;
             // 
             // PaymentDebtAmountTextBox
             // 
             this.PaymentDebtAmountTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.PaymentDebtAmountTextBox.Location = new System.Drawing.Point(249, 4);
+            this.PaymentDebtAmountTextBox.Location = new System.Drawing.Point(250, 4);
             this.PaymentDebtAmountTextBox.Name = "PaymentDebtAmountTextBox";
             this.PaymentDebtAmountTextBox.Size = new System.Drawing.Size(74, 20);
             this.PaymentDebtAmountTextBox.TabIndex = 5;
@@ -551,7 +540,7 @@
             this.ResidentsCountLabel.Location = new System.Drawing.Point(20, 8);
             this.ResidentsCountLabel.Margin = new System.Windows.Forms.Padding(20, 0, 3, 0);
             this.ResidentsCountLabel.Name = "ResidentsCountLabel";
-            this.ResidentsCountLabel.Size = new System.Drawing.Size(223, 13);
+            this.ResidentsCountLabel.Size = new System.Drawing.Size(224, 13);
             this.ResidentsCountLabel.TabIndex = 0;
             this.ResidentsCountLabel.Text = "Внесенная оплата задолженности:";
             this.ResidentsCountLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -565,6 +554,7 @@
             this.CopyLastCalculateButton.TabIndex = 14;
             this.CopyLastCalculateButton.Text = "Копировать с предыдущего начисления";
             this.CopyLastCalculateButton.UseVisualStyleBackColor = true;
+            this.CopyLastCalculateButton.Click += new System.EventHandler(this.CopyLastCalculateButton_Click);
             // 
             // AddButton
             // 
@@ -583,6 +573,16 @@
             this.ResidentsCountTextBox.Name = "ResidentsCountTextBox";
             this.ResidentsCountTextBox.Size = new System.Drawing.Size(74, 20);
             this.ResidentsCountTextBox.TabIndex = 5;
+            // 
+            // PeriodTextBox
+            // 
+            this.PeriodTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.PeriodTextBox.Location = new System.Drawing.Point(143, 3);
+            this.PeriodTextBox.Name = "PeriodTextBox";
+            this.PeriodTextBox.ReadOnly = true;
+            this.PeriodTextBox.Size = new System.Drawing.Size(119, 20);
+            this.PeriodTextBox.TabIndex = 5;
             // 
             // EditViewCalculationDetails
             // 
@@ -646,7 +646,6 @@
         private System.Windows.Forms.Label PropertyTypeLabel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel21;
         private System.Windows.Forms.Label IsOwnerLabel;
-        private System.Windows.Forms.DateTimePicker PeriodDateTimePicker;
         private System.Windows.Forms.Button CopyLastCalculateButton;
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.DataGridView Grid;
@@ -663,5 +662,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PenaltiesAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn PaidAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn RecalculatedAmount;
+        private System.Windows.Forms.TextBox PeriodTextBox;
     }
 }

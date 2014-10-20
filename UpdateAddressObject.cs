@@ -16,6 +16,7 @@ using System.Xml;
 using System.Data;
 using System.Windows.Forms;
 using OSZN.DAO;
+using OSZN.Forms;
 
 namespace OSZN
 {
@@ -23,7 +24,7 @@ namespace OSZN
     {
         static string UpdateFolderPath = @"UpdateFolder";
         
-        public static string update()
+        public static string update(WaitWindow wait)
         {
             WebClient webClient;
             
@@ -33,6 +34,7 @@ namespace OSZN
             int lastVersion = aoDAO.getAddressObjectsUpdateLastVersion();
             if (lastVersion < lastUpdateFile.VersionId)
             {
+                wait.SetMessage("Обновление...");
                 SortedSet<int> versions = new SortedSet<int>();
                 if (Directory.Exists(UpdateFolderPath))
                 {
