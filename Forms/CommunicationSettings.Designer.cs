@@ -30,30 +30,30 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.UnloadFolderTextBox = new System.Windows.Forms.TextBox();
+            this.LoadFolderTextBox = new System.Windows.Forms.TextBox();
+            this.NameLabel = new System.Windows.Forms.Label();
+            this.INNKPPLabel = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.CloseButton = new System.Windows.Forms.Button();
             this.ApplyButton = new System.Windows.Forms.Button();
-            this.INNKPPLabel = new System.Windows.Forms.Label();
-            this.NameLabel = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.folderBrowserDialog2 = new System.Windows.Forms.FolderBrowserDialog();
-            this.LoadFolderTextBox = new System.Windows.Forms.TextBox();
-            this.UnloadFolderTextBox = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.UnloadFolderValue = new System.Windows.Forms.Label();
+            this.LoadFolderValue = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.CloseButton1 = new System.Windows.Forms.Button();
             this.EditButton = new System.Windows.Forms.Button();
-            this.LoadFolderValue = new System.Windows.Forms.Label();
-            this.UnloadFolderValue = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -83,6 +83,71 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.Size = new System.Drawing.Size(564, 122);
             this.tableLayoutPanel2.TabIndex = 5;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 190F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Controls.Add(this.UnloadFolderTextBox, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.LoadFolderTextBox, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.NameLabel, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.INNKPPLabel, 0, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(558, 81);
+            this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // UnloadFolderTextBox
+            // 
+            this.UnloadFolderTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.UnloadFolderTextBox.Location = new System.Drawing.Point(193, 50);
+            this.UnloadFolderTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
+            this.UnloadFolderTextBox.Name = "UnloadFolderTextBox";
+            this.UnloadFolderTextBox.ReadOnly = true;
+            this.UnloadFolderTextBox.Size = new System.Drawing.Size(365, 20);
+            this.UnloadFolderTextBox.TabIndex = 11;
+            this.UnloadFolderTextBox.TextChanged += new System.EventHandler(this.UnloadFolderTextBox_TextChanged);
+            // 
+            // LoadFolderTextBox
+            // 
+            this.LoadFolderTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.LoadFolderTextBox.Location = new System.Drawing.Point(193, 10);
+            this.LoadFolderTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
+            this.LoadFolderTextBox.Name = "LoadFolderTextBox";
+            this.LoadFolderTextBox.ReadOnly = true;
+            this.LoadFolderTextBox.Size = new System.Drawing.Size(365, 20);
+            this.LoadFolderTextBox.TabIndex = 10;
+            this.LoadFolderTextBox.TextChanged += new System.EventHandler(this.LoadFolderTextBox_TextChanged);
+            // 
+            // NameLabel
+            // 
+            this.NameLabel.AutoSize = true;
+            this.NameLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.NameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.NameLabel.Location = new System.Drawing.Point(3, 0);
+            this.NameLabel.Name = "NameLabel";
+            this.NameLabel.Size = new System.Drawing.Size(184, 40);
+            this.NameLabel.TabIndex = 0;
+            this.NameLabel.Text = "Папка обмена для загрузки:";
+            this.NameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // INNKPPLabel
+            // 
+            this.INNKPPLabel.AutoSize = true;
+            this.INNKPPLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.INNKPPLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.INNKPPLabel.Location = new System.Drawing.Point(3, 40);
+            this.INNKPPLabel.Name = "INNKPPLabel";
+            this.INNKPPLabel.Size = new System.Drawing.Size(184, 41);
+            this.INNKPPLabel.TabIndex = 2;
+            this.INNKPPLabel.Text = "Папка обмена для выгрузки:";
+            this.INNKPPLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // flowLayoutPanel1
             // 
@@ -116,80 +181,15 @@
             this.ApplyButton.UseVisualStyleBackColor = true;
             this.ApplyButton.Click += new System.EventHandler(this.ApplyButton_Click);
             // 
-            // INNKPPLabel
-            // 
-            this.INNKPPLabel.AutoSize = true;
-            this.INNKPPLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.INNKPPLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.INNKPPLabel.Location = new System.Drawing.Point(3, 40);
-            this.INNKPPLabel.Name = "INNKPPLabel";
-            this.INNKPPLabel.Size = new System.Drawing.Size(184, 41);
-            this.INNKPPLabel.TabIndex = 2;
-            this.INNKPPLabel.Text = "Папка обмена для выгрузки:";
-            this.INNKPPLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // NameLabel
-            // 
-            this.NameLabel.AutoSize = true;
-            this.NameLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.NameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.NameLabel.Location = new System.Drawing.Point(3, 0);
-            this.NameLabel.Name = "NameLabel";
-            this.NameLabel.Size = new System.Drawing.Size(184, 40);
-            this.NameLabel.TabIndex = 0;
-            this.NameLabel.Text = "Папка обмена для загрузки:";
-            this.NameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 190F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Controls.Add(this.UnloadFolderTextBox, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.LoadFolderTextBox, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.NameLabel, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.INNKPPLabel, 0, 1);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(558, 81);
-            this.tableLayoutPanel1.TabIndex = 0;
-            // 
             // folderBrowserDialog1
             // 
             this.folderBrowserDialog1.Description = "Выберите папку обмена для загрузки данных";
-            this.folderBrowserDialog1.RootFolder = System.Environment.SpecialFolder.MyDocuments;
+            this.folderBrowserDialog1.RootFolder = System.Environment.SpecialFolder.MyComputer;
             // 
             // folderBrowserDialog2
             // 
             this.folderBrowserDialog2.Description = "Выберите папку обмена для выгрузки данных";
-            this.folderBrowserDialog2.RootFolder = System.Environment.SpecialFolder.MyDocuments;
-            // 
-            // LoadFolderTextBox
-            // 
-            this.LoadFolderTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.LoadFolderTextBox.Location = new System.Drawing.Point(193, 10);
-            this.LoadFolderTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
-            this.LoadFolderTextBox.Name = "LoadFolderTextBox";
-            this.LoadFolderTextBox.ReadOnly = true;
-            this.LoadFolderTextBox.Size = new System.Drawing.Size(365, 20);
-            this.LoadFolderTextBox.TabIndex = 10;
-            this.LoadFolderTextBox.TextChanged += new System.EventHandler(this.LoadFolderTextBox_TextChanged);
-            // 
-            // UnloadFolderTextBox
-            // 
-            this.UnloadFolderTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.UnloadFolderTextBox.Location = new System.Drawing.Point(193, 50);
-            this.UnloadFolderTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
-            this.UnloadFolderTextBox.Name = "UnloadFolderTextBox";
-            this.UnloadFolderTextBox.ReadOnly = true;
-            this.UnloadFolderTextBox.Size = new System.Drawing.Size(365, 20);
-            this.UnloadFolderTextBox.TabIndex = 11;
-            this.UnloadFolderTextBox.TextChanged += new System.EventHandler(this.UnloadFolderTextBox_TextChanged);
+            this.folderBrowserDialog2.RootFolder = System.Environment.SpecialFolder.MyComputer;
             // 
             // panel2
             // 
@@ -234,6 +234,28 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(558, 81);
             this.tableLayoutPanel4.TabIndex = 0;
+            // 
+            // UnloadFolderValue
+            // 
+            this.UnloadFolderValue.AutoSize = true;
+            this.UnloadFolderValue.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UnloadFolderValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.UnloadFolderValue.Location = new System.Drawing.Point(193, 40);
+            this.UnloadFolderValue.Name = "UnloadFolderValue";
+            this.UnloadFolderValue.Size = new System.Drawing.Size(362, 41);
+            this.UnloadFolderValue.TabIndex = 4;
+            this.UnloadFolderValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // LoadFolderValue
+            // 
+            this.LoadFolderValue.AutoSize = true;
+            this.LoadFolderValue.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LoadFolderValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LoadFolderValue.Location = new System.Drawing.Point(193, 0);
+            this.LoadFolderValue.Name = "LoadFolderValue";
+            this.LoadFolderValue.Size = new System.Drawing.Size(362, 40);
+            this.LoadFolderValue.TabIndex = 3;
+            this.LoadFolderValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label1
             // 
@@ -291,28 +313,6 @@
             this.EditButton.UseVisualStyleBackColor = true;
             this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
             // 
-            // LoadFolderValue
-            // 
-            this.LoadFolderValue.AutoSize = true;
-            this.LoadFolderValue.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LoadFolderValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LoadFolderValue.Location = new System.Drawing.Point(193, 0);
-            this.LoadFolderValue.Name = "LoadFolderValue";
-            this.LoadFolderValue.Size = new System.Drawing.Size(362, 40);
-            this.LoadFolderValue.TabIndex = 3;
-            this.LoadFolderValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // UnloadFolderValue
-            // 
-            this.UnloadFolderValue.AutoSize = true;
-            this.UnloadFolderValue.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UnloadFolderValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.UnloadFolderValue.Location = new System.Drawing.Point(193, 40);
-            this.UnloadFolderValue.Name = "UnloadFolderValue";
-            this.UnloadFolderValue.Size = new System.Drawing.Size(362, 41);
-            this.UnloadFolderValue.TabIndex = 4;
-            this.UnloadFolderValue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // CommunicationSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -327,9 +327,9 @@
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
-            this.flowLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();

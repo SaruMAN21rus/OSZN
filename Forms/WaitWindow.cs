@@ -14,9 +14,16 @@ namespace OSZN.Forms
     {
 
         private RunWorkerCompletedEventArgs e;
-        
-        public WaitWindow()
+        private Func<object, string> func;
+        private object input;
+
+        public WaitWindow(Func<object, string> func, object input)
         {
+            this.func = func;
+            if (input != null)
+                this.input = input;
+            else
+                this.input = this;
             InitializeComponent();
             if (backgroundWorker1.IsBusy != true)
             {
@@ -47,7 +54,7 @@ namespace OSZN.Forms
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
             BackgroundWorker worker = sender as BackgroundWorker;
-            e.Result = UpdateAddressObject.update(this);
+            e.Result = func(input);
         }
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)

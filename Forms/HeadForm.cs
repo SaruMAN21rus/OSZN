@@ -70,5 +70,11 @@ namespace OSZN
             CommunicationSettings f = new CommunicationSettings();
             f.Show();
         }
+
+        private void загрузитьДанныеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoadLogList f = new LoadLogList();
+            f.Show();
+        }
     }
 }

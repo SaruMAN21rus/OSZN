@@ -24,7 +24,7 @@ namespace OSZN
     {
         static string UpdateFolderPath = @"UpdateFolder";
         
-        public static string update(WaitWindow wait)
+        public static string update(object wait)
         {
             WebClient webClient;
             
@@ -34,7 +34,7 @@ namespace OSZN
             int lastVersion = aoDAO.getAddressObjectsUpdateLastVersion();
             if (lastVersion < lastUpdateFile.VersionId)
             {
-                wait.SetMessage("Обновление...");
+                (wait as WaitWindow).SetMessage("Обновление...");
                 SortedSet<int> versions = new SortedSet<int>();
                 if (Directory.Exists(UpdateFolderPath))
                 {

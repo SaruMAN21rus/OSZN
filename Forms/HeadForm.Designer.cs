@@ -124,6 +124,7 @@
             this.загрузитьДанныеToolStripMenuItem.Name = "загрузитьДанныеToolStripMenuItem";
             this.загрузитьДанныеToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.загрузитьДанныеToolStripMenuItem.Text = "Загрузить данные";
+            this.загрузитьДанныеToolStripMenuItem.Click += new System.EventHandler(this.загрузитьДанныеToolStripMenuItem_Click);
             // 
             // выгрузитьДанныеToolStripMenuItem
             // 

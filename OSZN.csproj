@@ -41,6 +41,9 @@
     <OutputPath>bin\x86\Release\</OutputPath>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CsvHelper">
+      <HintPath>packages\CsvHelper.2.8.2\lib\net40-client\CsvHelper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -79,6 +82,7 @@
     <Compile Include="DAO\ExemptServiceDAO.cs" />
     <Compile Include="DAO\ExemptServiceDetailDAO.cs" />
     <Compile Include="DAO\FamilyMembersDAO.cs" />
+    <Compile Include="DAO\LoadLogDAO.cs" />
     <Compile Include="DAO\RelationshipDegreeDAO.cs" />
     <Compile Include="DAO\VocServiceDAO.cs" />
     <Compile Include="DateTimePicker.cs">
@@ -125,6 +129,12 @@
     </Compile>
     <Compile Include="Forms\EditViewCalculationDetails.Designer.cs">
       <DependentUpon>EditViewCalculationDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LoadLogList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LoadLogList.Designer.cs">
+      <DependentUpon>LoadLogList.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\RelationshipDegreeListForm.cs">
       <SubType>Form</SubType>
@@ -182,6 +192,7 @@
     <Compile Include="Model\ExemptServiceDetail.cs" />
     <Compile Include="Model\FamilyMembers.cs" />
     <Compile Include="Model\House.cs" />
+    <Compile Include="Model\LoadLog.cs" />
     <Compile Include="Model\RelationshipDegree.cs" />
     <Compile Include="Model\VocService.cs" />
     <Compile Include="UpdateAddressObject.cs" />
@@ -243,6 +254,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\HeadForm.resx">
       <DependentUpon>HeadForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LoadLogList.resx">
+      <DependentUpon>LoadLogList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\RelationshipDegreeListForm.resx">
       <DependentUpon>RelationshipDegreeListForm.cs</DependentUpon>

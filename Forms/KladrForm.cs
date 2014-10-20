@@ -18,7 +18,6 @@ namespace OSZN
     {
 
         private string SelectedAddressGuid;
-        private WaitWindow wait = new WaitWindow();
 
         public KladrForm()
         {
@@ -151,21 +150,22 @@ namespace OSZN
 
         private void button2_Click(object sender, EventArgs e)
         {
-                this.Enabled = false;
-                wait.SetMessage("Проверка текущей версии...");
-                if (wait.ShowDialog() == DialogResult.OK)
+            WaitWindow wait = new WaitWindow(UpdateAddressObject.update, null);
+            this.Enabled = false;
+            wait.SetMessage("Проверка текущей версии...");
+            if (wait.ShowDialog() == DialogResult.OK)
+            {
+                this.Enabled = true;
+                RunWorkerCompletedEventArgs workerResult = wait.ReturnData();
+                if (workerResult.Error != null)
                 {
-                    this.Enabled = true;
-                    RunWorkerCompletedEventArgs workerResult = wait.ReturnData();
-                    if (workerResult.Error != null)
-                    {
-                        MessageBox.Show(workerResult.Error.Message);
-                    }
-                    else
-                    {
-                        MessageBox.Show(workerResult.Result.ToString());
-                    }
+                    MessageBox.Show(workerResult.Error.Message);
                 }
+                else
+                {
+                    MessageBox.Show(workerResult.Result.ToString());
+                }
+            }
         }
 
         public TreeNode FindNodeByTag(string itemId, TreeNode rootNode)
