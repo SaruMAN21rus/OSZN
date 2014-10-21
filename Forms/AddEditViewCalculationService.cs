@@ -78,15 +78,11 @@ namespace OSZN.Forms
             if (ServiceComboBox.SelectedIndex != -1)
             {
                 exemptServiceDetail.vocServiceId = Convert.ToInt32(ServiceComboBox.SelectedValue);
-                VocService vs = new VocService();
-                vs.id = exemptServiceDetail.vocServiceId;
-                vs.CodeName = ServiceComboBox.Text;
-                exemptServiceDetail.vocService = vs;
             }
             else
             {
                 exemptServiceDetail.vocServiceId = null;
-                exemptServiceDetail.vocService = null;
+                exemptServiceDetail.VocService = null;
             }
             if (!String.IsNullOrEmpty(RateTextBox.Text))
                 exemptServiceDetail.rate = Convert.ToDecimal(RateTextBox.Text);
@@ -203,8 +199,8 @@ namespace OSZN.Forms
 
         private void setViewData()
         {
-            if (exemptServiceDetail.vocService != null)
-                ServiceValue.Text = exemptServiceDetail.vocService.CodeName;
+            if (exemptServiceDetail.VocService != null)
+                ServiceValue.Text = exemptServiceDetail.VocService.NameWithUnit;
             else
                 ServiceValue.Text = "";
             RateValue.Text = exemptServiceDetail.rate.ToString();

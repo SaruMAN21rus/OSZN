@@ -22,6 +22,17 @@ namespace OSZN.Forms
             InitializeComponent();
             
             CodeErrorProvider.SetIconAlignment(CodeTextBox, ErrorIconAlignment.MiddleRight);
+            NameErrorProvider.SetIconAlignment(NameTextBox, ErrorIconAlignment.MiddleRight);
+
+            VocUnitDAO vuDAO = new VocUnitDAO();
+            DataTable dt = vuDAO.getVocUnits("Активные");
+            DataTable dt2 = dt.Copy();
+            UnitComboBox1.DataSource = dt;
+            UnitComboBox2.DataSource = dt2;
+            UnitComboBox1.SelectedIndex = -1;
+            UnitComboBox2.SelectedIndex = -1;
+            
+            
             VocServiceDAO vsDAO = new VocServiceDAO();
             if (id != null)
             {
@@ -47,7 +58,7 @@ namespace OSZN.Forms
 
         private void ApplyButton_Click(object sender, EventArgs e)
         {
-            if (validateCodeTextBox())
+            if (validateCodeTextBox() & validateNameTextBox())
             {
                 setDataForSave();
                 VocServiceDAO vsDAO = new VocServiceDAO();
@@ -69,14 +80,26 @@ namespace OSZN.Forms
 
             CodeValue.Text = service.code.ToString();
             NameValue.Text = service.name;
-            UnitValue.Text = service.unit;
+            DirectionValue.Text = service.direction;
+            if (service.Unit != null)
+                UnitValue.Text = service.Unit.name;
+            else
+                UnitValue.Text = "";
+            if (service.NormBaseUnit != null)
+                NormBaseUnitValue.Text = service.NormBaseUnit.name;
+            else
+                NormBaseUnitValue.Text = "";
         }
 
         private void setEditData()
         {
             CodeTextBox.Text = service.code.ToString();
             NameTextBox.Text = service.name;
-            UnitTextBox.Text = service.unit;
+            DirectionComboBox.SelectedItem = service.direction;
+            if (service.unitId != null)
+                UnitComboBox1.SelectedValue = service.unitId;
+            if (service.normBaseUnitId != null)
+                UnitComboBox2.SelectedValue = service.normBaseUnitId;
         }
         private void AddEditViewServiceForm_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -115,9 +138,23 @@ namespace OSZN.Forms
             }
         }
 
+        private bool validateNameTextBox()
+        {
+            if (String.IsNullOrEmpty(NameTextBox.Text))
+            {
+                NameErrorProvider.SetError(NameTextBox, "Заполните поле!");
+                return false;
+            }
+            else
+            {
+                NameErrorProvider.SetError(NameTextBox, null);
+                return true;
+            }
+        }
+
         private void CodeTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(CodeErrorProvider.GetError(NameTextBox)))
+            if (!String.IsNullOrEmpty(CodeErrorProvider.GetError(CodeTextBox)))
             {
                 validateCodeTextBox();
             }
@@ -131,10 +168,18 @@ namespace OSZN.Forms
                 service.name = NameTextBox.Text;
             else
                 service.name = null;
-            if (!String.IsNullOrEmpty(UnitTextBox.Text))
-                service.unit = UnitTextBox.Text;
+            if (DirectionComboBox.SelectedIndex != -1)
+                service.direction = DirectionComboBox.SelectedItem.ToString();
             else
-                service.unit = null;
+                service.direction = null;
+            if (UnitComboBox1.SelectedIndex != -1)
+                service.unitId = Convert.ToInt32(UnitComboBox1.SelectedValue);
+            else
+                service.unitId = null;
+            if (UnitComboBox2.SelectedIndex != -1)
+                service.normBaseUnitId = Convert.ToInt32(UnitComboBox2.SelectedValue);
+            else
+                service.normBaseUnitId = null;
         }
 
         private void CodeTextBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -166,6 +211,14 @@ namespace OSZN.Forms
                 vsDAO.updateVocService(service);
                 this.DialogResult = DialogResult.OK;
                 this.Close();
+            }
+        }
+
+        private void NameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(NameErrorProvider.GetError(NameTextBox)))
+            {
+                validateNameTextBox();
             }
         }
     }

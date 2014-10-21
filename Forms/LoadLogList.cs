@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -59,6 +60,7 @@ namespace OSZN.Forms
                 if (wait.ShowDialog() == DialogResult.OK)
                 {
                     this.Enabled = true;
+                    LoadData();
                     RunWorkerCompletedEventArgs workerResult = wait.ReturnData();
                     if (workerResult.Error != null)
                     {
@@ -87,10 +89,17 @@ namespace OSZN.Forms
             for (int i = 0; i < subDir.Length; ++i)
                 this.LoadFiles(subDir[i].FullName);
             FileInfo[] fi = di.GetFiles();
+            LoadLogDAO logDAO = new LoadLogDAO();
+            logDAO.beginTransaction();
+            string datePattern = "yyyyMMdd";
             for (int i = 0; i < fi.Length; ++i)
             {
                 if (Path.GetExtension(fi[i].Name).ToLower() == ".csv")
                 {
+                    LoadLog ll = new LoadLog();
+                    ll.loadDate = DateTime.Now;
+                    ll.loadFolder = dir.ToString();
+                    ll.fileName = fi[i].Name;
                     StreamReader sr = new StreamReader(fi[i].FullName, Encoding.GetEncoding("windows-1251"));
                     try
                     {
@@ -98,22 +107,71 @@ namespace OSZN.Forms
                         csv.Configuration.Delimiter = ";";
                         csv.Configuration.Encoding = Encoding.GetEncoding("windows-1251");
                         csv.Configuration.HasHeaderRecord = false;
+                        bool hasA = false;
+                        int j = 0;
                         while (csv.Read())
                         {
-                            var id = csv.GetField<string>(0);
-                            MessageBox.Show(id);
+                            j++;
+                            if (csv.GetField<string>(0) == "А")
+                            {
+                                if (!hasA)
+                                {
+                                    if (!String.IsNullOrEmpty(csv.GetField<string>(3)))
+                                    {
+                                        DateTime requestPeriodStartDate;
+                                        if (DateTime.TryParseExact(csv.GetField<string>(3), datePattern, null,
+                                            DateTimeStyles.None, out requestPeriodStartDate))
+                                        {
+                                            ll.requestPeriodStartDate = requestPeriodStartDate;
+                                        }
+                                        else
+                                        {
+                                            throw new Exception("Неверный формат даты начала периода запроса. Cтрока " + j + ", " + "параметр 4.");
+                                        }
+                                    }
+                                    else
+                                        ll.requestPeriodStartDate = null;
+                                    if (!String.IsNullOrEmpty(csv.GetField<string>(4)))
+                                    {
+                                        DateTime requestPeriodEndDate;
+                                        if (DateTime.TryParseExact(csv.GetField<string>(4), datePattern, null,
+                                            DateTimeStyles.None, out requestPeriodEndDate))
+                                        {
+                                            ll.requestPeriodEndDate = requestPeriodEndDate;
+                                        }
+                                        else
+                                        {
+                                            throw new Exception("Неверный формат даты окончания периода запроса. Cтрока " + j + ", " + "параметр 5.");
+                                        }
+                                    }
+                                    else
+                                        ll.requestPeriodEndDate = null;
+                                    hasA = true;
+                                }
+                                else
+                                    throw new Exception("Найдено более одной строки с типом \"А\", идентифицирующей источника сведений.");
+                            }
+                            if (csv.GetField<string>(0) == "О")
+                            { 
+                                
+                            }
                         }
+                        ll.status = "Загружен";
                     }
                     catch (Exception e)
                     {
-                        //ViewBag.Error = e.ToString();
+                        ll.errorText = e.Message;
+                        ll.errorFullTrace = e.StackTrace;
+                        ll.status = "Не загружен";
                     }
                     finally
                     {
                         sr.Close();
+                        logDAO.insertLog(ll);
                     }
                 }
             }
+            logDAO.commitTransaction();
             return "Данные успешно загружены.";
         }
     }

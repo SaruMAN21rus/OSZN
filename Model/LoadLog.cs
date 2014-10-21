@@ -11,8 +11,8 @@ namespace OSZN.Model
     {
         public int? id { get; set; }
         public string fileName { get; set; }
-        public DateTime requestPeriodStartDate { get; set; }
-        public DateTime requestPeriodEndDate { get; set; }
+        public DateTime? requestPeriodStartDate { get; set; }
+        public DateTime? requestPeriodEndDate { get; set; }
         public DateTime loadDate { get; set; }
         public string status { get; set; }
         public string errorText { get; set; }

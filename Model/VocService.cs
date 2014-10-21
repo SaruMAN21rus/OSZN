@@ -1,4 +1,5 @@
 ﻿using DatabaseLib;
+using OSZN.DAO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,8 +13,58 @@ namespace OSZN.Model
         public int? id { get; set; }
         public int code { get; set; }
         public string name { get; set; }
-        public string unit { get; set; }
-        private string codeName;
+        public string direction { get; set; }
+        public int? unitId { get; set; }
+        private VocUnit unit;
+        public VocUnit Unit
+        {
+            get
+            {
+                if (unitId != null)
+                {
+                    if (unit == null || unit.id != unitId)
+                    {
+                        VocUnitDAO vuDAO = new VocUnitDAO();
+                        unit = vuDAO.getVocUnitById(unitId.Value);
+                    }
+                }
+                else
+                {
+                    unit = null;
+                }
+                return unit;
+            }
+            set
+            {
+                unit = value;
+            }
+        }
+        public int? normBaseUnitId { get; set; }
+        private VocUnit normBaseUnit;
+        public VocUnit NormBaseUnit
+        {
+            get
+            {
+                if (normBaseUnitId != null)
+                {
+                    if (normBaseUnit == null || normBaseUnit.id != normBaseUnitId)
+                    {
+                        VocUnitDAO vuDAO = new VocUnitDAO();
+                        normBaseUnit = vuDAO.getVocUnitById(normBaseUnitId.Value);
+                    }
+                }
+                else
+                {
+                    normBaseUnit = null;
+                }
+                return normBaseUnit;
+            }
+            set
+            {
+                normBaseUnit = value;
+            }
+        }
+        private string nameWithUnit;
 
         private bool active = true;
 
@@ -29,15 +80,15 @@ namespace OSZN.Model
             }
         }
 
-        public string CodeName
+        public string NameWithUnit
         {
             get
             {
-                return codeName;
+                return nameWithUnit;
             }
             set
             {
-                codeName = value;
+                nameWithUnit = value;
             }
         }
 
@@ -53,11 +104,15 @@ namespace OSZN.Model
                     code = Convert.ToInt32(dict["code"]);
                 if (dict.ContainsKey("name"))
                     name = dict["name"].ToString();
-                if (dict.ContainsKey("unit"))
-                    unit = dict["unit"].ToString();
+                if (dict.ContainsKey("direction"))
+                    direction = dict["direction"].ToString();
+                if (dict.ContainsKey("unit_id") && !DBNull.Value.Equals(dict["unit_id"]))
+                    unitId =  Convert.ToInt32(dict["unit_id"]);
+                if (dict.ContainsKey("norm_base_unit_id") && !DBNull.Value.Equals(dict["norm_base_unit_id"]))
+                    normBaseUnitId = Convert.ToInt32(dict["norm_base_unit_id"]);
                 if (dict.ContainsKey("active"))
                     active = Convert.ToBoolean(dict["active"]);
-                codeName = code + " - " + name;
+                nameWithUnit = name + (Unit != null ? ", " + Unit.name : "");
             }
         }
 
@@ -68,7 +123,9 @@ namespace OSZN.Model
                 parameters.Add("id", id, System.Data.DbType.Int32);
             parameters.Add("code", code, System.Data.DbType.Int32);
             parameters.Add("name", name, System.Data.DbType.String);
-            parameters.Add("unit", unit, System.Data.DbType.String);
+            parameters.Add("direction", direction, System.Data.DbType.String);
+            parameters.Add("unit_id", unitId, System.Data.DbType.Int32);
+            parameters.Add("norm_base_unit_id", normBaseUnitId, System.Data.DbType.Int32);
             parameters.Add("active", active, System.Data.DbType.Boolean);
             return parameters;
         }

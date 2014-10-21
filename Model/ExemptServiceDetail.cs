@@ -1,4 +1,5 @@
 ﻿using DatabaseLib;
+using OSZN.DAO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,29 @@ namespace OSZN.Model
     {
         public int? id { get; set; }
         public int? vocServiceId { get; set; }
-        public VocService vocService { get; set; }
+        private VocService vocService;
+        public VocService VocService {
+            get
+            {
+                if (vocServiceId != null)
+                {
+                    if (vocService == null || vocService.id != vocServiceId)
+                    {
+                        VocServiceDAO vsDAO = new VocServiceDAO();
+                        vocService = vsDAO.getVocServiceById(vocServiceId.Value);
+                    }
+                }
+                else
+                {
+                    vocService = null;
+                }
+                return vocService;
+            }
+            set
+            {
+                vocService = value;
+            }
+        }
         public decimal? rate { get; set; }
         public decimal? norm { get; set; }
         public decimal? volume { get; set; }

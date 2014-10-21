@@ -76,5 +76,17 @@ namespace OSZN
             LoadLogList f = new LoadLogList();
             f.Show();
         }
+
+        private void единицыИзмеренияToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VocUnitListForm f = new VocUnitListForm();
+            f.Show();
+        }
+
+        private void типыЖильяToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VocHosingTypeListForm f = new VocHosingTypeListForm();
+            f.Show();
+        }
     }
 }

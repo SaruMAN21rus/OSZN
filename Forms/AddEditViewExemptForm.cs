@@ -22,8 +22,6 @@ namespace OSZN
 
         private Button AddressTextBoxClearButton;
         private Button AddressTextBoxSelectButton;
-        private Button BirthDatePickerClearButton;
-        private Button DocumentDatePickerClearButton;
 
         public AddEditViewExemptForm(int? exemptId)
         {
@@ -33,6 +31,10 @@ namespace OSZN
             IDErrorProvider.SetIconAlignment(IDTextBox, ErrorIconAlignment.MiddleRight);
             this.FamilyMemberListGrid.AutoGenerateColumns = false;
             this.ServiceDataGridView.AutoGenerateColumns = false;
+
+            VocHousingTypeDAO vhtDAO = new VocHousingTypeDAO();
+            HousingTypeComboBox.DataSource = vhtDAO.getVocHousingTypes("Активные");
+            HousingTypeComboBox.SelectedIndex = -1;
 
             if (exemptId != null)
             {
@@ -89,14 +91,17 @@ namespace OSZN
                 AddressValue.Text = exempt.house.fullAddress;
                 CodeValue.Text = exempt.house.code;
             }
-
-            PropertyTypeValue.Text = exemptHouseroom.propertyType;
+            if (exemptHouseroom.VocHousingType != null)
+                HousingTypeValue.Text = exemptHouseroom.VocHousingType.name;
+            else
+                HousingTypeValue.Text = "";
             IsOwnerValue.Checked = exemptHouseroom.isOwner;
             TotalAreaValue.Text = exemptHouseroom.totalArea.ToString();
             LivingAreaValue.Text = exemptHouseroom.livingArea.ToString();
             ResidentsCountValue.Text = exemptHouseroom.residentsCount.ToString();
             RoomsCountValue.Text = exemptHouseroom.roomsCount.ToString();
             FamilyMembersCountValue.Text = exemptHouseroom.familyMembersCount.ToString();
+            LandSizeValue.Text = exemptHouseroom.landSize.ToString();
         }
 
         private void setDataForSave()
@@ -164,10 +169,13 @@ namespace OSZN
                 exempt.house = null;
                 exempt.houseId = null;
             }
-            if (PropertyTypeComboBox.SelectedIndex != -1)
-                exemptHouseroom.propertyType = PropertyTypeComboBox.SelectedItem.ToString();
+            if (HousingTypeComboBox.SelectedIndex != -1)
+                exemptHouseroom.vocHousingTypeId = Convert.ToInt32(HousingTypeComboBox.SelectedValue);
             else
-                exemptHouseroom.propertyType = null;
+            {
+                exemptHouseroom.vocHousingTypeId = null;
+                exemptHouseroom.VocHousingType = null;
+            }
             exemptHouseroom.isOwner = IsOwnerCheckBox.Checked;
             if (!String.IsNullOrEmpty(TotalAreaTextBox.Text))
                 exemptHouseroom.totalArea = Convert.ToDecimal(TotalAreaTextBox.Text);
@@ -189,6 +197,10 @@ namespace OSZN
                 exemptHouseroom.familyMembersCount = Convert.ToInt32(FamilyMembersCount.Text);
             else
                 exemptHouseroom.familyMembersCount = null;
+            if (!String.IsNullOrEmpty(LandSizeTextBox.Text))
+                exemptHouseroom.landSize = Convert.ToDecimal(LandSizeTextBox.Text);
+            else
+                exemptHouseroom.landSize = null;
         }
 
         private void setEditData()
@@ -260,13 +272,15 @@ namespace OSZN
                 tableLayoutPanel14.Controls.Add(documentDateTextBox);
             }
 
-            PropertyTypeComboBox.SelectedItem = exemptHouseroom.propertyType;
+            if (exemptHouseroom.vocHousingTypeId != null)
+                HousingTypeComboBox.SelectedValue = exemptHouseroom.vocHousingTypeId;
             IsOwnerCheckBox.Checked = exemptHouseroom.isOwner;
             TotalAreaTextBox.Text = exemptHouseroom.totalArea.ToString();
             LivingAreaTextBox.Text = exemptHouseroom.livingArea.ToString();
             ResidentsCountTextBox.Text = exemptHouseroom.residentsCount.ToString();
             RoomsCountTextBox.Text = exemptHouseroom.roomsCount.ToString();
             FamilyMembersCount.Text = exemptHouseroom.familyMembersCount.ToString();
+            LandSizeTextBox.Text = exemptHouseroom.landSize.ToString();
         }
 
         protected override void OnLoad(EventArgs e)
@@ -594,6 +608,11 @@ namespace OSZN
             {
                 SearchYearComboBox_SelectedIndexChanged(sender, null);
             }
+        }
+
+        private void HousingTypeComboBox_TextChanged(object sender, EventArgs e)
+        {
+            (sender as ComboBox).DroppedDown = false;
         }
     }
 }

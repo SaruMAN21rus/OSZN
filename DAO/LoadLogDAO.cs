@@ -25,7 +25,7 @@ namespace OSZN.DAO
             {
                 DataColumn requestPeriod = new DataColumn();
                 requestPeriod.ColumnName = "request_period";
-                requestPeriod.Expression = "ISNULL(request_period_start_date, '') + ' - ' + ISNULL(request_period_end_date, '')";
+                requestPeriod.Expression = "IIF(request_period_start_date is null, '', SubString(Convert(request_period_start_date,'System.String'),1,10)) + ' - ' + IIF(request_period_end_date is null, '', SubString(Convert(request_period_end_date,'System.String'),1,10))";
                 dt.Columns.Add(requestPeriod);
             }
             return dt;

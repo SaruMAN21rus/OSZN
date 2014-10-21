@@ -12,20 +12,20 @@ namespace OSZN.DAO
     {
         public int insertExemptHouseRoom(ExemptHouseroom exemptHouseroom)
         {
-            return db.Insert("EXEMPT_HOUSEROOM", exemptHouseroom.getParametersCollection());
+            return db.Insert("exempt_houseroom", exemptHouseroom.getParametersCollection());
         }
 
         public ExemptHouseroom getExemptHouseroomByExemptId(int exemptId)
         {
             Select query = new Select()
-                .From("EXEMPT_HOUSEROOM")
+                .From("exempt_houseroom")
                 .Where("exempt_id = " + exemptId);
             return new ExemptHouseroom(db.FetchOneRow(query));
         }
 
         public void updateExemptHouseroom(ExemptHouseroom exemptHouseroom)
         {
-            db.Update("EXEMPT_HOUSEROOM", exemptHouseroom.getParametersCollection(), "id = " + exemptHouseroom.id);
+            db.Update("exempt_houseroom", exemptHouseroom.getParametersCollection(), "id = " + exemptHouseroom.id);
         }
     }
 }

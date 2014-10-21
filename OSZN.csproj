@@ -84,7 +84,9 @@
     <Compile Include="DAO\FamilyMembersDAO.cs" />
     <Compile Include="DAO\LoadLogDAO.cs" />
     <Compile Include="DAO\RelationshipDegreeDAO.cs" />
+    <Compile Include="DAO\VocHousingTypeDAO.cs" />
     <Compile Include="DAO\VocServiceDAO.cs" />
+    <Compile Include="DAO\VocUnitDAO.cs" />
     <Compile Include="DateTimePicker.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -118,6 +120,18 @@
     <Compile Include="Forms\AddEditViewServiceForm.Designer.cs">
       <DependentUpon>AddEditViewServiceForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\AddEditViewVocHousingTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddEditViewVocHousingTypeForm.Designer.cs">
+      <DependentUpon>AddEditViewVocHousingTypeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AddEditViewVocUnitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddEditViewVocUnitForm.Designer.cs">
+      <DependentUpon>AddEditViewVocUnitForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\CommunicationSettings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +161,18 @@
     </Compile>
     <Compile Include="Forms\ServiceListForm.Designer.cs">
       <DependentUpon>ServiceListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\VocHosingTypeListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\VocHosingTypeListForm.Designer.cs">
+      <DependentUpon>VocHosingTypeListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\VocUnitListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\VocUnitListForm.Designer.cs">
+      <DependentUpon>VocUnitListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\WaitWindow.cs">
       <SubType>Form</SubType>
@@ -194,7 +220,9 @@
     <Compile Include="Model\House.cs" />
     <Compile Include="Model\LoadLog.cs" />
     <Compile Include="Model\RelationshipDegree.cs" />
+    <Compile Include="Model\VocHousingType.cs" />
     <Compile Include="Model\VocService.cs" />
+    <Compile Include="Model\VocUnit.cs" />
     <Compile Include="UpdateAddressObject.cs" />
     <Compile Include="Utils\DbFacadeSQLite.cs" />
     <Compile Include="Forms\KladrForm.cs">
@@ -237,6 +265,12 @@
     <EmbeddedResource Include="Forms\AddEditViewServiceForm.resx">
       <DependentUpon>AddEditViewServiceForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddEditViewVocHousingTypeForm.resx">
+      <DependentUpon>AddEditViewVocHousingTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddEditViewVocUnitForm.resx">
+      <DependentUpon>AddEditViewVocUnitForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\CommunicationSettings.resx">
       <DependentUpon>CommunicationSettings.cs</DependentUpon>
     </EmbeddedResource>
@@ -263,6 +297,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ServiceListForm.resx">
       <DependentUpon>ServiceListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\VocHosingTypeListForm.resx">
+      <DependentUpon>VocHosingTypeListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\VocUnitListForm.resx">
+      <DependentUpon>VocUnitListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\WaitWindow.resx">
       <DependentUpon>WaitWindow.cs</DependentUpon>

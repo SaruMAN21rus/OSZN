@@ -44,7 +44,9 @@
             this.адресныйКлассификаторToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.степеньРодстваToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.услугиЖКХToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.единицыИзмеренияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
+            this.типыЖильяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -145,7 +147,9 @@
             this.организацияToolStripMenuItem1,
             this.адресныйКлассификаторToolStripMenuItem,
             this.степеньРодстваToolStripMenuItem,
-            this.услугиЖКХToolStripMenuItem});
+            this.услугиЖКХToolStripMenuItem,
+            this.единицыИзмеренияToolStripMenuItem,
+            this.типыЖильяToolStripMenuItem});
             this.справочникиToolStripMenuItem.Name = "справочникиToolStripMenuItem";
             this.справочникиToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
             this.справочникиToolStripMenuItem.Text = "Справочники";
@@ -178,6 +182,13 @@
             this.услугиЖКХToolStripMenuItem.Text = "Услуги ЖКХ";
             this.услугиЖКХToolStripMenuItem.Click += new System.EventHandler(this.услугиЖКХToolStripMenuItem_Click);
             // 
+            // единицыИзмеренияToolStripMenuItem
+            // 
+            this.единицыИзмеренияToolStripMenuItem.Name = "единицыИзмеренияToolStripMenuItem";
+            this.единицыИзмеренияToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.единицыИзмеренияToolStripMenuItem.Text = "Единицы измерения";
+            this.единицыИзмеренияToolStripMenuItem.Click += new System.EventHandler(this.единицыИзмеренияToolStripMenuItem_Click);
+            // 
             // toolStripContainer1
             // 
             // 
@@ -196,6 +207,13 @@
             // toolStripContainer1.TopToolStripPanel
             // 
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.menuStrip1);
+            // 
+            // типыЖильяToolStripMenuItem
+            // 
+            this.типыЖильяToolStripMenuItem.Name = "типыЖильяToolStripMenuItem";
+            this.типыЖильяToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.типыЖильяToolStripMenuItem.Text = "Тип жилья";
+            this.типыЖильяToolStripMenuItem.Click += new System.EventHandler(this.типыЖильяToolStripMenuItem_Click);
             // 
             // HeadForm
             // 
@@ -238,6 +256,8 @@
         private System.Windows.Forms.ToolStripMenuItem степеньРодстваToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem услугиЖКХToolStripMenuItem;
         private System.Windows.Forms.ToolStripContainer toolStripContainer1;
+        private System.Windows.Forms.ToolStripMenuItem единицыИзмеренияToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem типыЖильяToolStripMenuItem;
 
 
     }

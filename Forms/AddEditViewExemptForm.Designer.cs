@@ -93,6 +93,9 @@
             this.CodeValue = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.tableLayoutPanel41 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel67 = new System.Windows.Forms.TableLayoutPanel();
+            this.LandSizeValue = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
             this.tableLayoutPanel42 = new System.Windows.Forms.TableLayoutPanel();
             this.TotalAreaValue = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
@@ -103,7 +106,7 @@
             this.ResidentsCountValue = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.tableLayoutPanel45 = new System.Windows.Forms.TableLayoutPanel();
-            this.PropertyTypeValue = new System.Windows.Forms.Label();
+            this.HousingTypeValue = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.tableLayoutPanel46 = new System.Windows.Forms.TableLayoutPanel();
             this.label25 = new System.Windows.Forms.Label();
@@ -166,6 +169,9 @@
             this.CodeLabel = new System.Windows.Forms.Label();
             this.CodeTextBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel66 = new System.Windows.Forms.TableLayoutPanel();
+            this.LandSizeTextBox = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
             this.tableLayoutPanel23 = new System.Windows.Forms.TableLayoutPanel();
             this.TotalAreaLabel = new System.Windows.Forms.Label();
             this.TotalAreaTextBox = new System.Windows.Forms.TextBox();
@@ -177,7 +183,7 @@
             this.ResidentsCountLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
             this.PropertyTypeLabel = new System.Windows.Forms.Label();
-            this.PropertyTypeComboBox = new System.Windows.Forms.ComboBox();
+            this.HousingTypeComboBox = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel21 = new System.Windows.Forms.TableLayoutPanel();
             this.IsOwnerLabel = new System.Windows.Forms.Label();
             this.IsOwnerCheckBox = new System.Windows.Forms.CheckBox();
@@ -282,6 +288,7 @@
             this.flowLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel40.SuspendLayout();
             this.tableLayoutPanel41.SuspendLayout();
+            this.tableLayoutPanel67.SuspendLayout();
             this.tableLayoutPanel42.SuspendLayout();
             this.tableLayoutPanel43.SuspendLayout();
             this.tableLayoutPanel44.SuspendLayout();
@@ -307,6 +314,7 @@
             this.flowLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel16.SuspendLayout();
             this.tableLayoutPanel17.SuspendLayout();
+            this.tableLayoutPanel66.SuspendLayout();
             this.tableLayoutPanel23.SuspendLayout();
             this.tableLayoutPanel22.SuspendLayout();
             this.tableLayoutPanel20.SuspendLayout();
@@ -1125,12 +1133,13 @@
             // tableLayoutPanel41
             // 
             this.tableLayoutPanel41.ColumnCount = 3;
-            this.tableLayoutPanel41.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.30016F));
-            this.tableLayoutPanel41.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.69984F));
-            this.tableLayoutPanel41.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 335F));
+            this.tableLayoutPanel41.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55F));
+            this.tableLayoutPanel41.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45F));
+            this.tableLayoutPanel41.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 330F));
+            this.tableLayoutPanel41.Controls.Add(this.tableLayoutPanel67, 2, 0);
             this.tableLayoutPanel41.Controls.Add(this.tableLayoutPanel42, 0, 1);
-            this.tableLayoutPanel41.Controls.Add(this.tableLayoutPanel43, 0, 1);
-            this.tableLayoutPanel41.Controls.Add(this.tableLayoutPanel44, 0, 1);
+            this.tableLayoutPanel41.Controls.Add(this.tableLayoutPanel43, 1, 1);
+            this.tableLayoutPanel41.Controls.Add(this.tableLayoutPanel44, 2, 1);
             this.tableLayoutPanel41.Controls.Add(this.tableLayoutPanel45, 0, 0);
             this.tableLayoutPanel41.Controls.Add(this.tableLayoutPanel46, 1, 0);
             this.tableLayoutPanel41.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1140,13 +1149,53 @@
             this.tableLayoutPanel41.RowCount = 2;
             this.tableLayoutPanel41.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel41.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel41.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel41.Size = new System.Drawing.Size(810, 58);
             this.tableLayoutPanel41.TabIndex = 12;
+            // 
+            // tableLayoutPanel67
+            // 
+            this.tableLayoutPanel67.ColumnCount = 2;
+            this.tableLayoutPanel67.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel67.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tableLayoutPanel67.Controls.Add(this.LandSizeValue, 0, 0);
+            this.tableLayoutPanel67.Controls.Add(this.label34, 0, 0);
+            this.tableLayoutPanel67.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel67.Location = new System.Drawing.Point(480, 0);
+            this.tableLayoutPanel67.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel67.Name = "tableLayoutPanel67";
+            this.tableLayoutPanel67.RowCount = 1;
+            this.tableLayoutPanel67.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel67.Size = new System.Drawing.Size(330, 29);
+            this.tableLayoutPanel67.TabIndex = 15;
+            // 
+            // LandSizeValue
+            // 
+            this.LandSizeValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.LandSizeValue.AutoSize = true;
+            this.LandSizeValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LandSizeValue.Location = new System.Drawing.Point(253, 8);
+            this.LandSizeValue.Name = "LandSizeValue";
+            this.LandSizeValue.Size = new System.Drawing.Size(74, 13);
+            this.LandSizeValue.TabIndex = 2;
+            // 
+            // label34
+            // 
+            this.label34.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label34.Location = new System.Drawing.Point(20, 8);
+            this.label34.Margin = new System.Windows.Forms.Padding(20, 0, 3, 0);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(227, 13);
+            this.label34.TabIndex = 0;
+            this.label34.Text = "Размер земельного участка (кв.м.):";
+            this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // tableLayoutPanel42
             // 
             this.tableLayoutPanel42.ColumnCount = 2;
-            this.tableLayoutPanel42.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 155F));
+            this.tableLayoutPanel42.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 152F));
             this.tableLayoutPanel42.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel42.Controls.Add(this.TotalAreaValue, 0, 0);
             this.tableLayoutPanel42.Controls.Add(this.label21, 0, 0);
@@ -1156,7 +1205,7 @@
             this.tableLayoutPanel42.Name = "tableLayoutPanel42";
             this.tableLayoutPanel42.RowCount = 1;
             this.tableLayoutPanel42.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel42.Size = new System.Drawing.Size(238, 29);
+            this.tableLayoutPanel42.Size = new System.Drawing.Size(264, 29);
             this.tableLayoutPanel42.TabIndex = 14;
             // 
             // TotalAreaValue
@@ -1164,9 +1213,9 @@
             this.TotalAreaValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.TotalAreaValue.AutoSize = true;
             this.TotalAreaValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.TotalAreaValue.Location = new System.Drawing.Point(158, 8);
+            this.TotalAreaValue.Location = new System.Drawing.Point(155, 8);
             this.TotalAreaValue.Name = "TotalAreaValue";
-            this.TotalAreaValue.Size = new System.Drawing.Size(77, 13);
+            this.TotalAreaValue.Size = new System.Drawing.Size(106, 13);
             this.TotalAreaValue.TabIndex = 2;
             // 
             // label21
@@ -1176,24 +1225,24 @@
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label21.Location = new System.Drawing.Point(3, 8);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(149, 13);
+            this.label21.Size = new System.Drawing.Size(146, 13);
             this.label21.TabIndex = 0;
             this.label21.Text = "Общая площадь, кв.м.:";
             // 
             // tableLayoutPanel43
             // 
             this.tableLayoutPanel43.ColumnCount = 2;
-            this.tableLayoutPanel43.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 170F));
+            this.tableLayoutPanel43.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 162F));
             this.tableLayoutPanel43.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel43.Controls.Add(this.LivingAreaValue, 0, 0);
             this.tableLayoutPanel43.Controls.Add(this.label22, 0, 0);
             this.tableLayoutPanel43.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel43.Location = new System.Drawing.Point(238, 29);
+            this.tableLayoutPanel43.Location = new System.Drawing.Point(264, 29);
             this.tableLayoutPanel43.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel43.Name = "tableLayoutPanel43";
             this.tableLayoutPanel43.RowCount = 1;
             this.tableLayoutPanel43.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel43.Size = new System.Drawing.Size(236, 29);
+            this.tableLayoutPanel43.Size = new System.Drawing.Size(216, 29);
             this.tableLayoutPanel43.TabIndex = 13;
             // 
             // LivingAreaValue
@@ -1201,9 +1250,9 @@
             this.LivingAreaValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.LivingAreaValue.AutoSize = true;
             this.LivingAreaValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LivingAreaValue.Location = new System.Drawing.Point(173, 8);
+            this.LivingAreaValue.Location = new System.Drawing.Point(165, 8);
             this.LivingAreaValue.Name = "LivingAreaValue";
-            this.LivingAreaValue.Size = new System.Drawing.Size(60, 13);
+            this.LivingAreaValue.Size = new System.Drawing.Size(48, 13);
             this.LivingAreaValue.TabIndex = 2;
             // 
             // label22
@@ -1211,10 +1260,10 @@
             this.label22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label22.Location = new System.Drawing.Point(20, 8);
-            this.label22.Margin = new System.Windows.Forms.Padding(20, 0, 3, 0);
+            this.label22.Location = new System.Drawing.Point(10, 8);
+            this.label22.Margin = new System.Windows.Forms.Padding(10, 0, 3, 0);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(147, 13);
+            this.label22.Size = new System.Drawing.Size(149, 13);
             this.label22.TabIndex = 0;
             this.label22.Text = "Жилая площадь, кв.м.:";
             // 
@@ -1226,12 +1275,12 @@
             this.tableLayoutPanel44.Controls.Add(this.ResidentsCountValue, 0, 0);
             this.tableLayoutPanel44.Controls.Add(this.label23, 0, 0);
             this.tableLayoutPanel44.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel44.Location = new System.Drawing.Point(474, 29);
+            this.tableLayoutPanel44.Location = new System.Drawing.Point(480, 29);
             this.tableLayoutPanel44.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel44.Name = "tableLayoutPanel44";
             this.tableLayoutPanel44.RowCount = 1;
             this.tableLayoutPanel44.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel44.Size = new System.Drawing.Size(336, 29);
+            this.tableLayoutPanel44.Size = new System.Drawing.Size(330, 29);
             this.tableLayoutPanel44.TabIndex = 11;
             // 
             // ResidentsCountValue
@@ -1239,7 +1288,7 @@
             this.ResidentsCountValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.ResidentsCountValue.AutoSize = true;
             this.ResidentsCountValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ResidentsCountValue.Location = new System.Drawing.Point(259, 8);
+            this.ResidentsCountValue.Location = new System.Drawing.Point(253, 8);
             this.ResidentsCountValue.Name = "ResidentsCountValue";
             this.ResidentsCountValue.Size = new System.Drawing.Size(74, 13);
             this.ResidentsCountValue.TabIndex = 2;
@@ -1252,7 +1301,7 @@
             this.label23.Location = new System.Drawing.Point(20, 8);
             this.label23.Margin = new System.Windows.Forms.Padding(20, 0, 3, 0);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(233, 13);
+            this.label23.Size = new System.Drawing.Size(227, 13);
             this.label23.TabIndex = 0;
             this.label23.Text = "Количество проживающих, чел.:";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1260,9 +1309,9 @@
             // tableLayoutPanel45
             // 
             this.tableLayoutPanel45.ColumnCount = 2;
-            this.tableLayoutPanel45.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 155F));
+            this.tableLayoutPanel45.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 152F));
             this.tableLayoutPanel45.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel45.Controls.Add(this.PropertyTypeValue, 0, 0);
+            this.tableLayoutPanel45.Controls.Add(this.HousingTypeValue, 0, 0);
             this.tableLayoutPanel45.Controls.Add(this.label24, 0, 0);
             this.tableLayoutPanel45.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel45.Location = new System.Drawing.Point(0, 0);
@@ -1270,18 +1319,18 @@
             this.tableLayoutPanel45.Name = "tableLayoutPanel45";
             this.tableLayoutPanel45.RowCount = 1;
             this.tableLayoutPanel45.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel45.Size = new System.Drawing.Size(238, 29);
+            this.tableLayoutPanel45.Size = new System.Drawing.Size(264, 29);
             this.tableLayoutPanel45.TabIndex = 10;
             // 
-            // PropertyTypeValue
+            // HousingTypeValue
             // 
-            this.PropertyTypeValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.PropertyTypeValue.AutoSize = true;
-            this.PropertyTypeValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.PropertyTypeValue.Location = new System.Drawing.Point(158, 8);
-            this.PropertyTypeValue.Name = "PropertyTypeValue";
-            this.PropertyTypeValue.Size = new System.Drawing.Size(77, 13);
-            this.PropertyTypeValue.TabIndex = 2;
+            this.HousingTypeValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.HousingTypeValue.AutoSize = true;
+            this.HousingTypeValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.HousingTypeValue.Location = new System.Drawing.Point(155, 8);
+            this.HousingTypeValue.Name = "HousingTypeValue";
+            this.HousingTypeValue.Size = new System.Drawing.Size(106, 13);
+            this.HousingTypeValue.TabIndex = 2;
             // 
             // label24
             // 
@@ -1290,24 +1339,24 @@
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label24.Location = new System.Drawing.Point(3, 8);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(149, 13);
+            this.label24.Size = new System.Drawing.Size(146, 13);
             this.label24.TabIndex = 0;
-            this.label24.Text = "Тип собственности:";
+            this.label24.Text = "Тип жилья:";
             // 
             // tableLayoutPanel46
             // 
             this.tableLayoutPanel46.ColumnCount = 2;
-            this.tableLayoutPanel46.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 170F));
+            this.tableLayoutPanel46.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 162F));
             this.tableLayoutPanel46.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel46.Controls.Add(this.label25, 0, 0);
             this.tableLayoutPanel46.Controls.Add(this.IsOwnerValue, 1, 0);
             this.tableLayoutPanel46.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel46.Location = new System.Drawing.Point(238, 0);
+            this.tableLayoutPanel46.Location = new System.Drawing.Point(264, 0);
             this.tableLayoutPanel46.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel46.Name = "tableLayoutPanel46";
             this.tableLayoutPanel46.RowCount = 1;
             this.tableLayoutPanel46.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel46.Size = new System.Drawing.Size(236, 29);
+            this.tableLayoutPanel46.Size = new System.Drawing.Size(216, 29);
             this.tableLayoutPanel46.TabIndex = 12;
             // 
             // label25
@@ -1315,10 +1364,10 @@
             this.label25.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label25.Location = new System.Drawing.Point(20, 8);
-            this.label25.Margin = new System.Windows.Forms.Padding(20, 0, 3, 0);
+            this.label25.Location = new System.Drawing.Point(10, 8);
+            this.label25.Margin = new System.Windows.Forms.Padding(10, 0, 3, 0);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(147, 13);
+            this.label25.Size = new System.Drawing.Size(149, 13);
             this.label25.TabIndex = 0;
             this.label25.Text = "Собственник жилья:";
             // 
@@ -1327,9 +1376,9 @@
             this.IsOwnerValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.IsOwnerValue.AutoSize = true;
             this.IsOwnerValue.Enabled = false;
-            this.IsOwnerValue.Location = new System.Drawing.Point(173, 7);
+            this.IsOwnerValue.Location = new System.Drawing.Point(165, 7);
             this.IsOwnerValue.Name = "IsOwnerValue";
-            this.IsOwnerValue.Size = new System.Drawing.Size(60, 14);
+            this.IsOwnerValue.Size = new System.Drawing.Size(48, 14);
             this.IsOwnerValue.TabIndex = 1;
             this.IsOwnerValue.UseVisualStyleBackColor = true;
             // 
@@ -2067,12 +2116,13 @@
             // tableLayoutPanel17
             // 
             this.tableLayoutPanel17.ColumnCount = 3;
-            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.30016F));
-            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.69984F));
-            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 339F));
+            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55F));
+            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45F));
+            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 330F));
+            this.tableLayoutPanel17.Controls.Add(this.tableLayoutPanel66, 2, 0);
             this.tableLayoutPanel17.Controls.Add(this.tableLayoutPanel23, 0, 1);
-            this.tableLayoutPanel17.Controls.Add(this.tableLayoutPanel22, 0, 1);
-            this.tableLayoutPanel17.Controls.Add(this.tableLayoutPanel20, 0, 1);
+            this.tableLayoutPanel17.Controls.Add(this.tableLayoutPanel22, 1, 1);
+            this.tableLayoutPanel17.Controls.Add(this.tableLayoutPanel20, 2, 1);
             this.tableLayoutPanel17.Controls.Add(this.tableLayoutPanel19, 0, 0);
             this.tableLayoutPanel17.Controls.Add(this.tableLayoutPanel21, 1, 0);
             this.tableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -2085,10 +2135,48 @@
             this.tableLayoutPanel17.Size = new System.Drawing.Size(810, 58);
             this.tableLayoutPanel17.TabIndex = 12;
             // 
+            // tableLayoutPanel66
+            // 
+            this.tableLayoutPanel66.ColumnCount = 2;
+            this.tableLayoutPanel66.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel66.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tableLayoutPanel66.Controls.Add(this.LandSizeTextBox, 0, 0);
+            this.tableLayoutPanel66.Controls.Add(this.label26, 0, 0);
+            this.tableLayoutPanel66.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel66.Location = new System.Drawing.Point(480, 0);
+            this.tableLayoutPanel66.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel66.Name = "tableLayoutPanel66";
+            this.tableLayoutPanel66.RowCount = 1;
+            this.tableLayoutPanel66.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel66.Size = new System.Drawing.Size(330, 29);
+            this.tableLayoutPanel66.TabIndex = 15;
+            // 
+            // LandSizeTextBox
+            // 
+            this.LandSizeTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.LandSizeTextBox.Location = new System.Drawing.Point(253, 4);
+            this.LandSizeTextBox.Name = "LandSizeTextBox";
+            this.LandSizeTextBox.Size = new System.Drawing.Size(74, 20);
+            this.LandSizeTextBox.TabIndex = 5;
+            this.LandSizeTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TotalAreaTextBox_KeyPress);
+            // 
+            // label26
+            // 
+            this.label26.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label26.Location = new System.Drawing.Point(20, 8);
+            this.label26.Margin = new System.Windows.Forms.Padding(20, 0, 3, 0);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(227, 13);
+            this.label26.TabIndex = 0;
+            this.label26.Text = "Размер земельного участка (кв.м.):";
+            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // tableLayoutPanel23
             // 
             this.tableLayoutPanel23.ColumnCount = 2;
-            this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 155F));
+            this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 152F));
             this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel23.Controls.Add(this.TotalAreaLabel, 0, 0);
             this.tableLayoutPanel23.Controls.Add(this.TotalAreaTextBox, 1, 0);
@@ -2098,7 +2186,7 @@
             this.tableLayoutPanel23.Name = "tableLayoutPanel23";
             this.tableLayoutPanel23.RowCount = 1;
             this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel23.Size = new System.Drawing.Size(236, 29);
+            this.tableLayoutPanel23.Size = new System.Drawing.Size(264, 29);
             this.tableLayoutPanel23.TabIndex = 14;
             // 
             // TotalAreaLabel
@@ -2108,33 +2196,33 @@
             this.TotalAreaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.TotalAreaLabel.Location = new System.Drawing.Point(3, 8);
             this.TotalAreaLabel.Name = "TotalAreaLabel";
-            this.TotalAreaLabel.Size = new System.Drawing.Size(149, 13);
+            this.TotalAreaLabel.Size = new System.Drawing.Size(146, 13);
             this.TotalAreaLabel.TabIndex = 0;
             this.TotalAreaLabel.Text = "Общая площадь, кв.м.:";
             // 
             // TotalAreaTextBox
             // 
             this.TotalAreaTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.TotalAreaTextBox.Location = new System.Drawing.Point(158, 4);
+            this.TotalAreaTextBox.Location = new System.Drawing.Point(155, 4);
             this.TotalAreaTextBox.Name = "TotalAreaTextBox";
-            this.TotalAreaTextBox.Size = new System.Drawing.Size(75, 20);
+            this.TotalAreaTextBox.Size = new System.Drawing.Size(106, 20);
             this.TotalAreaTextBox.TabIndex = 4;
             this.TotalAreaTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TotalAreaTextBox_KeyPress);
             // 
             // tableLayoutPanel22
             // 
             this.tableLayoutPanel22.ColumnCount = 2;
-            this.tableLayoutPanel22.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 170F));
+            this.tableLayoutPanel22.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 162F));
             this.tableLayoutPanel22.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel22.Controls.Add(this.LivingAreaLabel, 0, 0);
             this.tableLayoutPanel22.Controls.Add(this.LivingAreaTextBox, 1, 0);
             this.tableLayoutPanel22.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel22.Location = new System.Drawing.Point(236, 29);
+            this.tableLayoutPanel22.Location = new System.Drawing.Point(264, 29);
             this.tableLayoutPanel22.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel22.Name = "tableLayoutPanel22";
             this.tableLayoutPanel22.RowCount = 1;
             this.tableLayoutPanel22.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel22.Size = new System.Drawing.Size(234, 29);
+            this.tableLayoutPanel22.Size = new System.Drawing.Size(216, 29);
             this.tableLayoutPanel22.TabIndex = 13;
             // 
             // LivingAreaLabel
@@ -2142,19 +2230,19 @@
             this.LivingAreaLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.LivingAreaLabel.AutoSize = true;
             this.LivingAreaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LivingAreaLabel.Location = new System.Drawing.Point(20, 8);
-            this.LivingAreaLabel.Margin = new System.Windows.Forms.Padding(20, 0, 3, 0);
+            this.LivingAreaLabel.Location = new System.Drawing.Point(10, 8);
+            this.LivingAreaLabel.Margin = new System.Windows.Forms.Padding(10, 0, 3, 0);
             this.LivingAreaLabel.Name = "LivingAreaLabel";
-            this.LivingAreaLabel.Size = new System.Drawing.Size(147, 13);
+            this.LivingAreaLabel.Size = new System.Drawing.Size(149, 13);
             this.LivingAreaLabel.TabIndex = 0;
             this.LivingAreaLabel.Text = "Жилая площадь, кв.м.:";
             // 
             // LivingAreaTextBox
             // 
             this.LivingAreaTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.LivingAreaTextBox.Location = new System.Drawing.Point(173, 4);
+            this.LivingAreaTextBox.Location = new System.Drawing.Point(165, 4);
             this.LivingAreaTextBox.Name = "LivingAreaTextBox";
-            this.LivingAreaTextBox.Size = new System.Drawing.Size(58, 20);
+            this.LivingAreaTextBox.Size = new System.Drawing.Size(48, 20);
             this.LivingAreaTextBox.TabIndex = 4;
             this.LivingAreaTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TotalAreaTextBox_KeyPress);
             // 
@@ -2166,18 +2254,18 @@
             this.tableLayoutPanel20.Controls.Add(this.ResidentsCountTextBox, 0, 0);
             this.tableLayoutPanel20.Controls.Add(this.ResidentsCountLabel, 0, 0);
             this.tableLayoutPanel20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel20.Location = new System.Drawing.Point(470, 29);
+            this.tableLayoutPanel20.Location = new System.Drawing.Point(480, 29);
             this.tableLayoutPanel20.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel20.Name = "tableLayoutPanel20";
             this.tableLayoutPanel20.RowCount = 1;
             this.tableLayoutPanel20.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel20.Size = new System.Drawing.Size(340, 29);
+            this.tableLayoutPanel20.Size = new System.Drawing.Size(330, 29);
             this.tableLayoutPanel20.TabIndex = 11;
             // 
             // ResidentsCountTextBox
             // 
             this.ResidentsCountTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.ResidentsCountTextBox.Location = new System.Drawing.Point(263, 4);
+            this.ResidentsCountTextBox.Location = new System.Drawing.Point(253, 4);
             this.ResidentsCountTextBox.Name = "ResidentsCountTextBox";
             this.ResidentsCountTextBox.Size = new System.Drawing.Size(74, 20);
             this.ResidentsCountTextBox.TabIndex = 5;
@@ -2191,7 +2279,7 @@
             this.ResidentsCountLabel.Location = new System.Drawing.Point(20, 8);
             this.ResidentsCountLabel.Margin = new System.Windows.Forms.Padding(20, 0, 3, 0);
             this.ResidentsCountLabel.Name = "ResidentsCountLabel";
-            this.ResidentsCountLabel.Size = new System.Drawing.Size(237, 13);
+            this.ResidentsCountLabel.Size = new System.Drawing.Size(227, 13);
             this.ResidentsCountLabel.TabIndex = 0;
             this.ResidentsCountLabel.Text = "Количество проживающих, чел.:";
             this.ResidentsCountLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -2199,17 +2287,17 @@
             // tableLayoutPanel19
             // 
             this.tableLayoutPanel19.ColumnCount = 2;
-            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 155F));
+            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 152F));
             this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel19.Controls.Add(this.PropertyTypeLabel, 0, 0);
-            this.tableLayoutPanel19.Controls.Add(this.PropertyTypeComboBox, 1, 0);
+            this.tableLayoutPanel19.Controls.Add(this.HousingTypeComboBox, 1, 0);
             this.tableLayoutPanel19.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel19.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel19.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel19.Name = "tableLayoutPanel19";
             this.tableLayoutPanel19.RowCount = 1;
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel19.Size = new System.Drawing.Size(236, 29);
+            this.tableLayoutPanel19.Size = new System.Drawing.Size(264, 29);
             this.tableLayoutPanel19.TabIndex = 10;
             // 
             // PropertyTypeLabel
@@ -2219,37 +2307,38 @@
             this.PropertyTypeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.PropertyTypeLabel.Location = new System.Drawing.Point(3, 8);
             this.PropertyTypeLabel.Name = "PropertyTypeLabel";
-            this.PropertyTypeLabel.Size = new System.Drawing.Size(149, 13);
+            this.PropertyTypeLabel.Size = new System.Drawing.Size(146, 13);
             this.PropertyTypeLabel.TabIndex = 0;
-            this.PropertyTypeLabel.Text = "Тип собственности:";
+            this.PropertyTypeLabel.Text = "Тип жилья:";
             // 
-            // PropertyTypeComboBox
+            // HousingTypeComboBox
             // 
-            this.PropertyTypeComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.PropertyTypeComboBox.FormattingEnabled = true;
-            this.PropertyTypeComboBox.Items.AddRange(new object[] {
-            "Муниципальная",
-            "Частная",
-            "Федеральная"});
-            this.PropertyTypeComboBox.Location = new System.Drawing.Point(158, 4);
-            this.PropertyTypeComboBox.Name = "PropertyTypeComboBox";
-            this.PropertyTypeComboBox.Size = new System.Drawing.Size(75, 21);
-            this.PropertyTypeComboBox.TabIndex = 1;
+            this.HousingTypeComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.HousingTypeComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.HousingTypeComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.HousingTypeComboBox.DisplayMember = "name";
+            this.HousingTypeComboBox.FormattingEnabled = true;
+            this.HousingTypeComboBox.Location = new System.Drawing.Point(155, 4);
+            this.HousingTypeComboBox.Name = "HousingTypeComboBox";
+            this.HousingTypeComboBox.Size = new System.Drawing.Size(106, 21);
+            this.HousingTypeComboBox.TabIndex = 1;
+            this.HousingTypeComboBox.ValueMember = "id";
+            this.HousingTypeComboBox.TextChanged += new System.EventHandler(this.HousingTypeComboBox_TextChanged);
             // 
             // tableLayoutPanel21
             // 
             this.tableLayoutPanel21.ColumnCount = 2;
-            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 170F));
+            this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 162F));
             this.tableLayoutPanel21.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel21.Controls.Add(this.IsOwnerLabel, 0, 0);
             this.tableLayoutPanel21.Controls.Add(this.IsOwnerCheckBox, 1, 0);
             this.tableLayoutPanel21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel21.Location = new System.Drawing.Point(236, 0);
+            this.tableLayoutPanel21.Location = new System.Drawing.Point(264, 0);
             this.tableLayoutPanel21.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel21.Name = "tableLayoutPanel21";
             this.tableLayoutPanel21.RowCount = 1;
             this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel21.Size = new System.Drawing.Size(234, 29);
+            this.tableLayoutPanel21.Size = new System.Drawing.Size(216, 29);
             this.tableLayoutPanel21.TabIndex = 12;
             // 
             // IsOwnerLabel
@@ -2257,10 +2346,10 @@
             this.IsOwnerLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.IsOwnerLabel.AutoSize = true;
             this.IsOwnerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.IsOwnerLabel.Location = new System.Drawing.Point(20, 8);
-            this.IsOwnerLabel.Margin = new System.Windows.Forms.Padding(20, 0, 3, 0);
+            this.IsOwnerLabel.Location = new System.Drawing.Point(10, 8);
+            this.IsOwnerLabel.Margin = new System.Windows.Forms.Padding(10, 0, 3, 0);
             this.IsOwnerLabel.Name = "IsOwnerLabel";
-            this.IsOwnerLabel.Size = new System.Drawing.Size(147, 13);
+            this.IsOwnerLabel.Size = new System.Drawing.Size(149, 13);
             this.IsOwnerLabel.TabIndex = 0;
             this.IsOwnerLabel.Text = "Собственник жилья:";
             // 
@@ -2268,9 +2357,9 @@
             // 
             this.IsOwnerCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.IsOwnerCheckBox.AutoSize = true;
-            this.IsOwnerCheckBox.Location = new System.Drawing.Point(173, 7);
+            this.IsOwnerCheckBox.Location = new System.Drawing.Point(165, 7);
             this.IsOwnerCheckBox.Name = "IsOwnerCheckBox";
-            this.IsOwnerCheckBox.Size = new System.Drawing.Size(58, 14);
+            this.IsOwnerCheckBox.Size = new System.Drawing.Size(48, 14);
             this.IsOwnerCheckBox.TabIndex = 1;
             this.IsOwnerCheckBox.UseVisualStyleBackColor = true;
             // 
@@ -3262,7 +3351,7 @@
             this.DocumentDateDateTimePicker.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.DocumentDateDateTimePicker.Location = new System.Drawing.Point(123, 4);
             this.DocumentDateDateTimePicker.MaxDate = new System.DateTime(9998, 10, 13, 0, 0, 0, 0);
-            this.DocumentDateDateTimePicker.MinimumSize = new System.Drawing.Size(0, 20);
+            this.DocumentDateDateTimePicker.MinimumSize = new System.Drawing.Size(4, 20);
             this.DocumentDateDateTimePicker.Name = "DocumentDateDateTimePicker";
             this.DocumentDateDateTimePicker.Size = new System.Drawing.Size(144, 20);
             this.DocumentDateDateTimePicker.TabIndex = 3;
@@ -3329,6 +3418,8 @@
             this.tableLayoutPanel40.ResumeLayout(false);
             this.tableLayoutPanel40.PerformLayout();
             this.tableLayoutPanel41.ResumeLayout(false);
+            this.tableLayoutPanel67.ResumeLayout(false);
+            this.tableLayoutPanel67.PerformLayout();
             this.tableLayoutPanel42.ResumeLayout(false);
             this.tableLayoutPanel42.PerformLayout();
             this.tableLayoutPanel43.ResumeLayout(false);
@@ -3375,6 +3466,8 @@
             this.tableLayoutPanel16.ResumeLayout(false);
             this.tableLayoutPanel16.PerformLayout();
             this.tableLayoutPanel17.ResumeLayout(false);
+            this.tableLayoutPanel66.ResumeLayout(false);
+            this.tableLayoutPanel66.PerformLayout();
             this.tableLayoutPanel23.ResumeLayout(false);
             this.tableLayoutPanel23.PerformLayout();
             this.tableLayoutPanel22.ResumeLayout(false);
@@ -3505,7 +3598,7 @@
         private System.Windows.Forms.Label IsOwnerLabel;
         private System.Windows.Forms.TextBox CodeTextBox;
         private System.Windows.Forms.TextBox AddressTextBox;
-        private System.Windows.Forms.ComboBox PropertyTypeComboBox;
+        private System.Windows.Forms.ComboBox HousingTypeComboBox;
         private System.Windows.Forms.CheckBox IsOwnerCheckBox;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel24;
@@ -3580,7 +3673,7 @@
         private System.Windows.Forms.Label TotalAreaValue;
         private System.Windows.Forms.Label LivingAreaValue;
         private System.Windows.Forms.Label ResidentsCountValue;
-        private System.Windows.Forms.Label PropertyTypeValue;
+        private System.Windows.Forms.Label HousingTypeValue;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel47;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel50;
@@ -3662,5 +3755,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DebtAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn DebtMonthCount;
         private System.Windows.Forms.DataGridViewTextBoxColumn PaymentDebtAmount;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel66;
+        private System.Windows.Forms.TextBox LandSizeTextBox;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel67;
+        private System.Windows.Forms.Label LandSizeValue;
+        private System.Windows.Forms.Label label34;
     }
 }

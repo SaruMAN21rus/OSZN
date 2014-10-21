@@ -16,13 +16,15 @@ namespace OSZN.DAO
             Select query = new Select()
                 .From("exempt_service_detail as esd")
                 .Join("voc_service as vs", "esd.voc_service_id = vs.id", SQLJoinTypes.LEFT_JOIN)
+                .Join("voc_unit as vu1", "vs.unit_id = vu1.id", SQLJoinTypes.LEFT_JOIN)
+                .Join("voc_unit as vu2", "vs.norm_base_unit_id = vu2.id", SQLJoinTypes.LEFT_JOIN)
                 .Where("exempt_service_id = " + exemptServiceId);
             DataTable dt = db.Execute(query);
             if (dt != null)
             {
                 DataColumn dc = new DataColumn();
                 dc.ColumnName = "serviceName";
-                dc.Expression = "code + ' - ' + ISNULL(name, '')";
+                dc.Expression = "name + ', ' + ISNULL(name1, '')";
                 dt.Columns.Add(dc);
             }
             return dt;
@@ -43,10 +45,7 @@ namespace OSZN.DAO
             Select query = new Select()
                 .From("exempt_service_detail")
                 .Where("id = " + exemptServiceDetailId);
-            ExemptServiceDetail esd =  new ExemptServiceDetail(db.FetchOneRow(query));
-            if (esd.vocServiceId != null)
-                esd.vocService = new VocServiceDAO(db).getVocServiceById(esd.vocServiceId.Value);
-            return esd;
+            return new ExemptServiceDetail(db.FetchOneRow(query));
         }
 
         public void deleteExemptServiceDetail(int id)

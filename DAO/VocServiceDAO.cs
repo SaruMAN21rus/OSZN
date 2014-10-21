@@ -31,15 +31,18 @@ namespace OSZN.DAO
         public DataTable getVocServices(string searchText)
         {
             Select select = new Select()
-                .From("voc_service");
+                .From("voc_service")
+                .Join("voc_unit as vu1", "voc_service.unit_id = vu1.id", SQLJoinTypes.LEFT_JOIN)
+                .Join("voc_unit as vu2", "voc_service.norm_base_unit_id = vu2.id", SQLJoinTypes.LEFT_JOIN)
+                .Columns("voc_service.id, voc_service.code, voc_service.name, voc_service.direction, voc_service.active, vu1.name as unit_name,  vu2.name as norm_base_unit_name");
             if (!String.IsNullOrEmpty(searchText) && searchText != "Все")
             {
                 if (searchText == "Активные")
-                    select.Where("active = 1");
+                    select.Where("voc_service.active = 1");
                 else
-                    select.Where("active = 0");
+                    select.Where("voc_service.active = 0");
             }
-            select.Order("code ASC");
+            select.Order("voc_service.code ASC");
             DataTable dt = db.Execute(select);
             if (dt != null)
             {
